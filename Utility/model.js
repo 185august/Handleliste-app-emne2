@@ -49,7 +49,6 @@ const model = {
                 rememberMe: false,
                 privateListId: [0],
                 privateWishListId: [0]
-
             }
         ],
         groups: [
