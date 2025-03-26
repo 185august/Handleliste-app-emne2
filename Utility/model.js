@@ -45,7 +45,7 @@ const model = {
                 username: '',
                 password: '',
                 groupsId: [0],
-                recentListId: groupShoppingListId1,
+                recentListId: 0,
                 rememberMe: false,
                 privateListId: [0],
                 privateWishListId: [0]
