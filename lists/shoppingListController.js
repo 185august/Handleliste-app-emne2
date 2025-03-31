@@ -14,11 +14,15 @@ function addItemToShoppingList() {
 }
 
 function removeItemFromShoppingList(itemId) {
-    model.data.users[model.app.currentUserId].lists[0].listItems.splice(itemId, 1)
+    const currentUser = model.data.users[model.app.currentUserId]
+    currentUser.lists[currentUser.currentSelectedList].listItems.splice(itemId, 1)
+    for (let i = currentUser.lists[currentUser.currentSelectedList].listItems.length - 1; i >= 0; i--) {
+        currentUser.lists[currentUser.currentSelectedList].listItems[i].itemId = i
+    }
     updateView();
 }
 
 function markItemAsBought(checkbox, itemId) {
-    model.data.users[model.app.currentUserId].lists[0].listItems[itemId].hasBeenBought = checkbox.checked;
-    console.log(model.data.users[model.app.currentUserId].lists[0].listItems[itemId].hasBeenBought)
+    const currentUser = model.data.users[model.app.currentUserId]
+    currentUser.lists[currenUser.currentSelectedList].listItems[itemId].hasBeenBought = checkbox.checked;
 }

@@ -1,6 +1,7 @@
 function shoppingListView() {
     let html =/*HTML*/ `
-    <div>${model.data.users[model.app.currentUserId].lists[0].listName}</div>
+    <div class="container">
+    <h1 style=" background-color: lightblue">${model.data.users[model.app.currentUserId].lists[0].listName}</h1>
     Vare: 
     <input 
     type='text'
@@ -13,7 +14,7 @@ function shoppingListView() {
     oninput="model.input.shoppingList.amount = this.value">
     <button onclick="addItemToShoppingList()">Legg til vare</button>
     <br>
-    <div class="shopping-list-container">
+    
     ${renderListItems()}
     </div>
 `
@@ -24,10 +25,12 @@ function shoppingListView() {
 function renderListItems() {
     let listItemsHtml = '';
     model.data.users[model.app.currentUserId].lists[0].listItems.forEach(item => {
-        listItemsHtml += `` + `<div class="shopping-list-items">${item.name}</div>`
-            + `<div class="shopping-list-amount">${item.amount}</div> `
-            + `<button onclick="removeItemFromShoppingList(${item.itemId}, ${item.listId})"> X</button>`
-            + `<input onchange="markItemAsBought(this, ${item.itemId})" type="checkbox" ${item.hasBeenBought ? 'checked="checked"' : ''} />`
+        listItemsHtml += '<div class="shopping-list">'
+        listItemsHtml += `<div class="shopping-list-items">${item.name}</div>`;
+        listItemsHtml += `<div class="shopping-list-amount">${item.amount}</div> `;
+        listItemsHtml += `<button onclick="removeItemFromShoppingList(${item.itemId}, ${item.listId})"> X</button>`
+        listItemsHtml += `<input onchange="markItemAsBought(this, ${item.itemId})" type="checkbox" ${item.hasBeenBought ? 'checked="checked"' : ''} />`
+        listItemsHtml += `</div>`
     });
     return listItemsHtml;
 }
