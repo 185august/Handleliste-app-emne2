@@ -64,7 +64,7 @@ const model = {
                                         amount: 1,
                                         price: null,
                                         hasBeenBought: false,
-                                        whoIsTheRecipient: null,
+                                        whoIsTheRecipient: '',
                                     },
                                     {
                                         itemId: 1,
@@ -72,7 +72,7 @@ const model = {
                                         amount: 1,
                                         price: null,
                                         hasBeenBought: false,
-                                        whoIsTheRecipient: null,
+                                        whoIsTheRecipient: '',
                                     }
                                 ],
                             },
@@ -123,7 +123,7 @@ const model = {
                                             amount: 1,
                                             price: null,
                                             hasBeenBought: false,
-                                            whoIsTheRecipient: null,
+                                            whoIsTheRecipient: '',
                                         },
                                         {
                                             itemId: 1,
@@ -131,7 +131,7 @@ const model = {
                                             amount: 4,
                                             price: null,
                                             hasBeenBought: false,
-                                            whoIsTheRecipient: null,
+                                            whoIsTheRecipient: '',
                                         }
                                     ],
                             }
@@ -162,7 +162,7 @@ const model = {
                                             amount: 1,
                                             price: 10000,
                                             hasBeenBought: false,
-                                            whoIsTheRecipient: null,
+                                            whoIsTheRecipient: '',
                                         }
                                     ]
                             },
@@ -180,7 +180,7 @@ const model = {
                                         amount: 3,
                                         price: null,
                                         hasBeenBought: false,
-                                        whoIsTheRecipient: null,
+                                        whoIsTheRecipient: '',
                                     }]
                             }
                         ],
@@ -206,7 +206,7 @@ const model = {
                                         amount: 5,
                                         price: null,
                                         hasBeenBought: false,
-                                        whoIsTheRecipient: null,
+                                        whoIsTheRecipient: '',
                                     },
                                     {
                                         itemId: 1,
@@ -214,12 +214,12 @@ const model = {
                                         amount: 10,
                                         price: null,
                                         hasBeenBought: false,
-                                        whoIsTheRecipient: null,
+                                        whoIsTheRecipient: '',
                                     }
                                 ],
                             },
                             {
-                                listId: 0,
+                                listId: 1,
                                 listType: 'wishlist',
                                 listName: 'ting vi trenger i huset',
                                 usersCanView: [0, 1],
