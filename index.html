@@ -8,15 +8,15 @@
 </head>
 
 <body>
-    <button onclick="dashBoardView()">dashboard </button>
-    <button onclick="favoriteItemsView()">favoriteItems </button>
-    <button onclick="groupsOverviewView()">groupsOverview </button>
-    <button onclick="shoppingListView()">shoppingList</button>
-    <button onclick="wishListView()">wishList </button>
-    <button onclick="loginView()">login </button>
-    <button onclick="logListView()">logList </button>
-    <button onclick="privateListView()">privateList </button>
-    <button onclick="settingsView()">settings </button>
+    <button onclick="setPage('dashboard')">dashboard </button>
+    <button onclick="setPage('favoriteItems')">favoriteItems </button>
+    <button onclick="setPage('groupsOverview')">groupsOverview </button>
+    <button onclick="setPage('shoppingList')">shoppingList</button>
+    <button onclick="setPage('wishlist')">wishList </button>
+    <button onclick="setPage('login')">login </button>
+    <button onclick="setPage('logList')">logList </button>
+    <button onclick="setPage('privateListOverview')">privateList </button>
+    <button onclick="setPage('settings')">settings </button>
     <div id="app"></div>
 
 
@@ -24,7 +24,7 @@
     <script src="utility/common.js"></script>
     <script src="dashboard/dashboardController.js"></script>
     <script src="favoriteItems/favoriteItemsController.js"></script>
-    <script src="groupsOverview/groupOverviewController.js"></script>
+    <script src="groupsOverview/groupsOverviewController.js"></script>
     <script src="login/loginController.js"></script>
     <script src="privateListOverview/privateListOverviewController.js"></script>
     <script src="settings/settingsController.js"></script>
@@ -32,14 +32,14 @@
     <script src="lists/shoppingListController.js"></script>
     <script src="dashboard/dashboardView.js"></script>
     <script src="favoriteItems/favoriteItemsView.js"></script>
-    <script src="groupsOverview/groupOverviewView.js"></script>
+    <script src="groupsOverview/groupsOverviewView.js"></script>
     <script src="lists/shoppingListView.js"></script>
     <script src="lists/wishlistView.js"></script>
     <script src="login/loginView.js"></script>
     <script src="logList/logListView.js"></script>
     <script src="privateListOverview/privateListOverviewView.js"></script>
     <script src="settings/settingsView.js"></script>
-    <script src="views/mainView.js"></script>
+    <script src="app.js"></script>
 </body>
 
 </html>

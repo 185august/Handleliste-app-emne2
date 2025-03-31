@@ -1,3 +1,3 @@
-function wishListView() {
+function wishlistView() {
 
 }
