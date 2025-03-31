@@ -43,7 +43,7 @@ const model = {
             [
                 {
                     userId: 0,
-                    username: '',
+                    username: 'kattunge',
                     password: '',
                     groupsId: [0],
                     recentListId: 0,
