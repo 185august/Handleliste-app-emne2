@@ -48,7 +48,7 @@ const model = {
                     groupsId: [0],
                     recentListId: 0,
                     rememberMe: false,
-                    currentSelectedList: 0,
+                    currentSelectedListId: 0,
                     lists:
                         [
                             {

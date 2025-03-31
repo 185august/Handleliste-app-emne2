@@ -1,7 +1,7 @@
 function addItemToShoppingList() {
-    const lists = model.data.users[model.app.currentUserId].lists
-    lists[0].listItems.push({
-        itemId: lists.length,
+    const currentUser = model.data.users[model.app.currentUserId]
+    currentUser.lists[currentUser.currentSelectedListId].listItems.push({
+        itemId: currentUser.lists[currentUser.currentSelectedListId].listItems.length,
         name: model.input.shoppingList.addItem,
         amount: model.input.shoppingList.amount,
         price: null,
@@ -15,14 +15,14 @@ function addItemToShoppingList() {
 
 function removeItemFromShoppingList(itemId) {
     const currentUser = model.data.users[model.app.currentUserId]
-    currentUser.lists[currentUser.currentSelectedList].listItems.splice(itemId, 1)
-    for (let i = currentUser.lists[currentUser.currentSelectedList].listItems.length - 1; i >= 0; i--) {
-        currentUser.lists[currentUser.currentSelectedList].listItems[i].itemId = i
+    currentUser.lists[currentUser.currentSelectedListId].listItems.splice(itemId, 1)
+    for (let i = currentUser.lists[currentUser.currentSelectedListId].listItems.length - 1; i >= 0; i--) {
+        currentUser.lists[currentUser.currentSelectedListId].listItems[i].itemId = i
     }
     updateView();
 }
 
 function markItemAsBought(checkbox, itemId) {
     const currentUser = model.data.users[model.app.currentUserId]
-    currentUser.lists[currenUser.currentSelectedList].listItems[itemId].hasBeenBought = checkbox.checked;
+    currentUser.lists[currentUser.currentSelectedListId].listItems[itemId].hasBeenBought = checkbox.checked;
 }

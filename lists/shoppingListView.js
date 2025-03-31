@@ -23,8 +23,9 @@ function shoppingListView() {
 
 
 function renderListItems() {
+    const currentUser = model.data.users[model.app.currentUserId]
     let listItemsHtml = '';
-    model.data.users[model.app.currentUserId].lists[0].listItems.forEach(item => {
+    currentUser.lists[currentUser.currentSelectedListId].listItems.forEach(item => {
         listItemsHtml += '<div class="shopping-list">'
         listItemsHtml += `<div class="shopping-list-items">${item.name}</div>`;
         listItemsHtml += `<div class="shopping-list-amount">${item.amount}</div> `;
