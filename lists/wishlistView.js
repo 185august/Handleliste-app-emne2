@@ -1,5 +1,4 @@
 function wishlistView() {
-    model.data.users[model.app.currentUserId].currentSelectedListId = 1;
     let html =/*HTML*/ `
     <div class="container">
     <h1 style=" background-color: lightblue">${model.data.users[model.app.currentUserId].lists[1].listName}</h1>
