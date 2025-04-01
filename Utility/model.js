@@ -1,6 +1,7 @@
 const model = {
     app: {
         currentPage: '',
+        previousPage: '',
         currentUserId: 0
     },
     input: {
@@ -97,18 +98,34 @@ const model = {
                             }
                         ],
 
-                    favoriteItemsList: [{
+                    favoriteItemsList: {
                         listType: 'favoriteList',
                         favoriteItems: [
                             {
-                                itemId: null,
+                                itemId: 0,
                                 name: 'Melk',
                                 price: null,
                                 whoIsTheRecipient: null,
-                                amountRecentlyBought: 5,
+                                amountRecentlyBought: 8,
+                                rank: 1
+                            },
+                            {
+                                itemId: 1,
+                                name: 'Agurk',
+                                price: null,
+                                whoIsTheRecipient: null,
+                                amountRecentlyBought: 6,
+                                rank: 2
+                            },
+                            {
+                                itemId: 2,
+                                name: 'Smør',
+                                price: null,
+                                whoIsTheRecipient: null,
+                                amountRecentlyBought: 4,
                                 rank: 3
                             }],
-                    }],
+                    },
                     log:
                         [
                             {
