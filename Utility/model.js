@@ -49,7 +49,7 @@ const model = {
                     groupsId: [0],
                     recentListId: 0,
                     rememberMe: false,
-                    currentSelectedListId: 0,
+                    currentSelectedListId: null,
                     lists:
                         [
                             {
