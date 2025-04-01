@@ -17,9 +17,5 @@
   justify-items: center;
   justify-self: center;
   align-items: center;
-  align-content: center;
-}
-
-.bought-item {
-  text-decoration: line-through;
+  align-content: flex-start;
 }

@@ -21,7 +21,7 @@ function wishlistView() {
     Hvem er gaven til?
     <input 
     type='text'
-    value="${model.input.wishlist.whoIsTheRecipient ?? ''}"
+    value="${model.input.whoIsTheRecipient ?? ''}"
     oninput="model.input.wishlist.whoIsTheRecipient = this.value">
     <button onclick="addItemToList(model.input.wishlist)">Legg til vare</button>
     <br>
@@ -37,14 +37,15 @@ function renderListItems() {
     const currentUser = model.data.users[model.app.currentUserId]
     let listItemsHtml = '';
     currentUser.lists[currentUser.currentSelectedListId].listItems.forEach(item => {
-        listItemsHtml += '<div class="wishlist">'
-        listItemsHtml += `<div class="wishlist-items">Vare: ${item.name}</div>`;
-        listItemsHtml += `<div class="wishlist-amount">Antall: ${item.amount}</div> `;
-        listItemsHtml += item.price ? `<div class="wishlist-price">Pris: ${item.price}</div>` : ''
-        listItemsHtml += item.whoIsTheRecipient ? `<div class="wishlist-price">Hvem gaven er til: ${item.whoIsTheRecipient}</div>` : ""
-        listItemsHtml += `<button onclick="removeItemFromList(${item.itemId}, ${item.listId})"> X</button>`
-        listItemsHtml += `<input onchange="markItemAsBought(this, ${item.itemId})" type="checkbox" ${item.hasBeenBought ? 'checked="checked"' : ''} />`
-        listItemsHtml += `</div>`
+        listItemsHtml += /*HTML*/ ` 
+            <div id="listItem${item.itemId}" class="wishlist">
+                <div class="wishlist-items">Vare: ${item.name}</div>
+                <div class="wishlist-amount">Antall: ${item.amount}</div>
+                ${item.price ? `<div class="wishlist-price">Pris: ${item.price}</div>` : ''}
+                ${item.whoIsTheRecipient ? `<div class="wishlist-price">Hvem gaven er til: ${item.whoIsTheRecipient}</div>` : ""}
+                <button onclick="removeItemFromList(${item.itemId}, ${item.listId})"> X</button>
+                <input onchange="markItemAsBought(this, ${item.itemId})" type="checkbox" ${item.hasBeenBought ? 'checked="checked"' : ''} />
+            </div>`
     });
     return listItemsHtml;
 }

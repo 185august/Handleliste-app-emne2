@@ -6,7 +6,7 @@ function addItemToList(typeOfList) {
         amount: typeOfList.amount,
         price: typeOfList.price,
         hasBeenBought: false,
-        whoIsRecipient: typeOfList.whoIsRecipient
+        whoIsRecipient: typeOfList.whoIsTheRecipient
     });
     typeOfList.name = '';
     typeOfList.amount = null;
@@ -27,4 +27,11 @@ function removeItemFromList(itemId) {
 function markItemAsBought(checkbox, itemId) {
     const currentUser = model.data.users[model.app.currentUserId]
     currentUser.lists[currentUser.currentSelectedListId].listItems[itemId].hasBeenBought = checkbox.checked;
+    if (checkbox.checked) {
+        document.querySelector(`#listItem${itemId}`).style.textDecoration = "line-through";
+        document.querySelector(`#listItem${itemId}`).style.order = currentUser.lists[currentUser.currentSelectedListId].listItems.length;
+    } else {
+        document.querySelector(`#listItem${itemId}`).style.textDecoration = "none";
+        document.querySelector(`#listItem${itemId}`).style.order = itemId;
+    }
 }
