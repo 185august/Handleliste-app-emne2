@@ -10,26 +10,27 @@ const model = {
             rememberMe: false,
         },
         shoppingList: {
-            addItem: '',
+            name: '',
             amount: null,
             hasBeenBought: false
         },
         groupShoppingList: {
-            addItem: '',
+            name: '',
             amount: null,
             whoAddedItem: '',
             hasBeenBought: false
         },
-        wishList: {
-            addItem: '',
+        wishlist: {
+            name: '',
             amount: null,
-            itemPrice: null,
+            price: null,
+            whoIsTheRecipient: '',
             hasBeenBought: false,
         },
         groupWishList: {
-            addItem: '',
+            name: '',
             amount: null,
-            itemPrice: null,
+            price: null,
             hasBeenBought: false,
             whoIsTheRecipient: '',
         },
@@ -90,7 +91,7 @@ const model = {
                                         amount: 1,
                                         price: 10000,
                                         hasBeenBought: false,
-                                        whoIsTheRecipient: ''
+                                        whoIsTheRecipient: 'Anders'
                                     }
                                 ],
                             }
