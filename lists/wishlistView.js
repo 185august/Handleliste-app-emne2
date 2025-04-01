@@ -1,8 +1,9 @@
 function wishlistView() {
+    const currentUser = model.data.users[model.app.currentUserId]
     let html =/*HTML*/ `
     <button onclick="goToPreviousPage()"> <- </button>
     <div class="container">
-    <h1 style=" background-color: lightblue">${model.data.users[model.app.currentUserId].lists[1].listName}</h1>
+    <h1 style=" background-color: lightblue">${currentUser.lists[currentUser.currentSelectedListId].listName}</h1>
     Vare: 
     <input 
     type='text'
@@ -26,17 +27,16 @@ function wishlistView() {
     <button onclick="addItemToList(model.input.wishlist)">Legg til vare</button>
     <br>
     
-    ${renderListItems()}
+    ${renderListItems(currentUser.lists[currentUser.currentSelectedListId])}
     </div>
 `
     return html;
 };
 
 
-function renderListItems() {
-    const currentUser = model.data.users[model.app.currentUserId]
+function renderListItems(whatList) {
     let listItemsHtml = '';
-    currentUser.lists[currentUser.currentSelectedListId].listItems.forEach(item => {
+    whatList.listItems.forEach(item => {
         listItemsHtml += /*HTML*/ ` 
             <div id="listItem${item.itemId}" class="wishlist">
                 <div class="wishlist-items">Vare: ${item.name}</div>

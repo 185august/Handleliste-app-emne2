@@ -1,11 +1,11 @@
-function groupsOverviewView() {
+/* function groupsOverviewView() {
 let groupList = model.data.users[model.app.currentUserId].groupsId
 let groupObject = []
     groupList.forEach(element => 
     {if(model.data.groups.find(groupElement => groupElement.groupId === element))
         groupObject.push()
     })
-     += /*HTML*/`<div onclick="printGrouplist(${List.groupId})">
+     += `<div onclick="printGrouplist(${List.groupId})">
     <p>
     <h1>${List.name}</h1>
     </p>
@@ -26,4 +26,4 @@ model.data.groups.find(groupElement => groupElement.groupId === element))
 //         model.data.users[model.app.currentUserId].currentSelectedListId = id;
 //         setPage('wishlist');
 //     }
-// };
+// }; */
