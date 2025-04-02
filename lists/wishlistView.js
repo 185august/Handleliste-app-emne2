@@ -1,9 +1,9 @@
-function wishlistView() {
+function wishlistView(listpath) {
     const currentUser = model.data.users[model.app.currentUserId]
     let html =/*HTML*/ `
-    <button onclick="goToPreviousPage()"> <- </button>
+    <button onclick="goToPreviousPage(-1)"> <- </button>
     <div class="container">
-    <h1 style=" background-color: lightblue">${currentUser.lists[currentUser.currentSelectedListId].listName}</h1>
+    <h1 style=" background-color: lightblue">${listpath.listName}</h1>
     Vare: 
     <input 
     type='text'
@@ -27,7 +27,7 @@ function wishlistView() {
     <button onclick="addItemToList(model.input.wishlist)">Legg til vare</button>
     <br>
     
-    ${renderListItems(currentUser.lists[currentUser.currentSelectedListId])}
+    ${renderListItems(listpath)}
     </div>
 `
     return html;

@@ -1,7 +1,7 @@
 const model = {
     app: {
         currentPage: '',
-        previousPage: '',
+        previousPage: [],
         currentUserId: 0
     },
     input: {

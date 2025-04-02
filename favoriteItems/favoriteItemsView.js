@@ -1,7 +1,7 @@
 function favoriteItemsView() {
     const currentUser = model.data.users[model.app.currentUserId];
     let html =/*HTML*/ ` 
-    <button onclick="goToPreviousPage()"> <- </button>
+    <button onclick="goToPreviousPage(-1)"> <- </button>
     <div class="container">
     <h1 style=" background-color: lightblue">Favoritt Varer</h1>
     <br>
