@@ -1,16 +1,17 @@
-let currentUser = model.data.users
-let currentGroup = currentUser[model.app.currentUserId].groupsId 
+let currentUserArray = model.data.users //users array
+let currentGroup = currentUserArray[model.app.currentUserId].groupsId//groupid array
+let currentUser = currentUserArray.find(Element => Element.userId == model.app.currentUserId)//object
 
 function dashboardView() {
-    let hearder = dashboardHeader()
+    let header = dashboardHeader()
     let recentList = dashboardRecentList()
     let listnames = lists()
-    let html = `<div class="dashboard">
-    ${hearder + recentList + listnames}</div>`
+    let html = `<div class="page">
+    ${header + recentList + listnames}</div>`
     return html
 }
 
-function lists(){
+function lists() {
     let privateList = dashboardPrivateList()
     let groupList = dashboardGroupList()
     let html = `<div style = "display: flex; flex-wrap: nowrap; gap: 1rem">
@@ -20,8 +21,8 @@ function lists(){
 
 function dashboardHeader() {
     let html = /*HTML*/ `
-    <div id = "headerbox">
-    <h2>${currentUser[model.app.currentUserId].username}</h2>
+    <div class = "headerbox">
+    <h2>${currentUserArray[model.app.currentUserId].username}</h2>
     <span style="font-size:2.2rem" onclick="setPage('settings')">⚙️</span>
     </div>
     `
@@ -31,14 +32,14 @@ function dashboardHeader() {
 
 
 function dashboardRecentList() {
-    let recentListId = currentUser[model.app.currentUserId].recentListId
-    let recentListObject = currentUser[model.app.currentUserId].lists.find(Object => Object.listId === recentListId)
-
+    let recentListId = currentUserArray[model.app.currentUserId].recentListId
+    let recentListObject = currentUserArray[model.app.currentUserId].lists.find(Object => Object.listId === recentListId)
     const recentList = generateList(recentListObject.listItems)
+
     let html = /*HTML*/ `
     <div id = "recentList" class="dashboardboxes" onclick="printPrivateList(${recentListId})">
     <h3>Siste Endret Lister:</h3>
-    <p>${currentUser[model.app.currentUserId].lists[recentListId].listName}</p>
+    <p>${currentUserArray[model.app.currentUserId].lists[recentListId].listName}</p>
     <div class = "lists">
     ${recentList}
     </div>
@@ -54,7 +55,7 @@ function dashboardPrivateList() {
     <h3>Private Lister:</h3>
     <ol id = privatelists>`
 
-    let privateListArray = currentUser[model.app.currentUserId].lists
+    let privateListArray = currentUserArray[model.app.currentUserId].lists
 
     privateListArray.forEach(element => {
         nameList += `<li>${element.listName}</li>`
@@ -67,10 +68,10 @@ function dashboardPrivateList() {
 function dashboardGroupList() {
     let currentGroups = []
     currentGroup.forEach(element => {
-       const groupObjects = model.data.groups.find(groupElement => groupElement.groupId === element)
+        const groupObjects = model.data.groups.find(groupElement => groupElement.groupId === element)
         if (groupObjects) { currentGroups.push(groupObjects) }
     })
-   
+
     let groupListName = /*HTML*/ `
     <div class = "dashboardboxes" onclick="setPage('groupsOverview')">
     <h3>Group Lister:</h3>

@@ -1,12 +1,12 @@
-#headerbox{
+.headerbox{
   display: flex;
+  flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
 }
 
 .dashboardboxes{
-  
   border: 1px rgb(223, 221, 221) solid;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.329);
   width: 100%;
@@ -21,7 +21,7 @@
   padding: 1rem;
 }
 
-.dashboard{
+.page{
   width: 90%;
   max-width: 500px;
   margin: 0 auto;
