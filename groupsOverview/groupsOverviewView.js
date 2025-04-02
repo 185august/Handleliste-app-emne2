@@ -1,8 +1,9 @@
     
 function groupsOverviewView() {
+    
     let html = ''
     let groupList = model.data.users[model.app.currentUserId].groupsId //group id array 
-    let groupObject = [] // group objects
+    
         groupList.forEach(id => 
         {const object = model.data.groups.find(groupElement => groupElement.groupId === id)    
             html+= /*HTML*/
