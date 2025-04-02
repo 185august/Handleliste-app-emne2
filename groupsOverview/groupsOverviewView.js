@@ -38,4 +38,6 @@ function groupsOverviewView() {
             model.data.users[model.app.currentUserId].currentSelectedListId = id;
             setPage('wishlist');
         }
+<<<<<<< Updated upstream
+    }// kaller feil funksjon. Dette skal sende deg til general shoppingList. kanskje det firste til den viser.
     }// kaller feil funksjon. Dette skal sende deg til general shoppingList. kanskje det firste til den viser.
