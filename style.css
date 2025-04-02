@@ -1,3 +1,9 @@
+body {
+  width: 100%;
+  margin: 0 auto;
+  height: 100%;
+  background-color: black;
+}
 .headerbox {
   display: flex;
   flex-direction: row;
@@ -24,6 +30,7 @@
 #app {
   background-color: rgb(187, 184, 184);
   width: 90%;
+  height: 100vh;
   max-width: 500px;
   margin: 0 auto;
   padding: 1rem;

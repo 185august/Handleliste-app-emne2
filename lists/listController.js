@@ -15,6 +15,7 @@ function addItemToList(typeOfList) {
     updateView();
 }
 
+
 function removeItemFromList(itemId) {
     //const currentUser = model.data.users[model.app.currentUserId]
     model.app.currentListPath.listItems.splice(itemId, 1)
@@ -34,4 +35,20 @@ function markItemAsBought(checkbox, itemId) {
         document.querySelector(`#listItem${itemId}`).style.textDecoration = "none";
         document.querySelector(`#listItem${itemId}`).style.order = itemId;
     }
+}
+
+function renderListItems() {
+    let listItemsHtml = '';
+    model.app.currentListPath.listItems.forEach(item => {
+        listItemsHtml += /*HTML*/ ` 
+            <div id="listItem${item.itemId}" class="wishlist">
+                <div class="wishlist-items">Vare: ${item.name}</div>
+                <div class="wishlist-amount">Antall: ${item.amount}</div>
+                ${item.price ? `<div class="wishlist-price">Pris: ${item.price} kr</div>` : ''}
+                ${item.whoIsTheRecipient ? `<div class="wishlist-price">Hvem gaven er til: ${item.whoIsTheRecipient}</div>` : ""}
+                <button onclick="removeItemFromList(${item.itemId}, ${item.listId})"> X</button>
+                <input onchange="markItemAsBought(this, ${item.itemId})" type="checkbox" ${item.hasBeenBought ? 'checked="checked"' : ''} />
+            </div>`
+    });
+    return listItemsHtml;
 }

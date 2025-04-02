@@ -36,7 +36,11 @@ function updateView() {
     }
 
     document.getElementById('app').innerHTML = `
-    
+    <button onclick="setPage('favoriteItems')">favoriteItems </button>
+    <button onclick="setPage('groupsOverview')">groupsOverview </button>
+    <button onclick="setPage('login')">login </button>
+    <button onclick="setPage('logList')">logList </button>
+    <button onclick="setPage('settings')">settings </button>
     ${currentPageView}
     `;
 

@@ -3,7 +3,7 @@ function wishlistView() {
     let html =/*HTML*/ `
     <button onclick="goToPreviousPage(-1)"> <- </button>
     <div class="container">
-    <h1 style=" background-color: lightblue">${model.app.currentListPath.listName}</h1>
+    <h1>${model.app.currentListPath.listName}</h1>
     Vare: 
     <input 
     type='text'
@@ -34,18 +34,3 @@ function wishlistView() {
 };
 
 
-function renderListItems() {
-    let listItemsHtml = '';
-    model.app.currentListPath.listItems.forEach(item => {
-        listItemsHtml += /*HTML*/ ` 
-            <div id="listItem${item.itemId}" class="wishlist">
-                <div class="wishlist-items">Vare: ${item.name}</div>
-                <div class="wishlist-amount">Antall: ${item.amount}</div>
-                ${item.price ? `<div class="wishlist-price">Pris: ${item.price} kr</div>` : ''}
-                ${item.whoIsTheRecipient ? `<div class="wishlist-price">Hvem gaven er til: ${item.whoIsTheRecipient}</div>` : ""}
-                <button onclick="removeItemFromList(${item.itemId}, ${item.listId})"> X</button>
-                <input onchange="markItemAsBought(this, ${item.itemId})" type="checkbox" ${item.hasBeenBought ? 'checked="checked"' : ''} />
-            </div>`
-    });
-    return listItemsHtml;
-}

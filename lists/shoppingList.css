@@ -1,20 +1,24 @@
 .shopping-list {
   display: flex;
   flex-direction: row;
-  gap: 10px;
   align-items: center;
   align-content: center;
 }
-
+.h4 {
+  margin: 0px;
+  padding: 0px;
+}
 .container {
   margin-top: 50px;
-  height: 900px;
-  width: 900px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
   justify-items: center;
   justify-self: center;
   align-items: center;
   align-content: flex-start;
+}
+
+.favorite-items {
+  display: flex;
+  flex-wrap: wrap;
 }

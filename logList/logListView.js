@@ -6,6 +6,7 @@ function logListView() {
     <h1 style=" background-color: lightblue">Log Liste</h1>
     <br>
     ${renderLogs()}
+    </div>
 `
     return html;
 }
@@ -14,7 +15,8 @@ function renderLogs() {
     const currentUser = model.data.users[model.app.currentUserId];
     let html = '';
     currentUser.log.forEach(date => {
-        console.log(date.listId)
+        model.app.currentListPath = date;
+        currentUser.log[date.listId]
         html += `<div>${date.date}</div>
             ${renderListItems(currentUser.log[date.listId])}
                 `
