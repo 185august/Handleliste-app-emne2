@@ -1,14 +1,14 @@
 let newName = ""
-function changeName(){
+function changeName() {
   let fixNameInput = document.querySelector('#nameFixInput')
-    fixNameInput.innerHTML = /*HTML*/`
+  fixNameInput.innerHTML = /*HTML*/`
  <input type="text" required oninput = "newName = this.value">
  <button onclick = "sendNewUserName()">send</button>
  `
  alreadychanging = true
 }
 
-function sendNewUserName(){
+function sendNewUserName() {
   currentUser.username = newName
   alreadychanging = false
 }

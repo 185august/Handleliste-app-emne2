@@ -1,9 +1,21 @@
+showInput = false;
+
 function wishlistView() {
     console.log()
     let html =/*HTML*/ `
     <button onclick="goToPreviousPage(-1)"> <- </button><button onclick="goToDashboardPage()">Dasboard</button>
     <div class="container">
     <h1>${model.app.currentListPath.listName}</h1>
+    ${renderListItems()}
+    </div>
+    <div><button onclick="toggleInput()"> ${showInput ? '-' : '+'} </button> ${renderAddItemsToWishlist()}</div>
+`
+    return html;
+};
+
+
+function renderAddItemsToWishlist() {
+    if (showInput) return `
     Vare: 
     <input 
     type='text'
@@ -24,13 +36,7 @@ function wishlistView() {
     type='text'
     value="${model.input.whoIsTheRecipient ?? ''}"
     oninput="model.input.wishlist.whoIsTheRecipient = this.value">
-    <button onclick="addItemToList(model.input.wishlist)">Legg til vare</button>
-    <br>
-    
-    ${renderListItems()}
-    </div>
-`
-    return html;
-};
-
+    <button onclick="addItemToList(model.input.wishlist)">Legg til vare</button>`
+    else return ``
+}
 

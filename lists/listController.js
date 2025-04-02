@@ -12,6 +12,7 @@ function addItemToList(typeOfList) {
     typeOfList.amount = null;
     typeOfList.price = null;
     typeOfList.whoIsTheRecipient = '';
+    showInput = false;
     updateView();
 }
 
@@ -20,7 +21,7 @@ function removeItemFromList(itemId) {
     //const currentUser = model.data.users[model.app.currentUserId]
     model.app.currentListPath.listItems.splice(itemId, 1)
     for (let i = model.app.currentListPath.listItems.length - 1; i >= 0; i--) {
-        model.app.currentListPath.listItems[i].itemId = i
+        model.app.currentListPath.listItems[i].itemId = i;
     }
     updateView();
 }
