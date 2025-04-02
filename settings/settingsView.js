@@ -29,7 +29,7 @@ function profilView(){
   console.log('🔥 settingsViewhtml 내용:', settingsViewhtml);
   let html = /*HTML*/`
   <div class = "page">
-  <span  onclick="goToPreviousPage(-1)"><b><</b></span>
+  <button  onclick="goToPreviousPage(-1)"><b><</b></button>
     <div style = "text-align: center;">
      <h3>Profil</h3>
      <p onclick = "changeName()">Endre navn</p>

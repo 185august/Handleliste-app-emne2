@@ -1,5 +1,5 @@
 function groupsOverviewView() {
-    let html = '<button onclick="goToPreviousPage(-1)"> <- </button>'
+    let html = '<button onclick="goToPreviousPage(-1)"> <- </button> <button onclick="goToDashboardPage()">Dasboard</button>'
     let groupList = model.data.users[model.app.currentUserId].groupsId //group id array 
 
     groupList.forEach(id => {
