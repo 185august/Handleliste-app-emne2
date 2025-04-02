@@ -1,5 +1,5 @@
 function privateListOverviewView() {
-    let privateList = '';
+    let privateList = '<button onclick="goToPreviousPage(-1)"> <- </button>';
     model.data.users[model.app.currentUserId].lists.forEach(List => {
         privateList += /*HTML*/`<div onclick="printPrivateList(${List.listId})">
     <p>
@@ -12,10 +12,10 @@ function privateListOverviewView() {
 function printPrivateList(id) {
     const list = model.data.users[model.app.currentUserId].lists.find((element) => element.listId == id)
     if (list.listType == 'shoppingList') {
-        model.data.users[model.app.currentUserId].currentSelectedListId = id;
+        model.app.currentListPath = model.data.users[model.app.currentUserId].lists[id]
         setPage('shoppingList');
     } else {
-        model.data.users[model.app.currentUserId].currentSelectedListId = id;
+        model.app.currentListPath = model.data.users[model.app.currentUserId].lists[id]
         setPage('wishlist');
     }
 };
