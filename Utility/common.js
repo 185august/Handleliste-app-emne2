@@ -12,3 +12,14 @@ function goToPreviousPage(delta) {
     }
     updateView();
 }
+
+function goToDashboardPage() {
+    if (model.app.currentPage !== 'dashboard') {
+        // Fjern eventuelle ekstra sider fra historikken
+        model.app.previousPage = [];
+
+        // Sett dashboard som den nåværende siden
+        setPage('dashboard');
+    }
+    updateView();
+};
