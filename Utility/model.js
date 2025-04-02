@@ -1,8 +1,9 @@
 const model = {
     app: {
-        currentPage: '',
+        currentPage: 'dashboard',
         previousPage: [],
-        currentUserId: 0
+        currentUserId: 0,
+        currentListPath: null,
     },
     input: {
         loginPage: {
@@ -47,10 +48,9 @@ const model = {
                     userId: 0,
                     username: 'kattunge',
                     password: '',
-                    groupsId: [0],
+                    groupsId: [0, 1],
                     recentListId: 0,
                     rememberMe: false,
-                    currentSelectedListId: null,
                     lists:
                         [
                             {

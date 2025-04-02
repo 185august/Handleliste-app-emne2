@@ -1,9 +1,9 @@
-function wishlistView(listpath) {
-    const currentUser = model.data.users[model.app.currentUserId]
+function wishlistView() {
+    console.log()
     let html =/*HTML*/ `
     <button onclick="goToPreviousPage(-1)"> <- </button>
     <div class="container">
-    <h1 style=" background-color: lightblue">${listpath.listName}</h1>
+    <h1 style=" background-color: lightblue">${model.app.currentListPath.listName}</h1>
     Vare: 
     <input 
     type='text'
@@ -16,7 +16,7 @@ function wishlistView(listpath) {
     oninput="model.input.wishlist.amount = this.value">
     Pris:
     <input 
-    type='text'
+    type='number'
     value="${model.input.wishlist.price ?? ''}"
     oninput="model.input.wishlist.price = this.value">
     Hvem er gaven til?
@@ -27,21 +27,21 @@ function wishlistView(listpath) {
     <button onclick="addItemToList(model.input.wishlist)">Legg til vare</button>
     <br>
     
-    ${renderListItems(listpath)}
+    ${renderListItems()}
     </div>
 `
     return html;
 };
 
 
-function renderListItems(whatList) {
+function renderListItems() {
     let listItemsHtml = '';
-    whatList.listItems.forEach(item => {
+    model.app.currentListPath.listItems.forEach(item => {
         listItemsHtml += /*HTML*/ ` 
             <div id="listItem${item.itemId}" class="wishlist">
                 <div class="wishlist-items">Vare: ${item.name}</div>
                 <div class="wishlist-amount">Antall: ${item.amount}</div>
-                ${item.price ? `<div class="wishlist-price">Pris: ${item.price}</div>` : ''}
+                ${item.price ? `<div class="wishlist-price">Pris: ${item.price} kr</div>` : ''}
                 ${item.whoIsTheRecipient ? `<div class="wishlist-price">Hvem gaven er til: ${item.whoIsTheRecipient}</div>` : ""}
                 <button onclick="removeItemFromList(${item.itemId}, ${item.listId})"> X</button>
                 <input onchange="markItemAsBought(this, ${item.itemId})" type="checkbox" ${item.hasBeenBought ? 'checked="checked"' : ''} />

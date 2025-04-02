@@ -1,9 +1,9 @@
-function shoppingListView(listpath) {
-    const currentUser = model.data.users[model.app.currentUserId]
+
+function shoppingListView() {
     let html =/*HTML*/ `
     <button onclick="goToPreviousPage(-1)"> <- </button>
     <div class="container">
-    <h1 style=" background-color: lightblue">${listpath.listName}</h1>
+    <h1 style=" background-color: lightblue">${model.app.currentListPath.listName}</h1>
     Vare: 
     <input 
     type='text'
@@ -17,7 +17,7 @@ function shoppingListView(listpath) {
     <button onclick="addItemToList(model.input.shoppingList)">Legg til vare</button>
     <br>
     
-    ${renderListItems(listpath)}
+    ${renderListItems()}
     </div>
 `
     return html;

@@ -1,4 +1,4 @@
-function updateView(id) {
+function updateView() {
     let page = model.app.currentPage
     let currentPageView = '';
 
@@ -13,13 +13,10 @@ function updateView(id) {
             currentPageView = groupsOverviewView();
             break;
         case 'shoppingList':
-            currentPageView = shoppingListView(id);
+            currentPageView = shoppingListView();
             break;
         case 'wishlist':
-            currentPageView = wishlistView(id);
-            break;
-        case 'groupsOverview':
-            currentPageView = groupsOverviewView();
+            currentPageView = wishlistView();
             break;
         case 'groupsOverview':
             currentPageView = groupsOverviewView();

@@ -1,7 +1,7 @@
-function setPage(nameOfPage, id) {
+function setPage(nameOfPage) {
     model.app.previousPage.push(nameOfPage)
     model.app.currentPage = nameOfPage;
-    updateView(id);
+    updateView();
 }
 
 function goToPreviousPage(delta) {
