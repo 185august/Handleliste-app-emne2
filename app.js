@@ -41,6 +41,7 @@ function updateView() {
     <button onclick="setPage('login')">login </button>
     <button onclick="setPage('logList')">logList </button>
     <button onclick="setPage('settings')">settings </button>
+    <br>
     ${currentPageView}
     `;
 

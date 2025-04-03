@@ -8,7 +8,7 @@ function wishlistView() {
     <h1>${model.app.currentListPath.listName}</h1>
     ${renderListItems()}
     </div>
-    <div><button onclick="toggleInput()"> ${showInput ? '-' : '+'} </button> ${renderAddItemsToWishlist()}</div>
+    <div class="show-input-button"><button onclick="toggleInput()"> ${showInput ? '-' : '+'} </button> ${renderAddItemsToWishlist()}</div>
 `
     return html;
 };

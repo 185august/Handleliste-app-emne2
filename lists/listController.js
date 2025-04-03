@@ -1,7 +1,7 @@
 function addItemToList(typeOfList) {
     //const currentUser = model.data.users[model.app.currentUserId]
     model.app.currentListPath.listItems.push({
-        itemId: model.app.currentListPath.length,
+        itemId: model.app.currentListPath.listItems.length,
         name: typeOfList.name,
         amount: typeOfList.amount,
         price: typeOfList.price,
@@ -28,6 +28,7 @@ function removeItemFromList(itemId) {
 
 function markItemAsBought(checkbox, itemId) {
     //const currentUser = model.data.users[model.app.currentUserId]
+    console.log(model.app.currentListPath.listItems[itemId])
     model.app.currentListPath.listItems[itemId].hasBeenBought = checkbox.checked;
     if (checkbox.checked) {
         document.querySelector(`#listItem${itemId}`).style.textDecoration = "line-through";

@@ -11,7 +11,7 @@ function shoppingListView() {
     ${renderListItems()}
    
     </div>
-    <div><button onclick="toggleInput()"> ${showInput ? '-' : '+'} </button> ${renderAddItemsToList()}</div>
+    <div class="show-input-button"><button  onclick="toggleInput()"> ${showInput ? '-' : '+'} </button> ${renderAddItemsToList()}</div>
     ${favoriteItemsView()}
     `
     return html;
