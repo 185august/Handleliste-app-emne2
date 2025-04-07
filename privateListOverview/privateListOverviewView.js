@@ -19,6 +19,9 @@ function printPrivateList(id) {
         setPage('wishlist');
     }
 };
+function createPrivateList() {
+    
+};
 
 
 // list.listItems.forEach(element=>{

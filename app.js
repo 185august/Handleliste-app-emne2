@@ -15,6 +15,8 @@ function updateView() {
         case 'shoppingList':
             currentPageView = shoppingListView();
             break;
+        case 'createNewList':
+            currentPageView = createNewlistView();
         case 'wishlist':
             currentPageView = wishlistView();
             break;

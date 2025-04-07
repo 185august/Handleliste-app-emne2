@@ -1,6 +1,6 @@
 const model = {
     app: {
-        currentPage: 'dashboard',
+        currentPage: 'createNewList',
         previousPage: [],
         currentUserId: 0,
         currentListPath: null,
@@ -10,6 +10,11 @@ const model = {
             username: '',
             password: '',
             rememberMe: false,
+        },
+        createNewlist:{
+            name: '',
+            typeOfList: '',
+
         },
         shoppingList: {
             name: '',
