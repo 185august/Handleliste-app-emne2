@@ -21,9 +21,6 @@ function updateView() {
         case 'groupsOverview':
             currentPageView = groupsOverviewView();
             break;
-        case 'groupsOverview':
-            currentPageView = groupsOverviewView();
-            break;
         case 'login':
             currentPageView = loginView();
             break;
@@ -39,7 +36,7 @@ function updateView() {
     }
 
     document.getElementById('app').innerHTML = `
-    
+  
     ${currentPageView}
     `;
 

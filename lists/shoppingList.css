@@ -1,0 +1,53 @@
+.list {
+  display: flex;
+  margin: 0 auto;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  text-decoration: none;
+}
+.list-bought {
+  display: flex;
+  margin: 0 auto;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  text-decoration: line-through;
+}
+
+.list-item,
+.list-amount,
+.list-checkbox,
+.list-button,
+.list-recipient,
+.list-price {
+  margin: 2px;
+  margin-right: 3px;
+}
+.h4 {
+  margin: 0px;
+  padding: 0px;
+}
+.container {
+  margin-top: 50px;
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  justify-items: center;
+  justify-self: center;
+  align-items: center;
+  align-content: flex-start;
+}
+
+.favorite-items {
+  display: flex;
+  flex-wrap: wrap;
+}
+.show-input-button {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+}

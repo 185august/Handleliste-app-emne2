@@ -5,19 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping list app</title>
-    <link rel="stylesheet" href = "style.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="lists/shoppingList.css">
 </head>
 
-<body>
-    <button onclick="setPage('dashboard')">dashboard </button>
-    <button onclick="setPage('favoriteItems')">favoriteItems </button>
-    <button onclick="setPage('groupsOverview')">groupsOverview </button>
-    <button onclick="setPage('shoppingList')">shoppingList</button>
-    <button onclick="setPage('wishlist')">wishList </button>
-    <button onclick="setPage('login')">login </button>
-    <button onclick="setPage('logList')">logList </button>
-    <button onclick="setPage('privateListOverview')">privateList </button>
-    <button onclick="setPage('settings')">settings </button>
+<body onload="setPage('dashboard')">
+
     <div id="app"></div>
 
 
@@ -29,8 +22,7 @@
     <script src="login/loginController.js"></script>
     <script src="privateListOverview/privateListOverviewController.js"></script>
     <script src="settings/settingsController.js"></script>
-    <script src="lists/wishlistController.js"></script>
-    <script src="lists/shoppingListController.js"></script>
+    <script src="lists/listController.js"></script>
     <script src="dashboard/dashboardView.js"></script>
     <script src="favoriteItems/favoriteItemsView.js"></script>
     <script src="groupsOverview/groupsOverviewView.js"></script>

@@ -1,7 +1,9 @@
 const model = {
     app: {
-        currentPage: '',
-        currentUserId: 0
+        currentPage: 'dashboard',
+        previousPage: [],
+        currentUserId: 0,
+        currentListPath: null,
     },
     input: {
         loginPage: {
@@ -10,26 +12,27 @@ const model = {
             rememberMe: false,
         },
         shoppingList: {
-            addItem: '',
+            name: '',
             amount: null,
             hasBeenBought: false
         },
         groupShoppingList: {
-            addItem: '',
+            name: '',
             amount: null,
             whoAddedItem: '',
             hasBeenBought: false
         },
-        wishList: {
-            addItem: '',
+        wishlist: {
+            name: '',
             amount: null,
-            itemPrice: null,
+            price: null,
+            whoIsTheRecipient: '',
             hasBeenBought: false,
         },
         groupWishList: {
-            addItem: '',
+            name: '',
             amount: null,
-            itemPrice: null,
+            price: null,
             hasBeenBought: false,
             whoIsTheRecipient: '',
         },
@@ -45,10 +48,9 @@ const model = {
                     userId: 0,
                     username: 'kattunge',
                     password: '',
-                    groupsId: [0],
+                    groupsId: [0, 1],
                     recentListId: 0,
                     rememberMe: false,
-
                     lists:
                         [
                             {
@@ -90,24 +92,40 @@ const model = {
                                         amount: 1,
                                         price: 10000,
                                         hasBeenBought: false,
-                                        whoIsTheRecipient: ''
+                                        whoIsTheRecipient: 'Anders'
                                     }
                                 ],
                             }
                         ],
 
-                    favoriteItemsList: [{
+                    favoriteItemsList: {
                         listType: 'favoriteList',
                         favoriteItems: [
                             {
-                                itemId: null,
+                                itemId: 0,
                                 name: 'Melk',
                                 price: null,
                                 whoIsTheRecipient: null,
-                                amountRecentlyBought: 5,
+                                amountRecentlyBought: 8,
+                                rank: 1
+                            },
+                            {
+                                itemId: 1,
+                                name: 'Agurk',
+                                price: null,
+                                whoIsTheRecipient: null,
+                                amountRecentlyBought: 6,
+                                rank: 2
+                            },
+                            {
+                                itemId: 2,
+                                name: 'Smør',
+                                price: null,
+                                whoIsTheRecipient: null,
+                                amountRecentlyBought: 4,
                                 rank: 3
                             }],
-                    }],
+                    },
                     log:
                         [
                             {
