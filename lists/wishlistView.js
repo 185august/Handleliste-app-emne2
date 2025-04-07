@@ -34,7 +34,7 @@ function renderAddItemsToWishlist() {
     Hvem er gaven til?
     <input 
     type='text'
-    value="${model.input.whoIsTheRecipient ?? ''}"
+    value="${model.input.wishlist.whoIsTheRecipient ?? ''}"
     oninput="model.input.wishlist.whoIsTheRecipient = this.value">
     <button onclick="addItemToList(model.input.wishlist)">Legg til vare</button>`
     else return ``

@@ -6,7 +6,11 @@ function dashboardView() {
     let header = dashboardHeader()
     let recentList = dashboardRecentList()
     let listnames = lists()
-    let html = `<div class="page">
+    let html = `
+      <button onclick="setPage('login')">login </button>
+    <button onclick="setPage('logList')">logList </button>
+    <br>
+    <div class="page">
     ${header + recentList + listnames}</div>`
     return html
 }
