@@ -18,7 +18,13 @@ function addItemToList(typeOfList) {
 
 
 function removeItemFromList(itemId) {
-    //const currentUser = model.data.users[model.app.currentUserId]
+    model.app.currentListPath.listItems.find(id => {
+        if (id === itemId) {
+            model.app.currentListPath.listItems[itemId] = '';
+            updateView();
+        }
+    })
+
     model.app.currentListPath.listItems.splice(itemId, 1)
     for (let i = model.app.currentListPath.listItems.length - 1; i >= 0; i--) {
         model.app.currentListPath.listItems[i].itemId = i;

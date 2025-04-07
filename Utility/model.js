@@ -47,7 +47,7 @@ const model = {
                 {
                     userId: 0,
                     username: 'kattunge',
-                    password: '',
+                    password: 'passord',
                     groupsId: [0, 1],
                     recentListId: 0,
                     rememberMe: false,
