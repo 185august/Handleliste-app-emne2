@@ -1,5 +1,4 @@
 let currentUserArray = model.data.users //users array
-let currentGroup = currentUserArray[model.app.currentUserId].groupsId//groupid array
 let currentUser = currentUserArray.find(Element => Element.userId == model.app.currentUserId)//object
 
 function dashboardView() {
@@ -78,7 +77,7 @@ function dashboardPrivateList() {
 
 function dashboardGroupList() {
     let currentGroups = []
-    currentGroup.forEach(element => {
+    currentUserArray[model.app.currentUserId].groupsId.forEach(element => {
         const groupObjects = model.data.groups.find(groupElement => groupElement.groupId === element)
         if (groupObjects) { currentGroups.push(groupObjects) }
     })
