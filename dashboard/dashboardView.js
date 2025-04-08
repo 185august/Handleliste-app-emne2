@@ -38,9 +38,16 @@ function dashboardHeader() {
 function dashboardRecentList() {
     let recentListId = currentUserArray[model.app.currentUserId].recentListId
     let recentListObject = currentUserArray[model.app.currentUserId].lists.find(Object => Object.listId === recentListId)
+    let html;
+    if (recentListObject == undefined) return html = /*HTML*/ `
+    <div id = "recentList" class="dashboardboxes">
+    <h3>Siste Endret Lister:</h3>
+    <p>Ingen sist endret liste</p>
+    </div>`
+
     const recentList = generateList(recentListObject.listItems)
 
-    let html = /*HTML*/ `
+    html = /*HTML*/ `
     <div id = "recentList" class="dashboardboxes" onclick="printPrivateList(${recentListId})">
     <h3>Siste Endret Lister:</h3>
     <p>${currentUserArray[model.app.currentUserId].lists[recentListId].listName}</p>

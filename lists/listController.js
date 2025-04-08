@@ -41,8 +41,8 @@ function markItemAsBought(checkbox, itemId) {
 function pushListToLog() {
     model.app.currentListPath.isCompleted = true;
     model.app.currentListPath.date = new Date().toLocaleDateString();
-    model.data.users[model.app.currentUserId].log.push(model.app.currentListPath);
-    goToDashboardPage();
+    model.data.users[model.app.currentUserId].log.unshift(model.app.currentListPath);
+    model.data.users[model.app.currentUserId].lists.splice(model.app.currentListPath, 1)
 }
 
 function renderListItems() {

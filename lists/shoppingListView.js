@@ -18,10 +18,7 @@ function shoppingListView() {
     return html;
 };
 
-function toggleInput() {
-    showInput = !showInput;
-    updateView();
-}
+
 
 function renderAddItemsToList() {
     if (showInput) return `

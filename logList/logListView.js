@@ -1,4 +1,5 @@
 function logListView() {
+    model.app.currentListPath = model.data.users[model.app.currentUserId].log
     const currentUser = model.data.users[model.app.currentUserId];
     let html =/*HTML*/ ` 
     <button onclick="goToPreviousPage(-1)"> <- </button>
@@ -12,14 +13,11 @@ function logListView() {
 }
 
 function renderLogs() {
-    const currentUser = model.data.users[model.app.currentUserId];
     let html = '';
-    currentUser.log.forEach(date => {
-        model.app.currentListPath = date;
-        currentUser.log[date.listId]
-        html += `<div>${date.date}</div>
-                    <div> ${date.listName}</div>
-            ${renderListItems(currentUser.log[date.listId])}
+    model.data.users[model.app.currentUserId].log.forEach(currentLog => {
+        html += `<div>${currentLog.date}</div>
+                    <div> ${currentLog.listName}</div>
+            ${renderLogItems(currentLog.listId)}
                 `
     });
     return html;
