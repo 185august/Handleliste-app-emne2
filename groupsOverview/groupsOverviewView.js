@@ -3,6 +3,7 @@ function groupsOverviewView() {
     let groupList = model.data.users[model.app.currentUserId].groupsId //group id array 
 
     groupList.forEach(id => {
+
         const object = model.data.groups.find(groupElement => groupElement.groupId === id)
         html += /*HTML*/
             `<div onclick="printGrouplist('${object.groupId}')">
@@ -16,12 +17,19 @@ function groupsOverviewView() {
 
 function printGrouplist(groupId) {
     let html = ''
+    model.data.groups.forEach(element => {
+            document.querySelector(`#namelists${element.groupId}`).innerHTML = '';
+    });
+    model.app.currentGroupId = parseInt(groupId)
     const object = model.data.groups.find(groupElement => groupElement.groupId == groupId)
     object.lists.forEach(element => {
+        
         html += /*HTML*/`
             <p onclick="toTheListPage('${element.listType}',${element.listId}, ${groupId})">${element.listName}</p>
             `
     })
+   html+= `${model.input.createNewList.showInput && model.data.groups[model.app.currentGroupId] == model.app.currentGroupId ?'':`<button onclick="toggleAddNewListInput()"> Ny liste </button>`}
+    ${createNewListView()}`
     document.querySelector(`#namelists${groupId}`).innerHTML = html
 };
 

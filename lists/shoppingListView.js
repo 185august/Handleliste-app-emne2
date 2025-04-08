@@ -1,4 +1,4 @@
-let showInput = false;
+let showAddNewItemInput = false;
 
 function shoppingListView() {
     let html =/*HTML*/ `
@@ -12,7 +12,7 @@ function shoppingListView() {
     ${renderListItems()}
    
     </div>
-    <div class="show-input-button"><button  onclick="toggleInput()"> ${showInput ? '-' : '+'} </button> ${renderAddItemsToList()}</div>
+    <div class="show-input-button"><button  onclick="toggleInput()"> ${showAddNewItemInput ? '-' : '+'} </button> ${renderAddItemsToList()}</div>
     ${favoriteItemsView()}
     `
     return html;
@@ -21,7 +21,7 @@ function shoppingListView() {
 
 
 function renderAddItemsToList() {
-    if (showInput) return `
+    if (showAddNewItemInput) return `
     Vare: 
     <input 
     type='text'

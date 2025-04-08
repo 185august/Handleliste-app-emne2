@@ -1,4 +1,4 @@
-showInput = false;
+showAddNewItemInput = false;
 
 function wishlistView() {
     console.log()
@@ -9,14 +9,14 @@ function wishlistView() {
     <h1>${model.app.currentListPath.listName}</h1>
     ${renderListItems()}
     </div>
-    <div class="show-input-button"><button onclick="toggleInput()"> ${showInput ? '-' : '+'} </button> ${renderAddItemsToWishlist()}</div>
+    <div class="show-input-button"><button onclick="toggleInput()"> ${showAddNewItemInput ? '-' : '+'} </button> ${renderAddItemsToWishlist()}</div>
 `
     return html;
 };
 
 
 function renderAddItemsToWishlist() {
-    if (showInput) return `
+    if (showAddNewItemInput) return `
     Vare: 
     <input 
     type='text'

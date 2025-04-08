@@ -15,7 +15,7 @@ const model = {
         createNewList:{
             name: '',
             typeOfList: '',
-
+            showInput: false,
         },
         shoppingList: {
             name: '',
@@ -170,6 +170,7 @@ const model = {
                     name: 'Rubber Duck As',
                     usersId: [0, 1],
                     adminUserId: [0],
+                    showLists: false,
                     lists:
                         [
                             {
@@ -215,6 +216,7 @@ const model = {
                     name: 'Family group',
                     usersId: [0, 1],
                     adminUserId: [0],
+                    showLists: false,
                     lists:
                         [
                             {

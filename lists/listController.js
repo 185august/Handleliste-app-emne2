@@ -12,12 +12,12 @@ function addItemToList(typeOfList) {
     typeOfList.amount = null;
     typeOfList.price = null;
     typeOfList.whoIsTheRecipient = '';
-    showInput = false;
+    showAddNewItemInput = false;
     updateView();
 }
 
 function toggleInput() {
-    showInput = !showInput;
+    showAddNewItemInput = !showAddNewItemInput;
     updateView();
 }
 

@@ -11,7 +11,8 @@ function privateListOverviewView() {
     </div>
     `
     });
-    privateList += `${createNewlistView()}`
+    privateList += `${model.input.createNewList.showInput ?'':`<button onclick="toggleAddNewListInput()"> Ny liste </button>`}
+    ${createNewListView()}`
     return privateList;
 }
 function printPrivateList(id) {
@@ -24,9 +25,6 @@ function printPrivateList(id) {
         model.app.currentListPath = model.data.users[model.app.currentUserId].lists[id]
         setPage('wishlist');
     }
-};
-function createPrivateList() {
-
 };
 
 
