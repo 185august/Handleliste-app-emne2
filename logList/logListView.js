@@ -18,6 +18,7 @@ function renderLogs() {
         model.app.currentListPath = date;
         currentUser.log[date.listId]
         html += `<div>${date.date}</div>
+                    <div> ${date.listName}</div>
             ${renderListItems(currentUser.log[date.listId])}
                 `
     });

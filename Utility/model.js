@@ -11,7 +11,7 @@ const model = {
             password: '',
             rememberMe: false,
         },
-        createNewlist:{
+        createNewlist: {
             name: '',
             typeOfList: '',
 
@@ -134,9 +134,10 @@ const model = {
                     log:
                         [
                             {
+                                listId: 0,
                                 listType: 'shoppingList',
                                 listName: 'handle til bursdag',
-                                listId: 0,
+                                isCompleted: true,
                                 date: '26/3/2025',
                                 listItems:
                                     [
