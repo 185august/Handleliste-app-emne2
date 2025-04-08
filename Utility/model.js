@@ -1,9 +1,10 @@
 const model = {
     app: {
-        currentPage: 'createNewList',
+        currentPage: 'dashboard',
         previousPage: [],
         currentUserId: 0,
         currentListPath: null,
+        currentGroupId: null,
     },
     input: {
         loginPage: {
@@ -11,7 +12,7 @@ const model = {
             password: '',
             rememberMe: false,
         },
-        createNewlist: {
+        createNewList:{
             name: '',
             typeOfList: '',
 

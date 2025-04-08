@@ -5,8 +5,10 @@ function privateListOverviewView() {
     <p>
     <h1>${List.listName}</h1>
     </p>
-    </div>`
+    </div>
+    `
     });
+    privateList+= `${createNewlistView()}`
     return privateList;
 }
 function printPrivateList(id) {

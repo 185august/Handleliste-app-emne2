@@ -9,7 +9,7 @@ function groupsOverviewView() {
         <h1>${object.name}</h1>
         <div id ="namelists${id}"></div>
         </div>`
-    })
+    });
     return html
 }
 
