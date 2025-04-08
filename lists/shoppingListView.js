@@ -3,6 +3,7 @@ let showInput = false;
 function shoppingListView() {
     let html =/*HTML*/ `
     <button onclick="goToPreviousPage(-1)"> <- </button><button onclick="goToDashboardPage()">Dasboard</button>
+    <button onclick="pushListToLog()">push list</button>
     <div class="container">
     <h1>${model.app.currentListPath.listName}</h1>
     

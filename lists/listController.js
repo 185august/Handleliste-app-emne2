@@ -24,33 +24,43 @@ function removeItemFromList(itemId) {
             updateView();
         }
     })
-
     model.app.currentListPath.listItems.splice(itemId, 1)
-    for (let i = model.app.currentListPath.listItems.length - 1; i >= 0; i--) {
-        model.app.currentListPath.listItems[i].itemId = i;
-    }
+
     updateView();
 }
 
 function markItemAsBought(checkbox, itemId) {
-    //const currentUser = model.data.users[model.app.currentUserId]
     model.app.currentListPath.listItems[itemId].hasBeenBought = checkbox.checked;
-    model.app.currentListPath.listItems.push(model.app.currentListPath.listItems[itemId]);
-    model.app.currentListPath.listItems.splice(itemId, 1);
     updateView();
+}
 
-    /* if (checkbox.checked) {
-        document.querySelector(`#listItem${itemId}`).classList.add('list-bought');
-        document.querySelector(`#listItem${itemId}`).style.order = model.app.currentListPath.listItems.length;
-    } else {
-        document.querySelector(`#listItem${itemId}`).classList.remove('list-bought')
-        document.querySelector(`#listItem${itemId}`).classList.add('list')
-        document.querySelector(`#listItem${itemId}`).style.order = itemId;
-    } */
+/* model.app.currentListPath.listItems.find(id => {
+    if (id == itemId && id.hasBeenBought) {
+        model.app.currentListPath.listItems.push(model.app.currentListPath.listItems[itemId]);
+        model.app.currentListPath.listItems.splice(itemId, 1);
+    }
+}) */
+/* if (checkbox.checked) {
+    document.querySelector(`#listItem${itemId}`).classList.add('list-bought');
+    document.querySelector(`#listItem${itemId}`).style.order = model.app.currentListPath.listItems.length;
+} else {
+    document.querySelector(`#listItem${itemId}`).classList.remove('list-bought')
+    document.querySelector(`#listItem${itemId}`).classList.add('list')
+    document.querySelector(`#listItem${itemId}`).style.order = itemId;
+} */
+
+
+function pushListToLog() {
+    model.data.users[model.app.currentUserId].log.push(model.app.currentListPath);
+    goToDashboardPage();
 }
 
 function renderListItems() {
     let listItemsHtml = '';
+    model.app.currentListPath.listItems.sort((a, b) => a.hasBeenBought - b.hasBeenBought)
+    for (let i = model.app.currentListPath.listItems.length - 1; i >= 0; i--) {
+        model.app.currentListPath.listItems[i].itemId = i;
+    }
     model.app.currentListPath.listItems.forEach(item => {
         listItemsHtml += /*HTML*/ ` 
             <div id="listItem${item.itemId}" class="${item.hasBeenBought ? 'list-bought' : 'list'}">
