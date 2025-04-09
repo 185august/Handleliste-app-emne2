@@ -131,6 +131,7 @@ const model = {
                                 amountRecentlyBought: 4,
                                 rank: 3
                             }],
+                            
                     },
                     log:
                         [
@@ -161,7 +162,119 @@ const model = {
                                     ],
                             }
                         ]
-                },
+                }, {
+                    userId: 1,
+                    username: 'venn',
+                    password: 'passord',
+                    groupsId: [0, 1],
+                    recentListId: 0,
+                    rememberMe: false,
+                    lists:
+                        [
+                            {
+                                listId: 0,
+                                listType: 'shoppingList',
+                                isPrivate: true,
+                                listName: 'handle',
+                                isCompleted: false,
+                                listItems: [
+                                    {
+                                        itemId: 0,
+                                        name: 'kattMelk',
+                                        amount: 1,
+                                        price: null,
+                                        hasBeenBought: false,
+                                        whoIsTheRecipient: '',
+                                    },
+                                    {
+                                        itemId: 1,
+                                        name: 'tunfisk',
+                                        amount: 1,
+                                        price: null,
+                                        hasBeenBought: false,
+                                        whoIsTheRecipient: '',
+                                    }
+                                ],
+                            },
+                            {
+                                listId: 1,
+                                listType: 'wishlist',
+                                isPrivate: false,
+                                listName: 'Ønske liste',
+                                usersCanView: [0, 1],
+                                isCompleted: false,
+                                listItems: [
+                                    {
+                                        itemId: 0,
+                                        name: 'cat wheel',
+                                        amount: 1,
+                                        price: 10000,
+                                        hasBeenBought: false,
+                                        whoIsTheRecipient: 'Anders'
+                                    }
+                                ],
+                            }
+                        ],
+
+                    favoriteItemsList: {
+                        listType: 'favoriteList',
+                        favoriteItems: [
+                            {
+                                itemId: 0,
+                                name: 'tunfisk',
+                                price: null,
+                                whoIsTheRecipient: null,
+                                amountRecentlyBought: 8,
+                                rank: 1
+                            },
+                            {
+                                itemId: 1,
+                                name: 'fiskestang',
+                                price: null,
+                                whoIsTheRecipient: null,
+                                amountRecentlyBought: 6,
+                                rank: 2
+                            },
+                            {
+                                itemId: 2,
+                                name: 'mus',
+                                price: null,
+                                whoIsTheRecipient: null,
+                                amountRecentlyBought: 4,
+                                rank: 3
+                            }],
+                            
+                    },
+                    log:
+                        [
+                            {
+                                listId: 0,
+                                listType: 'shoppingList',
+                                listName: 'handle til bursdag',
+                                isCompleted: true,
+                                date: '26/3/2025',
+                                listItems:
+                                    [
+                                        {
+                                            itemId: 0,
+                                            name: 'jerky',
+                                            amount: 1,
+                                            price: null,
+                                            hasBeenBought: false,
+                                            whoIsTheRecipient: '',
+                                        },
+                                        {
+                                            itemId: 1,
+                                            name: 'kattemat',
+                                            amount: 4,
+                                            price: null,
+                                            hasBeenBought: false,
+                                            whoIsTheRecipient: '',
+                                        }
+                                    ],
+                            }
+                        ]
+                }
             ],
         groups:
             [

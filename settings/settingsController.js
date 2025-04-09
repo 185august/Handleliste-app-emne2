@@ -11,6 +11,11 @@ function changeName(divId) {
  alreadychanging = true
 }
 
+function changeGroupMembers(groupName){
+  const groupObject = model.data.groups.find(groupElement => groupElement.name === groupName)
+  
+}
+
 function sendNewUserInfo(data ,type ,divInfo ) {
   if(!data)return
   switch (type) {

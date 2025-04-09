@@ -2,9 +2,10 @@
 // let currentGroup = currentUserArray[model.app.currentUserId].groupsId//groupid array
 // let currentUser = currentUserArray.find(Element => Element.userId == model.app.currentUserId)//object
 
+
 let alreadychanging = false
 let settingsViewhtml = ''
-// 뒤로가기 버튼 동작안함 페이지 오브젝트에 저장하는거 해야할듯 
+
 
 function settingsView(back = '') {
   if (back === 'back') {
@@ -43,6 +44,9 @@ function profilView() {
       <div id = "nameDiv"></div>
      <p onclick = "changePassword('PasswordDiv')">Endre passord</p>
       <div id = "PasswordDiv"></div>
+     <p onclick = "setPage('logList')">Logg</p>
+
+      
   `
   html += ` </div>`
   settingsViewhtml = html
@@ -56,7 +60,6 @@ function groupSettingsView() {
     const groupObjects = model.data.groups.find(groupElement => groupElement.groupId === element)
     if (groupObjects) { currentGroups.push(groupObjects) }
   })
-  console.log(currentGroups)
   let groupListName = `<ul style = 'list-style: none'>`
   currentGroups.forEach(element => {
     groupListName += `<li onclick="GroupSettingsPages('${element.name}')"><h4>${element.name}</h4></li>
@@ -78,24 +81,53 @@ function GroupSettingsPages(groupName) {
   const groupObject = model.data.groups.find(groupElement => groupElement.name === groupName)
   let div = document.querySelector(`#group${groupObject.groupId}`)
   let groupname = groupObject.name
+
+  if(model.app.currentUserId=== groupObject.adminUserId[0]){
   div.innerHTML = /*HTML*/`
                      <p onclick = "leaveGroup('${groupname}')">Forlat</p>
                       <div id = "leaveGroupDiv"></div>
-                     <p onclick = "changeGroupMembers('${groupname}')">Endre</p>
+                     <p onclick = "changeGroupMembersView('${groupname}')">Endre</p>
                       <div id = "changeGroupMembersDiv"></div>
                      <p onclick = "removeGroupDiv('${groupname}')">slett</p>
                       <div id = "removeGroupDiv"></div>
-                `
-}
+                `}
+  else{
+    div.innerHTML = /*HTML*/`
+                       <p onclick = "leaveGroup('${groupname}')">Forlat</p>
+                        <div id = "leaveGroupDiv"></div>
+                  `}
+  }
 
 function leaveGroup(groupName){
  
   const groupObject = model.data.groups.find(groupElement => groupElement.name === groupName)
-  console.log(groupObject.usersId)
   currentUser.groupsId = currentUser.groupsId.filter(groupsId => groupsId !== groupObject.groupId)
   groupObject.usersId = groupObject.usersId.filter(usersId => usersId !== currentUser.userId)
-  console.log(model.data.groups[0].usersId)
-  console.log(model.data.users[0].groupsId)
   groupSettingsView()
 
+}
+
+function changeGroupMembersView(groupName){
+  const groupObject = model.data.groups.find(groupElement => groupElement.name === groupName)
+  let groupMembers = `<ul style = 'list-style: none'>`
+  groupObject.usersId.forEach(element => 
+  {let userInfo = model.data.users.find(user =>user.userId === element)
+    if (!userInfo) {
+      console.warn(`No user data for ID ${element}`);
+      return;
+    }
+    groupMembers +=/*HTML*/`<li><p>${userInfo.username}</p></li><button>X</button>`}
+  );
+  groupMembers +=`</ul>`
+
+
+  let html = /*HTML*/`
+  <div class = "page">
+  <button  onclick="settingsView('back'); updateView()"><b><</b></button>
+    <div style = "text-align: center;">
+     <h3>${groupName}</h3>
+     ${groupMembers}
+  `
+  settingsViewhtml = html
+  updateView()
 }
