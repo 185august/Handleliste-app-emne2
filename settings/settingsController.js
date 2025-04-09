@@ -2,22 +2,36 @@
 // let currentGroup = currentUserArray[model.app.currentUserId].groupsId//groupid array
 // let currentUser = currentUserArray.find(Element => Element.userId == model.app.currentUserId)//object
 
-function changeName(divId) {
-  let nameDiv = document.querySelector('#'+`${divId}`)
-  nameDiv.innerHTML = /*HTML*/`
- <input type="text" required " id="newNameValue">
- <button onclick = "sendNewUserInfo(document.getElementById('newNameValue').value , 'name', nameDiv)">send</button>
- `
- alreadychanging = true
-}
 
-function changeGroupMembers(groupName){
+
+function removeGroupMember(groupName){
   const groupObject = model.data.groups.find(groupElement => groupElement.name === groupName)
   
 }
 
-function sendNewUserInfo(data ,type ,divInfo ) {
-  if(!data)return
+function addGroupMember(groupName){
+ let newUsername = document.querySelector('#newMemberUsername').value
+ if(!newUsername){
+  console.log('write username')
+  return}
+ console.log(document.querySelector('#newMemberUsername'))
+ console.log(newUsername)
+ let newUser = model.data.users.find(user => user.username === newUsername)// 멤버로 새로 추가할 멤버 오브젝트
+ 
+ const groupObject = model.data.groups.find(groupElement => groupElement.name === groupName)
+ console.log(newUser.userId)
+ groupObject.usersId.push(newUser.userId)
+ console.log(groupObject.usersId)
+  
+}
+
+function sendNewUserInfo(data ,type, divId) {
+  if(!data){
+    console.log('no input data') 
+    return
+  }
+ 
+  let divInfo = document.querySelector(divId)
   switch (type) {
     case 'password':
         currentUser.password = data
@@ -32,12 +46,3 @@ function sendNewUserInfo(data ,type ,divInfo ) {
   alreadychanging = false
 }
 
-function changePassword(divId) {
-  let passwordDiv = document.querySelector('#'+`${divId}`)
-  console.log(passwordDiv)
-  passwordDiv.innerHTML = /*HTML*/`
- <input type="text" required id="newPasswordValue">
- <button onclick = "sendNewUserInfo(document.getElementById('newPasswordValue').value, 'password', passwordDiv)">send</button>
- `
- alreadychanging = true
-}

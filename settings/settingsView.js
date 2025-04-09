@@ -40,10 +40,10 @@ function profilView() {
   <button  onclick="settingsView('back'); updateView()"><b><</b></button>
     <div style = "text-align: center;">
      <h3>Profil</h3>
-     <p onclick = "changeName('nameDiv')">Endre navn</p>
+     <p onclick = "changeNameSector('nameDiv')">Endre navn</p>
       <div id = "nameDiv"></div>
-     <p onclick = "changePassword('PasswordDiv')">Endre passord</p>
-      <div id = "PasswordDiv"></div>
+     <p onclick = "changePasswordSector('passwordDiv')">Endre passord</p>
+      <div id = "passwordDiv"></div>
      <p onclick = "setPage('logList')">Logg</p>
 
       
@@ -53,6 +53,24 @@ function profilView() {
   updateView()
 }
 
+function changePasswordSector() {
+  let passwordDiv = document.querySelector('#passwordDiv')
+  console.log(passwordDiv)
+  passwordDiv.innerHTML = /*HTML*/`
+ <input type="text" required id="newPasswordValue">
+ <button onclick = "sendNewUserInfo(document.querySelector('#newPasswordValue').value, 'password','#passwordDiv')">send</button>
+ `
+ alreadychanging = true
+}
+
+function changeNameSector() {
+  let nameDiv = document.querySelector('#nameDiv')
+  nameDiv.innerHTML = /*HTML*/`
+ <input type="text" required " id="newNameValue">
+ <button onclick = "sendNewUserInfo(document.querySelector('#newNameValue').value , 'name','#nameDiv')">send</button>
+ `
+ alreadychanging = true
+}
 
 function groupSettingsView() {
   let currentGroups = []
@@ -116,18 +134,30 @@ function changeGroupMembersView(groupName){
       console.warn(`No user data for ID ${element}`);
       return;
     }
-    groupMembers +=/*HTML*/`<li><p>${userInfo.username}</p></li><button>X</button>`}
+    groupMembers +=/*HTML*/`<li><p>${userInfo.username}</p></li>
+                            <button onclick="removeGroupMember('${groupName}')">X</button>`}
   );
-  groupMembers +=`</ul>`
+  groupMembers +=`</ul>
+                  <button onclick="addGroupMemberView('${groupName}')">+</button>
+                  <div id='newMemberUsername'></div>`
 
 
   let html = /*HTML*/`
   <div class = "page">
-  <button  onclick="settingsView('back'); updateView()"><b><</b></button>
+  <button  onclick="groupSettingsView()"><b><</b></button>
     <div style = "text-align: center;">
      <h3>${groupName}</h3>
      ${groupMembers}
   `
   settingsViewhtml = html
   updateView()
+}
+
+function addGroupMemberView(groupName){
+  console.log(groupName)
+  let div = document.querySelector('#newMemberUsername')
+  div.innerHTML=`
+  <input type='text' required id='newMemberUsername'>
+  <button onclick="addGroupMember('${groupName}')">registere</button>
+  `
 }
