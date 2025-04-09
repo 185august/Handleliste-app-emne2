@@ -23,3 +23,14 @@ function goToDashboardPage() {
     }
     updateView();
 };
+
+function createNewId(currentPath, idName) {
+    const newId = Math.floor(Math.random() * 1000)
+    if (currentPath.some(obj => obj[idName] === newId)) {
+        return createNewId(currentPath, idName)
+    } else {
+        return newId
+    }
+}
+
+

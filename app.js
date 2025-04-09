@@ -4,6 +4,7 @@ function updateView() {
 
     switch (page) {
         case 'dashboard':
+            model.app.previousPage.push('dashboard')
             currentPageView = dashboardView();
             break;
         case 'favoriteItems':

@@ -1,6 +1,7 @@
-function renderLogItems(list) {
+function renderLogItems(listId) {
     let listItemsHtml = '';
-    model.data.users[model.app.currentUserId].log[list].listItems.forEach(item => {
+    const itemIndex = model.data.users[model.app.currentUserId].log.findIndex(obj => obj.listId === listId)
+    model.data.users[model.app.currentUserId].log[itemIndex].listItems.forEach(item => {
         listItemsHtml += /*HTML*/ ` 
             <div id="listItem${item.itemId}" class="${item.hasBeenBought ? 'list-bought' : 'list'}">
                 <div class="list-item">Vare: ${item.name} </div>

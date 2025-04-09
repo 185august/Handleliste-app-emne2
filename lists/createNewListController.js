@@ -1,10 +1,10 @@
 
-function createList(){
+function createList() {
     // const typeOfList = model.app.previousPage[model.app.previousPage.length -1];
-    if(model.app.currentPage ==='privateListOverview'){
+    if (model.app.currentPage === 'privateListOverview') {
         model.data.users.find(element => element.userId == model.app.currentUserId).lists.push(
             {
-                listId: createID(model.data.users.find(element => element.userId == model.app.currentUserId).lists),
+                listId: createNewId(model.data.users[model.app.currentUserId].lists, 'listId') /* createID(model.data.users.find(element => element.userId == model.app.currentUserId).lists) */,
                 listType: model.input.createNewList.typeOfList,
                 isPrivate: true,
                 listName: model.input.createNewList.name,
@@ -13,10 +13,10 @@ function createList(){
             },
         )
         // setPage(model.app.currentPage)
-    }else if(model.app.currentPage === 'groupsOverview'){
+    } else if (model.app.currentPage === 'groupsOverview') {
         model.data.groups.find(element => element.groupId == model.app.currentGroupId).lists.push(
             {
-                listId: createID(model.data.groups.find(element => element.groupId == model.app.currentGroupId).lists),
+                listId: createNewId(model.data.groups[model.app.currentGroupId].lists, 'listId') /* createID(model.data.groups.find(element => element.groupId == model.app.currentGroupId).lists) */,
                 listType: model.input.createNewList.typeOfList,
                 listName: model.input.createNewList.name,
                 usersCanView: model.data.groups.find(element => element.groupId == model.app.currentGroupId).usersId,
@@ -35,12 +35,12 @@ function createList(){
 
 //legg denne i modellen: model.app.currentGroupId
 
-function createID(list){
-   /*  let newID = Math.floor(Math.random()*1000); */
-   let newID = list.length
-    if(list.find(element => element.listId == newID)){
+function createID(list) {
+    /*  let newID = Math.floor(Math.random()*1000); */
+    let newID = list.length
+    if (list.find(element => element.listId == newID)) {
         createID(list);
-    }else{
+    } else {
         return newID;
     }
 }

@@ -1,31 +1,30 @@
 function privateListOverviewView() {
-    for (let i = model.data.users[model.app.currentUserId].lists.length - 1; i >= 0; i--) {
-        model.data.users[model.app.currentUserId].lists[i].listId = i;
-    }
+
     let privateList = '<button onclick="goToPreviousPage(-1)"> <- </button> <button onclick="goToDashboardPage()">Dasboard</button>';
-    model.data.users[model.app.currentUserId].lists.forEach(List => {
-        privateList += /*HTML*/`<div onclick="printPrivateList(${List.listId})">
+    model.data.users[model.app.currentUserId].lists.forEach(list => {
+        privateList += /*HTML*/`<div onclick="printPrivateList(${list.listId})">
     <p>
-    <h1>${List.listName}</h1>
+    <h1>${list.listName}</h1>
     </p>
     </div>
     `
     });
-    privateList += `${model.input.createNewList.showInput ?'':`<button onclick="toggleAddNewListInput()"> Ny liste </button>`}
+    privateList += `${model.input.createNewList.showInput ? '' : `<button onclick="toggleAddNewListInput()"> Ny liste </button>`}
     ${createNewListView()}`
     return privateList;
 }
 function printPrivateList(id) {
-
-    const list = model.data.users[model.app.currentUserId].lists.find((element) => element.listId == id)
+    const listIndex = model.data.users[model.app.currentUserId].lists.findIndex(obj => obj.listId === id)
+    const list = model.data.users[model.app.currentUserId].lists[listIndex]
     if (list.listType == 'shoppingList') {
-        model.app.currentListPath = model.data.users[model.app.currentUserId].lists[id]
+        model.app.currentListPath = list
         setPage('shoppingList');
     } else {
-        model.app.currentListPath = model.data.users[model.app.currentUserId].lists[id]
+        model.app.currentListPath = list
         setPage('wishlist');
     }
 };
+
 
 
 // list.listItems.forEach(element=>{

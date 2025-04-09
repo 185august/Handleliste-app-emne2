@@ -12,7 +12,7 @@ const model = {
             password: '',
             rememberMe: false,
         },
-        createNewList:{
+        createNewList: {
             name: '',
             typeOfList: '',
             showInput: false,

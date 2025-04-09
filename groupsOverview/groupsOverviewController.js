@@ -1,3 +1,4 @@
 function toggleGroupLists(whatGroup) {
-    whatGroup.toggleShowLists = !whatGroup.toggleShowLists 
+    model.data.groups[whatGroup].showLists = !model.data.groups[whatGroup].showLists
+    updateView();
 };

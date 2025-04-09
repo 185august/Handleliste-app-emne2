@@ -34,7 +34,7 @@ function loginhandler() {
   }
   document.querySelector("#error-message").innerHTML = errormessage;
   if (loginsucess) {
-    setPage("settings");
+    setPage("dashboard");
   } else {
     resetlogininputs();
   }
