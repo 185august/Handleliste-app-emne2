@@ -6,7 +6,8 @@ function addItemToList(typeOfList) {
         amount: typeOfList.amount,
         price: typeOfList.price,
         hasBeenBought: false,
-        whoIsTheRecipient: typeOfList.whoIsTheRecipient
+        whoIsTheRecipient: typeOfList.whoIsTheRecipient,
+        whoAddedItemId: model.app.previousPage.includes('groupsOverview') ? model.app.currentUserId : null,
     });
     typeOfList.name = '';
     typeOfList.amount = null;
@@ -38,9 +39,10 @@ function pushListToLog() {
     model.app.currentListPath.date = new Date().toLocaleDateString();
 
     const userIndex = model.data.users.findIndex(obj => obj.userId === model.app.currentUserId)
-
+    const listIndex = model.data.users[userIndex].lists.findIndex(obj => obj.listId === model.app.currentListPath.listId)
     model.data.users[userIndex].log.unshift(model.app.currentListPath);
-    model.data.users[userIndex].lists.splice(model.app.currentListPath, 1)
+    model.data.users[userIndex].lists.splice(listIndex, 1)
+    setPage('dashboard');
 }
 
 function renderListItems() {
@@ -55,8 +57,9 @@ function renderListItems() {
                 ${item.whoIsTheRecipient ? `<div class="list-recipient">Til: ${item.whoIsTheRecipient}</div>` : ''}
                 ${model.app.currentListPath.isCompleted ? '' : `Kjøpt <input class="list-checkbox" onchange="markItemAsBought(this, ${item.itemId})" type="checkbox" ${item.hasBeenBought ? 'checked="checked"' : ''} />`}
                 ${model.app.currentListPath.isCompleted ? '' : `Fjern <button class="list-button" onclick="removeItemFromList(${item.itemId}, ${item.listId})"> X</button>`}
-                
-                </div > `
+                </div > 
+                ${model.app.previousPage.includes('groupsOverview') ? `<h4>${model.data.users[item.whoAddedItemId].username ?? ''}</h4>` : ''}
+                `
     });
     return listItemsHtml;
 }

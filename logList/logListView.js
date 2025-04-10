@@ -4,7 +4,7 @@ function logListView() {
     let html =/*HTML*/ ` 
     <button onclick="goToPreviousPage(-1)"> <- </button>
     <div class="container">
-    <h1 style=" background-color: lightblue">Log Liste</h1>
+    <h1>Log Liste</h1>
     <br>
     ${renderLogs()}
     </div>
@@ -18,6 +18,7 @@ function renderLogs() {
         html += `<div>${currentLog.date}</div>
                     <div> ${currentLog.listName}</div>
             ${renderLogItems(currentLog.listId)}
+            <button onclick="deleteListFromLog(${currentLog.listId})">X</button>
                 `
     });
     return html;

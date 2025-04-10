@@ -1,6 +1,7 @@
 function groupsOverviewView() {
 
-    let html = '<button onclick="goToPreviousPage(-1)"> <- </button> <button onclick="goToDashboardPage()">Dasboard</button>'
+    let html = `<button onclick="goToPreviousPage(-1)"> <- </button> <button onclick="goToDashboardPage()">Dasboard</button>
+    <button onclick="setPage('createNewGroup')">Lag en ny gruppe</button>`
 
     model.data.users[model.app.currentUserId].groupsId.forEach(id => {
 
@@ -34,19 +35,22 @@ function groupsOverviewView() {
 }; */
 
 function printGroupList(groupId) {
-    model.app.currentGroupId = model.data.groups.findIndex(obj => obj.groupId === groupId)
-    if (model.app.currentGroupId === null || model.app.currentGroupId <= -1) return '';
+    model.app.currentGroupId = groupId
     groupListView();
     updateView();
 };
 function groupListView() {
-    if (model.app.currentGroupId == null || model.app.currentGroupId <= -1) return ''
+    if (model.app.currentGroupId === null || model.app.currentGroupId <= -1) return '';
     let html = '';
+
     model.data.groups.forEach(element => {
         element.showLists = false;
     });
-    model.data.groups[model.app.currentGroupId].showLists = true;
-    model.data.groups[model.app.currentGroupId].lists.forEach(element => {
+
+    const groupPath = model.data.groups.find(obj => obj.groupId === model.app.currentGroupId)
+
+    groupPath.showLists = true;
+    groupPath.lists.forEach(element => {
 
         html += /*HTML*/`
             <p onclick="toTheListPage('${element.listType}',${element.listId}, ${model.app.currentGroupId})">${element.listName}</p>
@@ -58,12 +62,12 @@ function groupListView() {
 }
 
 function toTheListPage(element, listId, groupId) {
-    const listIndex = model.data.groups[model.app.currentGroupId].lists.findIndex(obj => obj.listId === listId)
+    const path = model.data.groups.find(obj => obj.groupId == groupId).lists.find(obj => obj.listId === listId)
     if (element == 'shoppingList') {
-        model.app.currentListPath = model.data.groups[groupId].lists[listIndex]
+        model.app.currentListPath = path;
         setPage('shoppingList');
     } else {
-        model.app.currentListPath = model.data.groups[groupId].lists[listIndex]
+        model.app.currentListPath = path;
         setPage('wishlist');
     }
 }

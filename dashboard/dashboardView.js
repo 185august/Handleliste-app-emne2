@@ -6,7 +6,6 @@ function dashboardView() {
     let recentList = dashboardRecentList()
     let listnames = lists()
     let html = `
-      <button onclick="setPage('login')">login </button>
     <button onclick="setPage('logList')">logList </button>
     <br>
     <div class="page">

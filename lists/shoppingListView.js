@@ -6,14 +6,13 @@ function shoppingListView() {
     <button onclick="pushListToLog()">push list</button>
     <div class="container">
     <h1>${model.app.currentListPath.listName}</h1>
-    
     <br>
     
     ${renderListItems()}
    
     </div>
     <div class="show-input-button"><button  onclick="toggleInput()"> ${showAddNewItemInput ? '-' : '+'} </button> ${renderAddItemsToList()}</div>
-    ${favoriteItemsView()}
+    ${model.app.previousPage.includes('privateListOverview') ? favoriteItemsView() : ''}
     `
     return html;
 };

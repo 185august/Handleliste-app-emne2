@@ -42,6 +42,11 @@ const model = {
             hasBeenBought: false,
             whoIsTheRecipient: '',
         },
+        createNewGroup: {
+            name: '',
+            username: '',
+            usersInGroup: [],
+        },
         favoriteItemsList: {
             addItem: '',
             itemRank: null,
@@ -302,6 +307,7 @@ const model = {
                                             price: 10000,
                                             hasBeenBought: false,
                                             whoIsTheRecipient: '',
+                                            whoAddedItemId: 0,
                                         }
                                     ]
                             },
@@ -320,6 +326,7 @@ const model = {
                                         price: null,
                                         hasBeenBought: false,
                                         whoIsTheRecipient: '',
+                                        whoAddedItemId: 0,
                                     }]
                             }
                         ],
@@ -347,6 +354,7 @@ const model = {
                                         price: null,
                                         hasBeenBought: false,
                                         whoIsTheRecipient: '',
+                                        whoAddedItemId: 0,
                                     },
                                     {
                                         itemId: 1,
@@ -355,6 +363,7 @@ const model = {
                                         price: null,
                                         hasBeenBought: false,
                                         whoIsTheRecipient: '',
+                                        whoAddedItemId: 0,
                                     }
                                 ],
                             },
@@ -372,7 +381,8 @@ const model = {
                                         amount: 1,
                                         price: 4000,
                                         hasBeenBought: false,
-                                        whoIsTheRecipient: null
+                                        whoIsTheRecipient: null,
+                                        whoAddedItemId: 0,
                                     }
                                 ]
                             }

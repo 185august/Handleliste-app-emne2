@@ -36,6 +36,8 @@ function updateView() {
         case 'settings':
             currentPageView = settingsView();
             break;
+        case 'createNewGroup':
+            currentPageView = createNewGroupView();
     }
 
     document.getElementById('app').innerHTML = `
