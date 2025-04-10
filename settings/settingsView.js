@@ -2,6 +2,8 @@
 // let currentGroup = currentUserArray[model.app.currentUserId].groupsId//groupid array
 // let currentUser = currentUserArray.find(Element => Element.userId == model.app.currentUserId)//object
 
+// group instilling 에서 그룹에 그룹삭제빼곤 완성! 
+//근데 새 그룹생성은 어디서하냐...
 
 let alreadychanging = false
 let settingsViewhtml = ''
@@ -135,11 +137,11 @@ function changeGroupMembersView(groupName){
       return;
     }
     groupMembers +=/*HTML*/`<li><p>${userInfo.username}</p></li>
-                            <button onclick="removeGroupMember('${groupName}')">X</button>`}
+                            <button onclick="removeGroupMember('${groupName}','${userInfo.username}')">X</button>`}
   );
   groupMembers +=`</ul>
                   <button onclick="addGroupMemberView('${groupName}')">+</button>
-                  <div id='newMemberUsername'></div>`
+                  <div id='newMembername'></div>`
 
 
   let html = /*HTML*/`
@@ -154,10 +156,9 @@ function changeGroupMembersView(groupName){
 }
 
 function addGroupMemberView(groupName){
-  console.log(groupName)
-  let div = document.querySelector('#newMemberUsername')
+  let div = document.querySelector('#newMembername')
   div.innerHTML=`
-  <input type='text' required id='newMemberUsername'>
+  <input type='text' required id="newMemberUsername">
   <button onclick="addGroupMember('${groupName}')">registere</button>
   `
 }
