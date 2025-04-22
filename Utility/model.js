@@ -185,7 +185,7 @@ const model = {
                                 listItems: [
                                     {
                                         itemId: 0,
-                                        name: 'kattMelk',
+                                        name: 'katte melk',
                                         amount: 1,
                                         price: null,
                                         hasBeenBought: false,
