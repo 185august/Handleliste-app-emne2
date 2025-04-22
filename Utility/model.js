@@ -1,8 +1,8 @@
 const model = {
     app: {
-        currentPage: 'dashboard',
+        currentPage: 'login',
         previousPage: [],
-        currentUserId: 0,
+        currentUserId: null,
         currentListPath: null,
         currentGroupId: null,
     },
@@ -57,7 +57,7 @@ const model = {
             [
                 {
                     userId: 0,
-                    username: 'kattunge',
+                    username: 'bruker1',
                     password: 'passord',
                     groupsId: [0, 1],
                     recentListId: 0,
@@ -136,7 +136,7 @@ const model = {
                                 amountRecentlyBought: 4,
                                 rank: 3
                             }],
-                            
+
                     },
                     log:
                         [
@@ -169,7 +169,7 @@ const model = {
                         ]
                 }, {
                     userId: 1,
-                    username: 'venn',
+                    username: 'bruker2',
                     password: 'passord',
                     groupsId: [0, 1],
                     recentListId: 0,
@@ -248,7 +248,7 @@ const model = {
                                 amountRecentlyBought: 4,
                                 rank: 3
                             }],
-                            
+
                     },
                     log:
                         [

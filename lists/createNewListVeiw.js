@@ -10,9 +10,9 @@ function createNewListView() {
             <select value="${model.input.createNewList.typeOfList ?? ''}" placeholder="velg type liste" oninput="model.input.createNewList.typeOfList = this.value">
             <option value="">Velg en type</option>
             <option value="shoppingList">Handleliste</option>
-            <option value="wishlist">Ønske liste</option> 
+            <option value="wishlist">Ønskeliste</option> 
             </select>
-            <button onclick="createList()">Add</button>
+            <button onclick="createList()">Opprett ny liste</button>
             
         `
 

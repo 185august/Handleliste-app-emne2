@@ -23,7 +23,7 @@ function settingsView(back = '') {
   if (!settingsViewhtml) {
     let html = /*HTML*/`
   <div class = "page" id = "settingsApp">
-  <span  onclick="goToPreviousPage(-1)"><b><</b></span>
+  <button  onclick="goToPreviousPage(-1)"><b><</b></button>
     <div style = "text-align: center;">
      <h3>Bruker innstillinger</h3>
      <p onclick="profilView()">Profil</p>
@@ -62,7 +62,7 @@ function changePasswordSector() {
  <input type="text" required id="newPasswordValue">
  <button onclick = "sendNewUserInfo(document.querySelector('#newPasswordValue').value, 'password','#passwordDiv')">send</button>
  `
- alreadychanging = true
+  alreadychanging = true
 }
 
 function changeNameSector() {
@@ -71,7 +71,7 @@ function changeNameSector() {
  <input type="text" required " id="newNameValue">
  <button onclick = "sendNewUserInfo(document.querySelector('#newNameValue').value , 'name','#nameDiv')">send</button>
  `
- alreadychanging = true
+  alreadychanging = true
 }
 
 function groupSettingsView() {
@@ -102,8 +102,8 @@ function GroupSettingsPages(groupName) {
   let div = document.querySelector(`#group${groupObject.groupId}`)
   let groupname = groupObject.name
 
-  if(model.app.currentUserId=== groupObject.adminUserId[0]){
-  div.innerHTML = /*HTML*/`
+  if (model.app.currentUserId === groupObject.adminUserId[0]) {
+    div.innerHTML = /*HTML*/`
                      <p onclick = "leaveGroup('${groupname}')">Forlat</p>
                       <div id = "leaveGroupDiv"></div>
                      <p onclick = "changeGroupMembersView('${groupname}')">Endre</p>
@@ -111,15 +111,15 @@ function GroupSettingsPages(groupName) {
                      <p onclick = "removeGroupDiv('${groupname}')">slett</p>
                       <div id = "removeGroupDiv"></div>
                 `}
-  else{
+  else {
     div.innerHTML = /*HTML*/`
                        <p onclick = "leaveGroup('${groupname}')">Forlat</p>
                         <div id = "leaveGroupDiv"></div>
                   `}
-  }
+}
 
-function leaveGroup(groupName){
- 
+function leaveGroup(groupName) {
+
   const groupObject = model.data.groups.find(groupElement => groupElement.name === groupName)
   currentUser.groupsId = currentUser.groupsId.filter(groupsId => groupsId !== groupObject.groupId)
   groupObject.usersId = groupObject.usersId.filter(usersId => usersId !== currentUser.userId)
@@ -127,19 +127,20 @@ function leaveGroup(groupName){
 
 }
 
-function changeGroupMembersView(groupName){
+function changeGroupMembersView(groupName) {
   const groupObject = model.data.groups.find(groupElement => groupElement.name === groupName)
   let groupMembers = `<ul style = 'list-style: none'>`
-  groupObject.usersId.forEach(element => 
-  {let userInfo = model.data.users.find(user =>user.userId === element)
+  groupObject.usersId.forEach(element => {
+    let userInfo = model.data.users.find(user => user.userId === element)
     if (!userInfo) {
       console.warn(`No user data for ID ${element}`);
       return;
     }
     groupMembers +=/*HTML*/`<li><p>${userInfo.username}</p></li>
-                            <button onclick="removeGroupMember('${groupName}','${userInfo.username}')">X</button>`}
+                            <button onclick="removeGroupMember('${groupName}','${userInfo.username}')">X</button>`
+  }
   );
-  groupMembers +=`</ul>
+  groupMembers += `</ul>
                   <button onclick="addGroupMemberView('${groupName}')">+</button>
                   <div id='newMembername'></div>`
 
@@ -155,9 +156,9 @@ function changeGroupMembersView(groupName){
   updateView()
 }
 
-function addGroupMemberView(groupName){
+function addGroupMemberView(groupName) {
   let div = document.querySelector('#newMembername')
-  div.innerHTML=`
+  div.innerHTML = `
   <input type='text' required id="newMemberUsername">
   <button onclick="addGroupMember('${groupName}')">registere</button>
   `

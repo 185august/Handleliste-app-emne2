@@ -6,7 +6,7 @@ function loginsavepasswordinput(inputpassword) {
 }
 function loginhandler() {
   let errormessage = "";
-
+  let loginsucess;
   for (let i = 0; i < model.data.users.length; i++) {
     if (
       model.data.users[i].username == model.input.loginPage.username &&
@@ -15,10 +15,13 @@ function loginhandler() {
       //loginsuccess
       errormessage = "loginsuccess";
       loginsucess = true;
+      model.app.currentUserId = model.data.users[i].userId;
+      break;
     } else if (
       model.data.users[i].username != model.input.loginPage.username &&
       model.data.users[i].password == model.input.loginPage.password
     ) {
+      console.log(model.data.users[i].username, model.input.loginPage.username)
       errormessage = "feil brukernavn";
       loginsucess = false;
     } else if (
