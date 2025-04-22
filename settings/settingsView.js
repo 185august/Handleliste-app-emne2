@@ -3,7 +3,6 @@
 // let currentUser = currentUserArray.find(Element => Element.userId == model.app.currentUserId)//object
 
 // group instilling 에서 그룹에 그룹삭제빼곤 완성! 
-//근데 새 그룹생성은 어디서하냐...
 
 let alreadychanging = false
 let settingsViewhtml = ''
