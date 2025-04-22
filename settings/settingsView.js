@@ -27,11 +27,10 @@ function settingsView(back = '') {
      <h3>Bruker innstillinger</h3>
      <p onclick="profilView()">Profil</p>
      <p onclick="groupSettingsView()">Grupper</p>
-     <div id = "nameFixInput"></div>
+     <p onclick="logout()">Logg ut</p>
     </div>`
     return html
   }
-
 }
 
 function profilView() {
@@ -118,7 +117,7 @@ function GroupSettingsPages(groupName) {
 }
 
 function leaveGroup(groupName) {
-
+  let currentUser = currentUserArray.find(Element => Element.userId == model.app.currentUserId)
   const groupObject = model.data.groups.find(groupElement => groupElement.name === groupName)
   currentUser.groupsId = currentUser.groupsId.filter(groupsId => groupsId !== groupObject.groupId)
   groupObject.usersId = groupObject.usersId.filter(usersId => usersId !== currentUser.userId)
