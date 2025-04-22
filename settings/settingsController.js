@@ -2,6 +2,16 @@
 // let currentGroup = currentUserArray[model.app.currentUserId].groupsId//groupid array
 // let currentUser = currentUserArray.find(Element => Element.userId == model.app.currentUserId)//object
 
+function logout(){
+  model.app = {
+    currentPage: 'login',
+    previousPage: [],
+    currentUserId: null,
+    currentListPath: null,
+    currentGroupId: null,
+}
+setPage('login')
+}
 
 
 function removeGroupMember(groupName,username){
