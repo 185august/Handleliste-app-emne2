@@ -17,7 +17,7 @@ function addUserToGroup() {
     }
 }
 
-function initializeGroup() {
+/* function initializeGroup() {
     model.data.groups[model.data.groups.length] = {
         groupId: null,
         name: "tempName",
@@ -26,33 +26,45 @@ function initializeGroup() {
         showLists: false,
         lists: []
     };
-}
+} */
 
 
 function createNewGroup() {
+    if (isBlank(model.input.createNewGroup.name)) {
+        alert("Gruppen trenger et navn");
+        return;
+    }
     if (model.data.groups.find(group => group.name.toLowerCase() === model.input.createNewGroup.name.toLowerCase())) {
         alert('navn eksisterer allerede');
         return;
-    } else {
-        const group = model.data.groups[model.data.groups.length - 2];
-
+    }
+    if (!model.input.createNewGroup.usersInGroup.includes(model.app.currentUserId)) {
         model.input.createNewGroup.usersInGroup.push(model.app.currentUserId);
-
-        group.groupId = createNewId(model.data.groups, "groupId");
-        group.name = model.input.createNewGroup.name;
-
-        model.input.createNewGroup.usersInGroup.forEach(user => {
-            group.usersId.push(user);
-
-        }); group.adminUserId.push(model.app.currentUserId);
-
-        model.input.createNewGroup.usersInGroup.forEach(id => {
-            model.data.users.find(obj => obj.userId == id).groupsId.push(group.groupId);
-        });
-        model.input.createNewGroup.name = '';
-        model.input.createNewGroup.username = '';
-        model.input.createNewGroup.usersInGroup = [];
-        goToPreviousPage(-1);
     }
 
+    const newGroup = {
+        groupId: createNewId(model.data.groups, "groupId"),
+        name: model.input.createNewGroup.name,
+        usersId: [...model.input.createNewGroup.usersInGroup],
+        adminUserId: [model.app.currentUserId],
+        showLists: false,
+        lists: []
+    }
+    model.data.groups.push(newGroup)
+
+    model.input.createNewGroup.usersInGroup.forEach(userId => {
+        const user = model.data.users.find(obj => obj.userId == userId);
+        if (user && !user.groupsId.includes(newGroup.groupId)) {
+            user.groupsId.push(newGroup.groupId);
+        }
+    });
+
+    /*  model.input.createNewGroup.usersInGroup.forEach(id => {
+         model.data.users.find(obj => obj.userId == id).groupsId.push(group.groupId);
+     }); */
+    model.input.createNewGroup.name = '';
+    model.input.createNewGroup.username = '';
+    model.input.createNewGroup.usersInGroup = [];
+    goToPreviousPage(-1);
 }
+

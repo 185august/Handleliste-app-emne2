@@ -10,3 +10,10 @@ function addItemFromFavoritesToShoppingList(element) {
     })
     updateView();
 }
+
+function orderFavoriteItemList() {
+    for (let i = 0; i < model.data.users.find(obj => obj.userId == model.app.currentUserId).favoriteItemsList.favoriteItems.length; i++) {
+        const element = array[i];
+
+    }
+}

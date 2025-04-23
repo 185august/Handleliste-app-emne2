@@ -35,4 +35,8 @@ function createNewId(currentPath, idName) {
     }
 }
 
+function isBlank(str) {
+    return !str?.trim();
+}
+
 
