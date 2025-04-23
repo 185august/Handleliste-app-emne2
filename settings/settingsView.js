@@ -106,7 +106,7 @@ function GroupSettingsPages(groupName) {
                       <div id = "leaveGroupDiv"></div>
                      <p onclick = "changeGroupMembersView('${groupname}')">Endre</p>
                       <div id = "changeGroupMembersDiv"></div>
-                     <p onclick = "removeGroupDiv('${groupname}')">slett</p>
+                     <p onclick = "removeGroup('${groupname}')">slett</p>
                       <div id = "removeGroupDiv"></div>
                 `}
   else {
