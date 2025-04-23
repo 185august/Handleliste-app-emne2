@@ -38,10 +38,12 @@ function pushListToLog() {
     model.app.currentListPath.isCompleted = true;
     model.app.currentListPath.date = new Date().toLocaleDateString();
 
-    const userIndex = model.data.users.findIndex(obj => obj.userId === model.app.currentUserId)
-    const listIndex = model.data.users[userIndex].lists.findIndex(obj => obj.listId === model.app.currentListPath.listId)
-    model.data.users[userIndex].log.unshift(model.app.currentListPath);
-    model.data.users[userIndex].lists.splice(listIndex, 1)
+    const user = model.data.users.find(obj => obj.userId === model.app.currentUserId);
+    const listIndex = user.lists.findIndex(obj => obj.listId === model.app.currentListPath.listId);
+    user.log.unshift(model.app.currentListPath);
+
+    //model.data.users[userIndex].log.unshift(model.app.currentListPath);
+    user.lists.splice(listIndex, 1)
     setPage('dashboard');
 }
 

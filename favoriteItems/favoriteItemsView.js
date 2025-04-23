@@ -1,5 +1,4 @@
 function favoriteItemsView() {
-    const currentUser = model.data.users[model.app.currentUserId];
     let html =/*HTML*/ ` 
     <div class="container">
     <h4>Favoritt Varer</h4>
@@ -11,7 +10,7 @@ function favoriteItemsView() {
 }
 
 function renderFavoriteItems() {
-    const currentUser = model.data.users[model.app.currentUserId];
+    const currentUser = model.data.users.find(obj => obj.userId == model.app.currentUserId);
     let html = '';
     currentUser.favoriteItemsList.favoriteItems.forEach(element => {
         html += /*HTML*/`

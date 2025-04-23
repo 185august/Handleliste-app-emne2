@@ -1,11 +1,10 @@
 
 function createList() {
-    // const typeOfList = model.app.previousPage[model.app.previousPage.length -1];
 
     if (model.app.currentPage === 'privateListOverview') {
-        model.data.users.find(element => element.userId == model.app.currentUserId).lists.push(
+        model.data.users.find(obj => obj.userId == model.app.currentUserId).lists.push(
             {
-                listId: createNewId(model.data.users[model.app.currentUserId].lists, 'listId') /* createID(model.data.users.find(element => element.userId == model.app.currentUserId).lists) */,
+                listId: createNewId(model.data.users.find(obj => obj.userId == model.app.currentUserId).lists, 'listId'),
                 listType: model.input.createNewList.typeOfList,
                 isPrivate: true,
                 listName: model.input.createNewList.name,
@@ -13,11 +12,11 @@ function createList() {
                 listItems: []
             },
         )
-        // setPage(model.app.currentPage)
+
     } else if (model.app.currentPage === 'groupsOverview') {
-        model.data.groups.find(element => element.groupId == model.app.currentGroupId).lists.push(
+        model.data.groups.find(obj => obj.groupId == model.app.currentGroupId).lists.push(
             {
-                listId: createNewId(model.data.groups.find(obj => obj.groupId === model.app.currentGroupId).lists, 'listId') /* createID(model.data.groups.find(element => element.groupId == groupIdIndex).lists) */,
+                listId: createNewId(model.data.groups.find(obj => obj.groupId === model.app.currentGroupId).lists, 'listId'),
                 listType: model.input.createNewList.typeOfList,
                 listName: model.input.createNewList.name,
                 usersCanView: model.data.groups.find(element => element.groupId == model.app.currentGroupId).usersId,

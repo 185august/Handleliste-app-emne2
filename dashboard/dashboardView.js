@@ -22,7 +22,7 @@ function lists() {
 function dashboardHeader() {
     let html = /*HTML*/ `
     <div class = "headerbox">
-    <h2>${currentUserArray[model.app.currentUserId].username}</h2>
+    <h2>${currentUserArray.find(obj => obj.userId == model.app.currentUserId).username}</h2>
     <span style="font-size:2.2rem" onclick="setPage('settings')">⚙️</span>
     </div>
     `
@@ -32,8 +32,8 @@ function dashboardHeader() {
 
 
 function dashboardRecentList() {
-    let recentListId = currentUserArray[model.app.currentUserId].recentListId
-    let recentListObject = currentUserArray[model.app.currentUserId].lists.find(Object => Object.listId === recentListId)
+    let recentListId = currentUserArray.find(obj => obj.userId == model.app.currentUserId).recentListId
+    let recentListObject = currentUserArray.find(obj => obj.userId == model.app.currentUserId).lists.find(Object => Object.listId === recentListId)
     let html;
     if (recentListObject == undefined) return html = /*HTML*/ `
     <div id = "recentList" class="dashboardboxes">
@@ -46,7 +46,7 @@ function dashboardRecentList() {
     html = /*HTML*/ `
     <div id = "recentList" class="dashboardboxes" onclick="printPrivateList(${recentListId})">
     <h3>Siste Endret Lister:</h3>
-    <p>${currentUserArray[model.app.currentUserId].lists[recentListId].listName}</p>
+    <p>${currentUserArray.find(obj => obj.userId == model.app.currentUserId).lists.find(obj => obj.listId === recentListId).listName}</p>
     <div class = "lists">
     ${recentList}
     </div>
@@ -62,7 +62,7 @@ function dashboardPrivateList() {
     <h3>Private Lister:</h3>
     <ol id = privatelists>`
 
-    let privateListArray = currentUserArray[model.app.currentUserId].lists
+    let privateListArray = currentUserArray.find(obj => obj.userId == model.app.currentUserId).lists
 
     privateListArray.forEach(element => {
         nameList += `<li>${element.listName}</li>`
@@ -74,7 +74,7 @@ function dashboardPrivateList() {
 
 function dashboardGroupList() {
     let currentGroups = []
-    currentUserArray[model.app.currentUserId].groupsId.forEach(element => {
+    currentUserArray.find(obj => obj.userId == model.app.currentUserId).groupsId.forEach(element => {
         const groupObjects = model.data.groups.find(groupElement => groupElement.groupId === element)
         if (groupObjects) { currentGroups.push(groupObjects) }
     })

@@ -1,8 +1,8 @@
 function renderLogItems(listId) {
     let listItemsHtml = '';
-    const itemIndex = model.data.users[model.app.currentUserId].log.findIndex(obj => obj.listId === listId)
-    model.data.users[model.app.currentUserId].log[itemIndex].listItems.forEach(item => {
-        listItemsHtml += /*HTML*/ ` 
+    const itemIndex = model.data.users.find(obj => obj.userId == model.app.currentUserId).log.find
+        (obj => obj.listId === listId).listItems.forEach(item => {
+            listItemsHtml += /*HTML*/ ` 
             <div id="listItem${item.itemId}" class="${item.hasBeenBought ? 'list-bought' : 'list'}">
                 <div class="list-item">Vare: ${item.name} </div>
                 ${item.amount ? `<div class="list-amount">Antall: ${item.amount} </div>` : ''}
@@ -10,13 +10,13 @@ function renderLogItems(listId) {
                 ${item.whoIsTheRecipient ? `<div class="list-recipient">Til: ${item.whoIsTheRecipient}</div>` : ''}
                 </div > 
                 `
-    });
+        });
     return listItemsHtml;
 }
 
 function deleteListFromLog(logId) {
-    const userLog = model.data.users[model.app.currentUserId].log
-    const logIndex = userLog.findIndex(obj => obj.listId === logId)
-    userLog.splice(logIndex, 1)
+    const user = model.data.users.find(obj => obj.userId == model.app.currentUserId);
+    const logIndex = user.log.findIndex(obj => obj.listId == logId);
+    user.log.splice(logIndex, 1)
     updateView();
 }

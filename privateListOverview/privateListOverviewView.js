@@ -1,8 +1,8 @@
 function privateListOverviewView() {
 
     let privateList = '<button onclick="goToPreviousPage(-1)"> <- </button> <button onclick="goToDashboardPage()">Dasboard</button>';
-    model.data.users[model.app.currentUserId].lists.forEach(list => {
-        privateList += /*HTML*/`<div onclick="printPrivateList(${list.listId})">
+    model.data.users.find(obj => obj.userId == model.app.currentUserId).lists.forEach(list => {
+        privateList += /*HTML*/`<div onclick="printPrivateList('${list.listType}', ${list.listId})">
     <p>
     <h1>${list.listName}</h1>
     </p>
@@ -13,10 +13,16 @@ function privateListOverviewView() {
     ${createNewListView()}`
     return privateList;
 }
-function printPrivateList(id) {
-    const listIndex = model.data.users[model.app.currentUserId].lists.findIndex(obj => obj.listId === id)
-    const list = model.data.users[model.app.currentUserId].lists[listIndex]
-    if (list.listType == 'shoppingList') {
+
+function printPrivateList(listType, listId) {
+    const user = model.data.users.find(obj => obj.userId == model.app.currentUserId)
+    console.log(user);
+    const list = user.lists.find(obj => obj.listId == listId)
+    if (!list) {
+        console.error("list not found");
+        return;
+    }
+    if (listType == 'shoppingList') {
         model.app.currentListPath = list
         setPage('shoppingList');
     } else {

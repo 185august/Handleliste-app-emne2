@@ -1,5 +1,5 @@
 function toggleGroupLists(whatGroup) {
-    model.data.groups[whatGroup].showLists = !model.data.groups[whatGroup].showLists
+    model.data.groups.find(obj => obj.groupId === whatGroup).showLists = !model.data.groups.find(obj => obj.groupId === whatGroup).showLists
     updateView();
 };
 

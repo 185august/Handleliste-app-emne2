@@ -34,14 +34,17 @@ function createNewGroup() {
         alert('navn eksisterer allerede');
         return;
     } else {
-        const group = model.data.groups[model.data.groups.length - 1];
+        const group = model.data.groups[model.data.groups.length - 2];
 
         model.input.createNewGroup.usersInGroup.push(model.app.currentUserId);
 
         group.groupId = createNewId(model.data.groups, "groupId");
         group.name = model.input.createNewGroup.name;
-        group.usersId.push(model.input.createNewGroup.usersInGroup);
-        group.adminUserId.push(model.app.currentUserId);
+
+        model.input.createNewGroup.usersInGroup.forEach(user => {
+            group.usersId.push(user);
+
+        }); group.adminUserId.push(model.app.currentUserId);
 
         model.input.createNewGroup.usersInGroup.forEach(id => {
             model.data.users.find(obj => obj.userId == id).groupsId.push(group.groupId);

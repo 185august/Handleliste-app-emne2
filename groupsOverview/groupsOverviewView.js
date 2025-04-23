@@ -3,7 +3,7 @@ function groupsOverviewView() {
     let html = `<button onclick="goToPreviousPage(-1)"> <- </button> <button onclick="goToDashboardPage()">Dasboard</button>
     <button onclick="setPage('createNewGroup')">Lag en ny gruppe</button>`
 
-    model.data.users[model.app.currentUserId].groupsId.forEach(id => {
+    model.data.users.find(obj => obj.userId == model.app.currentUserId).groupsId.forEach(id => {
 
         const group = model.data.groups.find(groupElement => groupElement.groupId === id)
         html += /*HTML*/
@@ -39,6 +39,7 @@ function printGroupList(groupId) {
     groupListView();
     updateView();
 };
+
 function groupListView() {
     if (model.app.currentGroupId === null || model.app.currentGroupId <= -1) return '';
     let html = '';
@@ -61,10 +62,11 @@ function groupListView() {
     return html
 }
 
-function toTheListPage(element, listId, groupId) {
+function toTheListPage(listType, listId, groupId) {
     const path = model.data.groups.find(obj => obj.groupId == groupId).lists.find(obj => obj.listId === listId)
-    if (element == 'shoppingList') {
+    if (listType == 'shoppingList') {
         model.app.currentListPath = path;
+        //model.data.users.find(obj => obj.userId === model.app.currentUserId);
         setPage('shoppingList');
     } else {
         model.app.currentListPath = path;
