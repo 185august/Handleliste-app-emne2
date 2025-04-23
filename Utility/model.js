@@ -60,7 +60,10 @@ const model = {
                     username: 'bruker1',
                     password: 'passord',
                     groupsId: [0, 1],
-                    recentListId: 0,
+                    recentList: {
+                        type: 'shoppingList',
+                        id: 0
+                    },
                     rememberMe: false,
                     lists:
                         [
@@ -173,7 +176,10 @@ const model = {
                     username: 'bruker2',
                     password: 'passord',
                     groupsId: [0, 1],
-                    recentListId: 0,
+                    recentList: {
+                        type: '',
+                        id: null
+                    },
                     rememberMe: false,
                     lists:
                         [
@@ -286,7 +292,10 @@ const model = {
                     username: 'Jens nordmann',
                     password: 'passord',
                     groupsId: [0, 1],
-                    recentListId: 0,
+                    recentList: {
+                        type: '',
+                        id: null
+                    },
                     rememberMe: false,
                     lists:
                         [

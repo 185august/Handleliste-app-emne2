@@ -12,7 +12,7 @@ function shoppingListView() {
    
     </div>
     <div class="show-input-button"><button  onclick="toggleInput()"> ${showAddNewItemInput ? '-' : '+'} </button> ${renderAddItemsToList()}</div>
-    ${model.app.previousPage.includes('privateListOverview') ? favoriteItemsView() : ''}
+    ${model.app.previousPage.includes('groupListOverview') ? '' : favoriteItemsView()}
     `
     return html;
 };
