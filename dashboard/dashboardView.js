@@ -83,7 +83,7 @@ function dashboardGroupList() {
     let groupListName = /*HTML*/ `
     <div class = "dashboardboxes" onclick="setPage('groupsOverview')">
     <h3>Group Lister</h3>
-        <ol id = grouplists>`
+    <ol id = grouplists>`
 
     currentGroups.forEach(element => {
         groupListName += `<li>${element.name}</li>`
