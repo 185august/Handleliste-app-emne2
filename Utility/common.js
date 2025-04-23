@@ -10,6 +10,8 @@ function goToPreviousPage(delta) {
         model.app.currentPage = model.app.previousPage.pop();
         setPage(model.app.currentPage)
     }
+    if (model.app.currentPage == "dashboard")
+        model.app.previousPage = [];
     updateView();
 }
 

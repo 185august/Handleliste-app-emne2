@@ -74,7 +74,7 @@ function changeNameSector() {
 
 function groupSettingsView() {
   let currentGroups = []
-  currentUserArray[model.app.currentUserId].groupsId.forEach(element => {
+  currentUserArray.find(obj => obj.userId == model.app.currentUserId).groupsId.forEach(element => {
     const groupObjects = model.data.groups.find(groupElement => groupElement.groupId === element)
     if (groupObjects) { currentGroups.push(groupObjects) }
   })
