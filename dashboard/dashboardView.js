@@ -45,7 +45,7 @@ function dashboardRecentList() {
 
     html = /*HTML*/ `
     <div id = "recentList" class="dashboardboxes" onclick="printPrivateList('${currentUserArray.find(obj => obj.userId == model.app.currentUserId).recentList.type}',${recentListId})">
-    <h3>Siste Endret Lister:</h3>
+    <h3>Siste Endret Lister</h3>
     <p>${currentUserArray.find(obj => obj.userId == model.app.currentUserId).lists.find(obj => obj.listId === recentListId).listName}</p>
     <div class = "lists">
     ${recentList}
