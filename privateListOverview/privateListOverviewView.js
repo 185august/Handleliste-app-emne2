@@ -16,13 +16,17 @@ function privateListOverviewView() {
 
 function printPrivateList(listType, listId) {
     const user = model.data.users.find(obj => obj.userId == model.app.currentUserId)
-    console.log(user);
+    user.recentList = {
+        type: listType,
+        id: listId
+    };
     const list = user.lists.find(obj => obj.listId == listId)
     if (!list) {
         console.error("list not found");
         return;
     }
     if (listType == 'shoppingList') {
+
         model.app.currentListPath = list
         setPage('shoppingList');
     } else {
