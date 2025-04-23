@@ -1,7 +1,7 @@
 function logListView() {
     model.app.currentListPath = model.data.users.find(obj => obj.userId == model.app.currentUserId).log
     let html =/*HTML*/ ` 
-    <button onclick="goToPreviousPage(-1)"> <- </button>
+    <button  class ="previousPageButton" onclick="goToPreviousPage(-1)"></button>
     <div class="container">
     <h1>Log Liste</h1>
     <br>

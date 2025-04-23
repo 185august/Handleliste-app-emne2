@@ -1,8 +1,9 @@
-body {
+html, body {
   width: 100%;
-  margin: 0 auto;
+  margin: 0;
   height: 100%;
-  background-color: black;
+  padding: 0;
+  background-color: rgb(255, 255, 255);
 }
 .headerbox {
   display: flex;
@@ -12,26 +13,63 @@ body {
   align-items: center;
 }
 
+input{
+  border: 0;
+  border-radius: 1em;
+  padding: 0.5em;
+  background-color: rgba(173, 173, 173, 0.192);
+  margin: 3px;
+}
+
+select{
+  border: none;
+  background-color: rgba(173, 173, 173, 0.192);
+  padding: 0.5em;
+}
+
+button{
+  border :0;
+  padding: 0.5em;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  box-shadow: none;
+}
+.previousPageButton{
+  width: 2em;
+  height: 2em;
+  background-image: url("data:image/webp;base64,UklGRrIBAABXRUJQVlA4IKYBAAAwCwCdASpAAEAAPm0wk0akIyGhKBgMqIANiWkAFcAaJofQxAjgVwEqCGF+K/6k9gXyZvXJ+t3sS/sAf9BK6lpN/Ix737k/47z/MKmkDNzIRXUY9zKaJ2BeVNpky2R6WD6+AAD+/PQRw5lddp/76Qjz6dEC2iZimceWPmriM8OxNrtcVUcTv1x7COCbEzv9fCGBrpj+VE2icgZUwBXtHMmdg1zEZffXqYiXwlpJ/pqSTGit5SE+u13HxFes8sIy8y76RgmCjBrWmO1J/VFdD05t+x3Dw7YzCMhRGC5VfIADUj63wKwJG+tAwpb//REFytJ3ptgY+j1nBmUOg7CAp5kKrFhBcKCXaaMVnitquninWTM7kQUdsrOeAzitnUG2k0DdRAozHFsi3JdWrjD2DpDXMc3F1i8GSLyI78GVEAIeGtXzxP8gq/yAgagy5qCckcWlP3IlOnZQBsVKQOgrC3jAQNaDFOmO+GZ+PdREj8+tYXFYPTa6V/rQgs3NKFfrB37IY8r56N0dGT43L+7jJJLcvtSgSZDiBHRAeoY8uPLLA53YrYAAAA==");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 0%;
+  background-color: rgb(255, 255, 255);
+}
+
+
 .dashboardboxes {
-  border: 1px rgb(223, 221, 221) solid;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.329);
+  border: 1px rgba(207, 205, 205, 0.445) solid;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.329);
   width: 100%;
-  height: 300px;
+  height: 40vh;
   max-height: 30%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
   margin: 10px auto;
   box-sizing: border-box;
   padding: 1rem;
 }
-
+.lists{
+  overflow-y: auto;
+}
 #app {
-  background-color: rgb(187, 184, 184);
-  width: 90%;
+  background-color: rgb(255, 255, 255);
+  width: 100%; 
   height: 100vh;
   max-width: 500px;
-  margin: 0 auto;
+  margin: auto;
   padding: 1rem;
+  box-sizing: border-box;
+  font-family:Arial, Helvetica, sans-serif; 
 }
+

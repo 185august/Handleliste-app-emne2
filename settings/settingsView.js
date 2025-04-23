@@ -22,7 +22,7 @@ function settingsView(back = '') {
   if (!settingsViewhtml) {
     let html = /*HTML*/`
   <div class = "page" id = "settingsApp">
-  <button  onclick="goToPreviousPage(-1)"><b><</b></button>
+  <button  class ="previousPageButton" onclick="goToPreviousPage(-1)"></button>
     <div style = "text-align: center;">
      <h3>Bruker innstillinger</h3>
      <p onclick="profilView()">Profil</p>
@@ -37,7 +37,7 @@ function profilView() {
 
   let html = /*HTML*/`
   <div class = "page">
-  <button  onclick="settingsView('back'); updateView()"><b><</b></button>
+  <button class ="previousPageButton" onclick="settingsView('back'); updateView()"><b></b></button>
     <div style = "text-align: center;">
      <h3>Profil</h3>
      <p onclick = "changeNameSector('nameDiv')">Endre navn</p>
@@ -86,7 +86,7 @@ function groupSettingsView() {
   groupListName += `</ul>`
   let html = /*HTML*/`
   <div class = "page">
-  <button  onclick="settingsView('back'); updateView()"><b><</b></button>
+  <button class ="previousPageButton" onclick="settingsView('back'); updateView()"></button>
     <div style = "text-align: center;">
      <h3>Gruppe innstillinger</h3>
      ${groupListName}

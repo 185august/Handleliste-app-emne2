@@ -1,6 +1,6 @@
 function groupsOverviewView() {
 
-    let html = `<button onclick="goToPreviousPage(-1)"> <- </button> <button onclick="goToDashboardPage()">Dasboard</button>
+    let html = `<button class ="previousPageButton" onclick="goToPreviousPage(-1)"></button> <button onclick="goToDashboardPage()">Dasboard</button>
     <button onclick="setPage('createNewGroup')">Lag en ny gruppe</button>`
 
     model.data.users.find(obj => obj.userId == model.app.currentUserId).groupsId.forEach(id => {

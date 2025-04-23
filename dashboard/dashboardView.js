@@ -37,19 +37,20 @@ function dashboardRecentList() {
     let html;
     if (recentListObject == undefined) return html = /*HTML*/ `
     <div id = "recentList" class="dashboardboxes">
-    <h3>Siste Endret Lister:</h3>
-    <p>Ingen sist endret liste</p>
+    <h3>Siste Endret Lister</h3>
+    <p>Ingen siste endret liste</p>
     </div>`
 
     const recentList = generateList(recentListObject.listItems)
 
     html = /*HTML*/ `
     <div id = "recentList" class="dashboardboxes" onclick="printPrivateList(${recentListId})">
-    <h3>Siste Endret Lister:</h3>
-    <p>${currentUserArray.find(obj => obj.userId == model.app.currentUserId).lists.find(obj => obj.listId === recentListId).listName}</p>
+    <h3>Siste Endret Lister</h3>
+    <p>${currentUserArray[model.app.currentUserId].lists[recentListId].listName}</p>
     <div class = "lists">
     ${recentList}
     </div>
+    <div style = "height:1rem"></div>
     </div>`
     return html
 }
@@ -59,7 +60,7 @@ function dashboardRecentList() {
 function dashboardPrivateList() {
     let nameList = /*HTML*/ `
     <div class = "dashboardboxes" onclick="setPage('privateListOverview')">
-    <h3>Private Lister:</h3>
+    <h3>Private Lister</h3>
     <ol id = privatelists>`
 
     let privateListArray = currentUserArray.find(obj => obj.userId == model.app.currentUserId).lists
@@ -81,7 +82,7 @@ function dashboardGroupList() {
 
     let groupListName = /*HTML*/ `
     <div class = "dashboardboxes" onclick="setPage('groupsOverview')">
-    <h3>Group Lister:</h3>
+    <h3>Group Lister</h3>
         <ol id = grouplists>`
 
     currentGroups.forEach(element => {
