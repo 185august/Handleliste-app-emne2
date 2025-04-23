@@ -31,7 +31,7 @@ function addGroupMember(groupName){
   return}// 값 없을 시 입력하시오 출력
 
  let newUser = model.data.users.find(user => user.username === newUsername)// 멤버로 새로 추가할 멤버 오브젝트
-
+if(!newUser){ alert('User eksisterer ikke')}
  const groupObject = model.data.groups.find(groupElement => groupElement.name === groupName)
 
  if(groupObject.usersId.some(id=>id===newUser.userId)) return// 이미존재하면 추가안하기
