@@ -66,7 +66,13 @@ function sendNewUserInfo(data, type, divId) {
 }
 
 function removeGroup(groupName) {
-  const groupObject = model.data.groups.find(groupElement => groupElement.name === groupName) //해당 그룹 오브젝트
+   const groupObject = model.data.groups.find(groupElement => groupElement.name === groupName)  //해당 그룹 오브젝트
+  groupObject.usersId.forEach(id => 
+    {let member = model.data.users.find(user => user.userId === id)
+     member.groupsId =  member.groupsId.filter(groupid => groupid !== groupObject.groupId)
+    }
+)
   model.data.groups = model.data.groups.filter(group => group !== groupObject)
+
   groupSettingsView()
 }

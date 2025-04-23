@@ -37,7 +37,7 @@ function profilView() {
 
   let html = /*HTML*/`
   <div class = "page">
-  <button class ="previousPageButton" onclick="settingsView('back'); updateView()"><b></b></button>
+  <button class ="previousPageButton" onclick="settingsView('back'); updateView()"></button>
     <div style = "text-align: center;">
      <h3>Profil</h3>
      <p onclick = "changeNameSector('nameDiv')">Endre navn</p>
@@ -78,7 +78,7 @@ function groupSettingsView() {
     const groupObjects = model.data.groups.find(groupElement => groupElement.groupId === element)
     if (groupObjects) { currentGroups.push(groupObjects) }
   })
-  let groupListName = `<ul style = 'list-style: none'>`
+  let groupListName = `<ul style = 'list-style: none; padding: 0'>`
   currentGroups.forEach(element => {
     groupListName += `<li onclick="GroupSettingsPages('${element.name}')"><h4>${element.name}</h4></li>
                          <div id="group${element.groupId}"></div>`//해당함수랑이름전달
@@ -127,7 +127,7 @@ function leaveGroup(groupName) {
 
 function changeGroupMembersView(groupName) {
   const groupObject = model.data.groups.find(groupElement => groupElement.name === groupName)
-  let groupMembers = `<ul style = 'list-style: none'>`
+  let groupMembers = `<ul style = 'list-style: none; padding : 0'>`
   groupObject.usersId.forEach(element => {
     let userInfo = model.data.users.find(user => user.userId === element)
     if (!userInfo) {
@@ -145,7 +145,7 @@ function changeGroupMembersView(groupName) {
 
   let html = /*HTML*/`
   <div class = "page">
-  <button  onclick="groupSettingsView()"><b><</b></button>
+  <button class ="previousPageButton" onclick="groupSettingsView()"></button>
     <div style = "text-align: center;">
      <h3>${groupName}</h3>
      ${groupMembers}

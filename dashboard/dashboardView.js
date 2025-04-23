@@ -61,7 +61,7 @@ function dashboardPrivateList() {
     let nameList = /*HTML*/ `
     <div class = "dashboardboxes" onclick="setPage('privateListOverview')">
     <h3>Private Lister</h3>
-    <ol id = privatelists>`
+    <ol style = 'padding: 0 0 0 1.2em; text-align: center' id = privatelists>`
 
     let privateListArray = currentUserArray.find(obj => obj.userId == model.app.currentUserId).lists
 
@@ -83,7 +83,7 @@ function dashboardGroupList() {
     let groupListName = /*HTML*/ `
     <div class = "dashboardboxes" onclick="setPage('groupsOverview')">
     <h3>Group Lister</h3>
-    <ol id = grouplists>`
+    <ol style = 'text-align: center; padding: 0 0 0 1.2em'id = grouplists>`
 
     currentGroups.forEach(element => {
         groupListName += `<li>${element.name}</li>`
