@@ -1,6 +1,13 @@
 
 function createList() {
-
+    if (isBlank(model.input.createNewList.name)) {
+        alert("listen må ha et navn");
+        return;
+    }
+    if (isBlank(model.input.createNewList.typeOfList)) {
+        alert("Du må velge hvilken type listen skal være")
+        return;
+    }
     if (model.app.currentPage === 'privateListOverview') {
         model.data.users.find(obj => obj.userId == model.app.currentUserId).lists.push(
             {

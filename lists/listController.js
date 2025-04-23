@@ -1,5 +1,14 @@
 function addItemToList(typeOfList) {
     //const currentUser = model.data.users[model.app.currentUserId]
+    if (isBlank(typeOfList.name)) {
+        alert("Varen må ha et navn");
+        return;
+    }
+    if (isBlank(typeOfList.amount)) {
+        typeOfList.amount = 1;
+    }
+
+
     model.app.currentListPath.listItems.push({
         itemId: createNewId(model.app.currentListPath.listItems, 'itemId'),
         name: typeOfList.name,
@@ -71,6 +80,7 @@ function pushListToLog() {
     user.log.unshift(model.app.currentListPath);
     //model.data.users[userIndex].log.unshift(model.app.currentListPath);
     user.lists.splice(listIndex, 1)
+    orderFavoriteItemList();
     setPage('dashboard');
 }
 

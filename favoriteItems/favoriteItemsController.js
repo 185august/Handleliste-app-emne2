@@ -12,8 +12,9 @@ function addItemFromFavoritesToShoppingList(element) {
 }
 
 function orderFavoriteItemList() {
-    for (let i = 0; i < model.data.users.find(obj => obj.userId == model.app.currentUserId).favoriteItemsList.favoriteItems.length; i++) {
-        const element = array[i];
-
+    const favList = model.data.users.find(obj => obj.userId == model.app.currentUserId).favoriteItemsList.favoriteItems
+    favList.sort((a, b) => b.amountRecentlyBought - a.amountRecentlyBought)
+    for (let i = 0; i < favList.length; i++) {
+        favList[i].rank = (i + 1);
     }
 }
