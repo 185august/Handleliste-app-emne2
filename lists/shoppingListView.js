@@ -2,8 +2,8 @@ let showAddNewItemInput = false;
 
 function shoppingListView() {
     let html =/*HTML*/ `
-    <button  class ="previousPageButton" onclick="goToPreviousPage(-1)"></button><button onclick="goToDashboardPage()">Dasboard</button>
-    ${model.app.previousPage.includes('privateListOverview') ? `<button onclick="pushListToLog()">Legg liste til i log</button>` : ''}
+    <button onclick="goToPreviousPage(-1)"> <- </button><button onclick="goToDashboardPage()">Dasboard</button>
+    ${model.app.previousPage.includes('groupOverview') ? `` : `<button onclick="pushListToLog()">Legg liste til i log</button>`}
     <div class="container">
     <h1>${model.app.currentListPath.listName}</h1>
     <br>
@@ -12,7 +12,7 @@ function shoppingListView() {
    
     </div>
     <div class="show-input-button"><button  onclick="toggleInput()"> ${showAddNewItemInput ? '-' : '+'} </button> ${renderAddItemsToList()}</div>
-    ${model.app.previousPage.includes('groupListOverview') ? '' : favoriteItemsView()}
+    ${model.app.previousPage.includes('groupsOverview') ? '' : favoriteItemsView()}
     `
     return html;
 };
