@@ -116,17 +116,11 @@ function GroupSettingsPages(groupName) {
                   `}
 }
 
-function leaveGroup(groupName) {
-  let currentUser = currentUserArray.find(Element => Element.userId == model.app.currentUserId)
-  const groupObject = model.data.groups.find(groupElement => groupElement.name === groupName)
-  currentUser.groupsId = currentUser.groupsId.filter(groupsId => groupsId !== groupObject.groupId)
-  groupObject.usersId = groupObject.usersId.filter(usersId => usersId !== currentUser.userId)
-  groupSettingsView()
-
-}
 
 function changeGroupMembersView(groupName) {
+ 
   const groupObject = model.data.groups.find(groupElement => groupElement.name === groupName)
+   if(!groupObject) return
   let groupMembers = `<ul style = 'list-style: none; padding : 0'>`
   groupObject.usersId.forEach(element => {
     let userInfo = model.data.users.find(user => user.userId === element)
@@ -152,6 +146,7 @@ function changeGroupMembersView(groupName) {
   `
   settingsViewhtml = html
   updateView()
+  
 }
 
 function addGroupMemberView(groupName) {
@@ -160,4 +155,5 @@ function addGroupMemberView(groupName) {
   <input type='text' required id="newMemberUsername">
   <button onclick="addGroupMember('${groupName}')">registere</button>
   `
+ 
 }

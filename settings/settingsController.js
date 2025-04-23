@@ -17,7 +17,13 @@ function logout() {
 function removeGroupMember(groupName, username) {
   const groupObject = model.data.groups.find(groupElement => groupElement.name === groupName) //해당 그룹 오브젝트
   const userToRemove = model.data.users.find(user => user.username === username) // 그룹에서 삭제할 유저 오브젝트
-
+  
+  if(groupObject.adminUserId.includes(userToRemove.userId)){
+    console.log('admin')
+    if(groupObject.usersId.length>=2)
+    groupObject.adminUserId[0] = groupObject.usersId.filter(id => id !== userToRemove.userId)[0]
+    else{removeGroup(groupName)}
+  }
   userToRemove.groupsId = userToRemove.groupsId.filter(groupsId => groupsId !== groupObject.groupId)
   groupObject.usersId = groupObject.usersId.filter(usersId => usersId !== userToRemove.userId)
   changeGroupMembersView(groupName)
@@ -39,7 +45,8 @@ function addGroupMember(groupName) {
 
   newUser.groupsId.push(groupObject.groupId)
   groupObject.usersId.push(newUser.userId)
-
+  changeGroupMembersView(groupName)
+  
 }
 
 function sendNewUserInfo(data, type, divId) {
@@ -63,6 +70,20 @@ function sendNewUserInfo(data, type, divId) {
   }
 
   alreadychanging = false
+}
+function leaveGroup(groupName) {
+  let currentUser = currentUserArray.find(Element => Element.userId == model.app.currentUserId)
+  const groupObject = model.data.groups.find(groupElement => groupElement.name === groupName)
+  if(groupObject.adminUserId.includes(userToRemove.userId)){
+    console.log('admin')
+    if(groupObject.usersId.length>=2)
+    groupObject.adminUserId[0] = groupObject.usersId.filter(id => id !== currentUser.userId)[0]
+    else{removeGroup(groupName)}
+  }
+  currentUser.groupsId = currentUser.groupsId.filter(groupsId => groupsId !== groupObject.groupId)
+  groupObject.usersId = groupObject.usersId.filter(usersId => usersId !== currentUser.userId)
+  groupSettingsView()
+
 }
 
 function removeGroup(groupName) {
