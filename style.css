@@ -37,8 +37,8 @@ button {
   box-shadow: none;
 }
 .previousPageButton {
-  width: 2em;
-  height: 2em;
+  width: 2rem;
+  height: 2rem;
   background-size: contain;
   background-image: url("data:image/webp;base64,UklGRrIBAABXRUJQVlA4IKYBAAAwCwCdASpAAEAAPm0wk0akIyGhKBgMqIANiWkAFcAaJofQxAjgVwEqCGF+K/6k9gXyZvXJ+t3sS/sAf9BK6lpN/Ix737k/47z/MKmkDNzIRXUY9zKaJ2BeVNpky2R6WD6+AAD+/PQRw5lddp/76Qjz6dEC2iZimceWPmriM8OxNrtcVUcTv1x7COCbEzv9fCGBrpj+VE2icgZUwBXtHMmdg1zEZffXqYiXwlpJ/pqSTGit5SE+u13HxFes8sIy8y76RgmCjBrWmO1J/VFdD05t+x3Dw7YzCMhRGC5VfIADUj63wKwJG+tAwpb//REFytJ3ptgY+j1nBmUOg7CAp5kKrFhBcKCXaaMVnitquninWTM7kQUdsrOeAzitnUG2k0DdRAozHFsi3JdWrjD2DpDXMc3F1i8GSLyI78GVEAIeGtXzxP8gq/yAgagy5qCckcWlP3IlOnZQBsVKQOgrC3jAQNaDFOmO+GZ+PdREj8+tYXFYPTa6V/rQgs3NKFfrB37IY8r56N0dGT43L+7jJJLcvtSgSZDiBHRAeoY8uPLLA53YrYAAAA==");
   background-repeat: no-repeat;
@@ -47,8 +47,8 @@ button {
 }
 
 .home {
-  width: 2em;
-  height: 2em;
+  width: 2rem;
+  height: 2rem;
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAADBklEQVR4nO2UT4hWZRTGf89z7yhTBJWkGY6i0S6UoEhdRGTQrkVQFG1aRDUR9geDFkWBtHBhwmwqkRgXgYugnQhhG6lV2vRHnBkQJ9KZskQaU3Tm3ntafO+Hl8/v+5o7mhH5wLt4n/ec8zzvufe8cAM38B/HfcD6f0P4Dkmjks7anpb0AXDr9RLfJGnM9knbw7a32p6UdADY8E+LvyzpjO2v8jzf1CazLHvY9iHbR4FnEv2spL2SRm2/BSy9GuFlqeV/SvoIWNElZpWkPbanJO1MXZqyfdz2MWDdYsUflHTE9rTtF4Es8fdI2i1pBFiTuCW2X7U9YXvS9hHb39r+Brh7MeIvSfrd9td5nm+u8Y9LmrR9yvZxSYeALe3DLMsesX3Q9jHbY8nA2ibCt0v6JLV8N3Bn4geAdyWdtj1u+3C65Q+2j9reyuUOrU6fZML2GHDvQsUfkHTY9ozt4VrBIUmfS/rN9ne19rbXWJqGuuEltl+3/aPtL4CNnWLu2L8gab+kedtPVlX1IVACjyb+fkk/AxWgjtwAzkt6SNKnwGZgrqqqXZJeAwZtjwLP1ZPaRZZJ2gE8DeyLiHeAmWTwDUnbJM0C57qY7oaBZHKkqqo9iVuTZdl7EbElIvZFxPvAH20DT9keAbZXVfUxUAAr0gv3mKQZYL7LrfvBwGBE7I+I7cAZYKntV2h1ergsyy/bBW8ClgNTaT8k6TNJQ8AvDYU7cXNEjEfE88DpxK0FpoFL7XZeqIlDa8bvugbiABckrQNW1rgTwCWAvEdSBVzsI66O3IrWz9oLRYq5Ar0M9IOT2LikOYCIuA1YlYQaoakBAfOS3i7L8mBN8BZJb0p6AphrUnAhI1XHQER8X5blAVpTEWnNRsRemk9KYwMCzvc4K5qKL8ZA20Qv/roYuKboZ+Bq539BtXoZ+InWu7+YMe1EDswCvzYxcALYSeuFHEhF2ivrkaOOuDzlnpO0i8vP8BVJ/bA6z/OVtEYNwEVRnAUmusQO5nm+vhYLoKIoTgKn/kbnf4y/AMyD1Dek8/c9AAAAAElFTkSuQmCC");
   background-size: contain;
   background-repeat: no-repeat;
@@ -60,9 +60,10 @@ button {
   transform: translateX(-50%);
 }
 
-.plus, .erase {
-  width: 2em;
-  height: 2em;
+.plus, .erase, .groupsettingButton {
+  padding: 0;
+  width: 2rem;
+  height: 2rem;
   background-color: rgb(255, 255, 255);
 }
 
@@ -94,4 +95,5 @@ button {
   padding: 1rem;
   box-sizing: border-box;
   font-family: "Pretendard Variable", sans-serif;
+  position: relative;
 }

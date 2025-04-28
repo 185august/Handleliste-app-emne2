@@ -1,18 +1,26 @@
 function groupsOverviewView() {
 
-    let html = `<button class ="previousPageButton" onclick="goToPreviousPage(-1)"></button> <button class ="home" onclick="goToDashboardPage()"></button>
-    <button onclick="setPage('createNewGroup')">Lag en ny gruppe</button>`
+    let html = `<div class="headerbox">
+      <button class ="previousPageButton" onclick="goToPreviousPage(-1)"></button>
+      <button class = "groupsettingButton" style = "padding:0; font-size: 1.6rem; text-align: center;padding-block:0" 
+      onclick="groupSettingsView(); setPage('settings')">⚙️</button>
+     </div>
+    <button class ="home" onclick="goToDashboardPage()"></button>
+   `
 
     model.data.users.find(obj => obj.userId == model.app.currentUserId).groupsId.forEach(id => {
 
         const group = model.data.groups.find(groupElement => groupElement.groupId === id)
         html += /*HTML*/
             `
+            <div style="text-align: center" id="divforstyle">
         <div ${group.showLists ? '' : `onclick="printGroupList(${group.groupId})"`}>
-            <h1 ${group.showLists ? `onclick="toggleGroupLists(${group.groupId})"` : ''}>${group.name}</h1>
+            <h2 ${group.showLists ? `onclick="toggleGroupLists(${group.groupId})"` : ''}>${group.name}</h2>
             ${group.showLists ? `<div id ="namelists${id}">${groupListView() ?? ''}</div>` : ''}
-        </div>`
+        </div>
+            <div>`
     });
+        html +=`<button class = "plus" onclick="setPage('createNewGroup')">✚</button>`
     return html
 }
 

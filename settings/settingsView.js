@@ -28,6 +28,7 @@ function settingsView(back = '') {
      <p onclick="profilView()">Profil</p>
      <p onclick="groupSettingsView()">Grupper</p>
      <p onclick="logout()">Logg ut</p>
+     <p onclick="">Favoritt Item's Liste</p>
     </div>
     <button class ="home" onclick="goToDashboardPage()"></button>`
     return html
@@ -87,7 +88,7 @@ function groupSettingsView() {
   groupListName += `</ul>`
   let html = /*HTML*/`
   <div class = "page">
-  <button class ="previousPageButton" onclick="settingsView('back'); updateView()"></button>
+  <button class ="previousPageButton" onclick="specialBackspaceButton()"></button>
     <div style = "text-align: center;">
      <h3>Gruppe innstillinger</h3>
      ${groupListName}
@@ -96,6 +97,16 @@ function groupSettingsView() {
   `
   settingsViewhtml = html
   updateView()
+}
+function specialBackspaceButton(){
+  if(model.app.previousPage[model.app.previousPage.length-2]==='groupsOverview'){
+    setPage('groupsOverview') 
+    updateView()
+    console.log(model.app.previousPage)
+    model.app.previousPage.splice(model.app.previousPage.length-3,2)
+    return
+  }
+  settingsView('back'); updateView()
 }
 
 function GroupSettingsPages(groupName) {
