@@ -47,3 +47,11 @@ function addItemToFavoriteList() {
 
     }
 }
+
+function removeItemFromFavorites(itemId) {
+    const favoriteList = model.data.users.find(obj => obj.userId === model.app.currentUserId).favoriteItemsList
+    const itemIndex = favoriteList.favoriteItems.findIndex(obj => obj.itemId == itemId)
+    favoriteList.favoriteItems.splice(itemIndex, 1)
+    orderFavoriteItemList();
+    updateView();
+}

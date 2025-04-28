@@ -14,10 +14,11 @@ function logListView() {
 function renderLogs() {
     let html = '';
     model.data.users.find(obj => obj.userId == model.app.currentUserId).log.forEach(currentLog => {
-        html += `<div>${currentLog.date}</div>
+        html += `<div onclick="showLogItems(${currentLog.listId})">${currentLog.date}</div>
                     <div> ${currentLog.listName}</div>
-            ${renderLogItems(currentLog.listId)}
-            <button class="erase" onclick="deleteListFromLog(${currentLog.listId})">❌</button>
+                    ${currentLog.showLog ? renderLogItems(currentLog.listId) : ''}
+                    <button onclick="activateList(${currentLog.listId})">aktiver</button>
+                    <button class="erase" onclick="deleteListFromLog(${currentLog.listId})">❌</button>
                 `
     });
     return html;

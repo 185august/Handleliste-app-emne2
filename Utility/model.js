@@ -146,14 +146,15 @@ const model = {
                             {
                                 listId: 0,
                                 listType: 'shoppingList',
-                                listName: 'handle til bursdag',
+                                listName: 'handle til biltur',
                                 isCompleted: true,
+                                showLog: false,
                                 date: '26/3/2025',
                                 listItems:
                                     [
                                         {
                                             itemId: 0,
-                                            name: 'Kake',
+                                            name: 'potetgull',
                                             amount: 1,
                                             price: null,
                                             hasBeenBought: false,
@@ -264,6 +265,7 @@ const model = {
                                 listType: 'shoppingList',
                                 listName: 'handle til bursdag',
                                 isCompleted: true,
+                                showLog: false,
                                 date: '26/3/2025',
                                 listItems:
                                     [
@@ -380,6 +382,7 @@ const model = {
                                 listType: 'shoppingList',
                                 listName: 'handle til bursdag',
                                 isCompleted: true,
+                                showLog: false,
                                 date: '26/3/2025',
                                 listItems:
                                     [

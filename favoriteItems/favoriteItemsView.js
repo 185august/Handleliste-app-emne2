@@ -1,17 +1,20 @@
 function favoriteItemsView() {
-    let html =/*HTML*/ ` 
+    let favoriteItemsHtml = ` 
+    <button  class ="previousPageButton" onclick="goToPreviousPage(-1)"></button><button class ="home" onclick="goToDashboardPage()"></button>
     <div class="container">
-    <h4>Favoritt Varer</h4>
-    </div>
-`
-    return html;
+    <h4>Favoritt Varer</h4>`
+    model.data.users.find(obj => obj.userId == model.app.currentUserId).favoriteItemsList.favoriteItems.forEach(item => {
+        favoriteItemsHtml += `<div>${item.rank}: ${item.name}, Ganger handlet:${item.amountRecentlyBought}</div>
+         <button class="erase" onclick="removeItemFromFavorites(${item.itemId})">❌</button>`
+    });
+    return favoriteItemsHtml += `</div>`;
 }
 
 function renderFavoriteItemsToShoppingList() {
     const currentUser = model.data.users.find(obj => obj.userId == model.app.currentUserId);
     let html = `
     <div class="container">
-    <h4>Favoritt Varer</h4>
+    <h4 onclick="setPage('favoriteItems')">Favoritt Varer</h4>
     <br>
     `
     let currentIndex = 0;
