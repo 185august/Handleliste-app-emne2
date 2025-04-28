@@ -22,7 +22,7 @@ function lists() {
 function dashboardHeader() {
     let html = /*HTML*/ `
     <div class = "headerbox">
-    <h2>${currentUserArray.find(obj => obj.userId == model.app.currentUserId).username}</h2>
+    <h1>${currentUserArray.find(obj => obj.userId == model.app.currentUserId).username}</h1>
     <span style="font-size:2.2rem" onclick="setPage('settings')">⚙️</span>
     </div>
     `

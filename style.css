@@ -5,7 +5,6 @@ html, body {
   height: 100%;
   padding: 0;
   background-color: rgba(217, 253, 231, 0.747);
-
 }
 .headerbox {
   display: flex;
@@ -25,7 +24,7 @@ input{
 
 select{
   border: none;
-  background-color: rgba(173, 173, 173, 0.192);
+  background-color:  rgba(207, 205, 205, 0.445);
   padding: 0.5em;
 }
 
@@ -46,6 +45,22 @@ button{
   background-color: rgb(255, 255, 255);
 }
 
+.home{
+  width: 2em;
+  height: 2em;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAADBklEQVR4nO2UT4hWZRTGf89z7yhTBJWkGY6i0S6UoEhdRGTQrkVQFG1aRDUR9geDFkWBtHBhwmwqkRgXgYugnQhhG6lV2vRHnBkQJ9KZskQaU3Tm3ntafO+Hl8/v+5o7mhH5wLt4n/ec8zzvufe8cAM38B/HfcD6f0P4Dkmjks7anpb0AXDr9RLfJGnM9knbw7a32p6UdADY8E+LvyzpjO2v8jzf1CazLHvY9iHbR4FnEv2spL2SRm2/BSy9GuFlqeV/SvoIWNElZpWkPbanJO1MXZqyfdz2MWDdYsUflHTE9rTtF4Es8fdI2i1pBFiTuCW2X7U9YXvS9hHb39r+Brh7MeIvSfrd9td5nm+u8Y9LmrR9yvZxSYeALe3DLMsesX3Q9jHbY8nA2ibCt0v6JLV8N3Bn4geAdyWdtj1u+3C65Q+2j9reyuUOrU6fZML2GHDvQsUfkHTY9ozt4VrBIUmfS/rN9ne19rbXWJqGuuEltl+3/aPtL4CNnWLu2L8gab+kedtPVlX1IVACjyb+fkk/AxWgjtwAzkt6SNKnwGZgrqqqXZJeAwZtjwLP1ZPaRZZJ2gE8DeyLiHeAmWTwDUnbJM0C57qY7oaBZHKkqqo9iVuTZdl7EbElIvZFxPvAH20DT9keAbZXVfUxUAAr0gv3mKQZYL7LrfvBwGBE7I+I7cAZYKntV2h1ergsyy/bBW8ClgNTaT8k6TNJQ8AvDYU7cXNEjEfE88DpxK0FpoFL7XZeqIlDa8bvugbiABckrQNW1rgTwCWAvEdSBVzsI66O3IrWz9oLRYq5Ar0M9IOT2LikOYCIuA1YlYQaoakBAfOS3i7L8mBN8BZJb0p6AphrUnAhI1XHQER8X5blAVpTEWnNRsRemk9KYwMCzvc4K5qKL8ZA20Qv/roYuKboZ+Bq539BtXoZ+InWu7+YMe1EDswCvzYxcALYSeuFHEhF2ivrkaOOuDzlnpO0i8vP8BVJ/bA6z/OVtEYNwEVRnAUmusQO5nm+vhYLoKIoTgKn/kbnf4y/AMyD1Dek8/c9AAAAAElFTkSuQmCC");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 0%;
+  background-color: rgb(255, 255, 255);
+}
+
+.erase{
+  width: 2em;
+  height: 2em;
+  background-color: rgb(255, 255, 255);
+}
+
 
 .dashboardboxes {
   border: 1px rgba(207, 205, 205, 0.445) solid;
@@ -62,6 +77,7 @@ button{
   padding: 1rem;
   border-radius: 10px;
 }
+
 .lists{
   overflow-y: auto;
 }
@@ -76,3 +92,6 @@ button{
   font-family: 'Pretendard Variable', sans-serif;
 }
 
+.favorite-container:hover, .list:hover{
+  background-color: rgba(217, 253, 231, 0.747);
+}

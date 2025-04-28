@@ -128,7 +128,7 @@ function changeGroupMembersView(groupName) {
       console.warn(`No user data for ID ${element}`);
       return;
     }
-    groupMembers +=/*HTML*/`<li><p>${userInfo.username} <button onclick="removeGroupMember('${groupName}','${userInfo.username}')">X</button></p></li>
+    groupMembers +=/*HTML*/`<li><p>${userInfo.username} <button class="erase" onclick="removeGroupMember('${groupName}','${userInfo.username}')">❌</button></p></li>
                             `
   }
   );

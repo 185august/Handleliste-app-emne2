@@ -1,6 +1,6 @@
 function privateListOverviewView() {
 
-    let privateList = '<button  class ="previousPageButton" onclick="goToPreviousPage(-1)"></button> <button onclick="goToDashboardPage()">Dasboard</button>';
+    let privateList = '<button  class ="previousPageButton" onclick="goToPreviousPage(-1)"></button> <button class ="home" onclick="goToDashboardPage()"></button>';
     model.data.users.find(obj => obj.userId == model.app.currentUserId).lists.forEach(list => {
         privateList += /*HTML*/`<div onclick="printPrivateList('${list.listType}',${list.listId})">
     <p>

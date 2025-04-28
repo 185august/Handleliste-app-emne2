@@ -3,7 +3,7 @@ showAddNewItemInput = false;
 function wishlistView() {
     console.log()
     let html =/*HTML*/ `
-    <button  class ="previousPageButton" onclick="goToPreviousPage(-1)"></button><button onclick="goToDashboardPage()">Dasboard</button>
+    <button  class ="previousPageButton" onclick="goToPreviousPage(-1)"></button><button class ="home" onclick="goToDashboardPage()"></button>
     ${model.app.previousPage.includes('privateListOverview') ? `<button onclick="pushListToLog()">Legg liste til i log</button>` : ''}
     <div class="container">
     <h1>${model.app.currentListPath.listName}</h1>
