@@ -17,16 +17,6 @@ function addUserToGroup() {
     }
 }
 
-/* function initializeGroup() {
-    model.data.groups[model.data.groups.length] = {
-        groupId: null,
-        name: "tempName",
-        usersId: [],
-        adminUserId: [],
-        showLists: false,
-        lists: []
-    };
-} */
 
 
 function createNewGroup() {

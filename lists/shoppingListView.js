@@ -2,7 +2,7 @@ let showAddNewItemInput = false;
 
 function shoppingListView() {
     let html =/*HTML*/ `
-    <button class ="previousPageButton"onclick="goToPreviousPage(-1)"></button><button onclick="goToDashboardPage()">Dasboard</button>
+    <button class ="previousPageButton"onclick="goToPreviousPage(-1)"></button><button class ="home" onclick="goToDashboardPage()"></button>
     ${model.app.previousPage.includes('groupOverview') ? `` : `<button onclick="pushListToLog()">Legg liste til i log</button>`}
     <div class="container">
     <h1>${model.app.currentListPath.listName}</h1>
@@ -12,7 +12,7 @@ function shoppingListView() {
    
     </div>
     <div class="show-input-button"><button  onclick="toggleInput()"> ${showAddNewItemInput ? '-' : '+'} </button> ${renderAddItemsToList()}</div>
-    ${model.app.previousPage.includes('groupsOverview') ? '' : favoriteItemsView()}
+    ${model.app.previousPage.includes('groupsOverview') ? '' : renderFavoriteItemsToShoppingList()}
     `
     return html;
 };

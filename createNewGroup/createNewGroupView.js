@@ -1,5 +1,5 @@
 function createNewGroupView() {
-    /*  initializeGroup(); */
+
     return newListHtml = /*HTML*/`
     <input 
     type="text"

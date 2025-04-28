@@ -7,7 +7,10 @@ function addItemToList(typeOfList) {
     if (isBlank(typeOfList.amount)) {
         typeOfList.amount = 1;
     }
-
+    if (!parseInt(typeOfList.amount)) {
+        alert("Skriv inn et tall");
+        return;
+    }
 
     model.app.currentListPath.listItems.push({
         itemId: createNewId(model.app.currentListPath.listItems, 'itemId'),
@@ -50,32 +53,7 @@ function pushListToLog() {
     const user = model.data.users.find(obj => obj.userId === model.app.currentUserId);
     const listIndex = user.lists.findIndex(obj => obj.listId === model.app.currentListPath.listId);
     //Update favorite item list
-    const favoriteList = user.favoriteItemsList.favoriteItems;
-    const currentList = model.app.currentListPath.listItems
-    for (let i = 0; i < currentList.length; i++) {
-        let foundAnItem = 0;
-        for (let j = 0; j < favoriteList.length; j++) {
-            if (currentList[i].name.toLowerCase().includes(favoriteList[j].name.toLowerCase())) {
-                console.log(currentList[i].name + "   " + favoriteList[j].name)
-                console.log(currentList[i].name + "went from " + favoriteList[j].amountRecentlyBought)
-                favoriteList[j].amountRecentlyBought += currentList[i].amount
-                console.log("to " + favoriteList[j].amountRecentlyBought)
-                foundAnItem++;
-            }
-        }
-        if (foundAnItem === 0) {
-            favoriteList[favoriteList.length] = {
-                itemId: currentList[i].itemId,
-                name: currentList[i].name,
-                price: null,
-                whoIsTheRecipient: null,
-                amountRecentlyBought: parseInt(currentList[i].amount),
-                rank: (favoriteList.length + 1)
-            }
-        }
-
-    }
-
+    addItemToFavoriteList();
 
     user.log.unshift(model.app.currentListPath);
     //model.data.users[userIndex].log.unshift(model.app.currentListPath);
@@ -95,7 +73,7 @@ function renderListItems() {
                 ${item.price ? `<div class="list-price">Pris: ${item.price} kr</div>` : ''}
                 ${item.whoIsTheRecipient ? `<div class="list-recipient">Til: ${item.whoIsTheRecipient}</div>` : ''}
                 ${model.app.currentListPath.isCompleted ? '' : `Kjøpt <input class="list-checkbox" onchange="markItemAsBought(this, ${item.itemId})" type="checkbox" ${item.hasBeenBought ? 'checked="checked"' : ''} />`}
-                ${model.app.currentListPath.isCompleted ? '' : `Fjern <button class="list-button" onclick="removeItemFromList(${item.itemId}, ${item.listId})"> X</button>`}
+                ${model.app.currentListPath.isCompleted ? '' : `Fjern <button class="list-button" onclick="removeItemFromList(${item.itemId}, ${item.listId})"> ❌</button>`}
                 </div > 
                 ${model.app.previousPage.includes('groupsOverview') ? `<h4>${model.data.users.find(obj => obj.userId == item.whoAddedItemId).username ?? ''}</h4>` : ''}
                 `

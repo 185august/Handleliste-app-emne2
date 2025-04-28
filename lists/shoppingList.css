@@ -24,6 +24,10 @@
   margin: 2px;
   margin-right: 3px;
 }
+
+.list-button {
+  background-color: transparent;
+}
 .h4 {
   margin: 0px;
   padding: 0px;
@@ -42,6 +46,7 @@
 .favorite-items {
   display: flex;
   flex-wrap: wrap;
+  padding: 4px;
 }
 .show-input-button {
   margin-top: 20px;
