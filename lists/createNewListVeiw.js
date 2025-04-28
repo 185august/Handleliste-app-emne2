@@ -22,7 +22,7 @@ function createNewListView() {
 
 function createNewListButton() {
     return /*HTML*/`
-    <button onclick="setPage('createNewList')">+</button>
+    <button class = "plus"onclick="setPage('createNewList')" style ="font-size:2em">✚</button>
     `;
 }
 

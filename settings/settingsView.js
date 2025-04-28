@@ -136,7 +136,7 @@ function changeGroupMembersView(groupName) {
   }
   );
   groupMembers += `</ul>
-                  <button onclick="addGroupMemberView('${groupName}')">+</button>
+                  <button class = "plus" onclick="addGroupMemberView('${groupName}')" style ="font-size:2em">✚</button>
                   <div id='newMembername'></div>`
 
 

@@ -60,7 +60,7 @@ button {
   transform: translateX(-50%);
 }
 
-.erase {
+.plus, .erase {
   width: 2em;
   height: 2em;
   background-color: rgb(255, 255, 255);
