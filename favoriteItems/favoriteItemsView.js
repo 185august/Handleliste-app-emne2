@@ -24,7 +24,7 @@ function renderFavoriteItemsToShoppingList() {
         }
         html += /*HTML*/`
         <div class="favorite-items"> 
-            <div onclick="addItemFromFavoritesToShoppingList('${element.name}')">${element.rank}: ${element.name}</div>
+            <div onclick="addItemFromFavoritesToShoppingList('${element.name}')">${element.rank}. ${element.name}</div>
         </div> 
         `
         currentIndex++
