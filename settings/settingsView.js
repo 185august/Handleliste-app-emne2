@@ -28,7 +28,8 @@ function settingsView(back = '') {
      <p onclick="profilView()">Profil</p>
      <p onclick="groupSettingsView()">Grupper</p>
      <p onclick="logout()">Logg ut</p>
-    </div>`
+    </div>
+    <button class ="home" onclick="goToDashboardPage()"></button>`
     return html
   }
 }
@@ -46,7 +47,7 @@ function profilView() {
       <div id = "passwordDiv"></div>
      <p onclick = "setPage('logList')">Logg</p>
 
-      
+     <button class ="home" onclick="goToDashboardPage()"></button>    
   `
   html += ` </div>`
   settingsViewhtml = html
@@ -90,6 +91,8 @@ function groupSettingsView() {
     <div style = "text-align: center;">
      <h3>Gruppe innstillinger</h3>
      ${groupListName}
+
+  <button class ="home" onclick="goToDashboardPage()"></button>
   `
   settingsViewhtml = html
   updateView()
@@ -143,6 +146,7 @@ function changeGroupMembersView(groupName) {
     <div style = "text-align: center;">
      <h3>${groupName}</h3>
      ${groupMembers}
+     <button class ="home" onclick="goToDashboardPage()"></button>
   `
   settingsViewhtml = html
   updateView()

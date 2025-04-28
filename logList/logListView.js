@@ -17,7 +17,7 @@ function renderLogs() {
         html += `<div>${currentLog.date}</div>
                     <div> ${currentLog.listName}</div>
             ${renderLogItems(currentLog.listId)}
-            <button onclick="deleteListFromLog(${currentLog.listId})">❌</button>
+            <button class="erase" onclick="deleteListFromLog(${currentLog.listId})">❌</button>
                 `
     });
     return html;

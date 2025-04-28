@@ -39,8 +39,8 @@ button {
 .previousPageButton {
   width: 2em;
   height: 2em;
-  background-image: url("data:image/webp;base64,UklGRrIBAABXRUJQVlA4IKYBAAAwCwCdASpAAEAAPm0wk0akIyGhKBgMqIANiWkAFcAaJofQxAjgVwEqCGF+K/6k9gXyZvXJ+t3sS/sAf9BK6lpN/Ix737k/47z/MKmkDNzIRXUY9zKaJ2BeVNpky2R6WD6+AAD+/PQRw5lddp/76Qjz6dEC2iZimceWPmriM8OxNrtcVUcTv1x7COCbEzv9fCGBrpj+VE2icgZUwBXtHMmdg1zEZffXqYiXwlpJ/pqSTGit5SE+u13HxFes8sIy8y76RgmCjBrWmO1J/VFdD05t+x3Dw7YzCMhRGC5VfIADUj63wKwJG+tAwpb//REFytJ3ptgY+j1nBmUOg7CAp5kKrFhBcKCXaaMVnitquninWTM7kQUdsrOeAzitnUG2k0DdRAozHFsi3JdWrjD2DpDXMc3F1i8GSLyI78GVEAIeGtXzxP8gq/yAgagy5qCckcWlP3IlOnZQBsVKQOgrC3jAQNaDFOmO+GZ+PdREj8+tYXFYPTa6V/rQgs3NKFfrB37IY8r56N0dGT43L+7jJJLcvtSgSZDiBHRAeoY8uPLLA53YrYAAAA==");
   background-size: contain;
+  background-image: url("data:image/webp;base64,UklGRrIBAABXRUJQVlA4IKYBAAAwCwCdASpAAEAAPm0wk0akIyGhKBgMqIANiWkAFcAaJofQxAjgVwEqCGF+K/6k9gXyZvXJ+t3sS/sAf9BK6lpN/Ix737k/47z/MKmkDNzIRXUY9zKaJ2BeVNpky2R6WD6+AAD+/PQRw5lddp/76Qjz6dEC2iZimceWPmriM8OxNrtcVUcTv1x7COCbEzv9fCGBrpj+VE2icgZUwBXtHMmdg1zEZffXqYiXwlpJ/pqSTGit5SE+u13HxFes8sIy8y76RgmCjBrWmO1J/VFdD05t+x3Dw7YzCMhRGC5VfIADUj63wKwJG+tAwpb//REFytJ3ptgY+j1nBmUOg7CAp5kKrFhBcKCXaaMVnitquninWTM7kQUdsrOeAzitnUG2k0DdRAozHFsi3JdWrjD2DpDXMc3F1i8GSLyI78GVEAIeGtXzxP8gq/yAgagy5qCckcWlP3IlOnZQBsVKQOgrC3jAQNaDFOmO+GZ+PdREj8+tYXFYPTa6V/rQgs3NKFfrB37IY8r56N0dGT43L+7jJJLcvtSgSZDiBHRAeoY8uPLLA53YrYAAAA==");
   background-repeat: no-repeat;
   background-position: 0%;
   background-color: rgb(255, 255, 255);
@@ -54,6 +54,10 @@ button {
   background-repeat: no-repeat;
   background-position: 0%;
   background-color: rgb(255, 255, 255);
+  position: fixed;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .erase {
@@ -90,9 +94,4 @@ button {
   padding: 1rem;
   box-sizing: border-box;
   font-family: "Pretendard Variable", sans-serif;
-}
-
-.favorite-container:hover,
-.list:hover {
-  background-color: rgba(217, 253, 231, 0.747);
 }
