@@ -2,7 +2,7 @@ function privateListOverviewView() {
 
     let privateList = '<div class="headerbox"><button  class ="previousPageButton" onclick="goToPreviousPage(-1)"></button> <button class ="home" onclick="goToDashboardPage()"></button></div>';
     model.data.users.find(obj => obj.userId == model.app.currentUserId).lists.forEach(list => {
-        privateList += /*HTML*/`<div style="text-align:center" onclick="printPrivateList('${list.listType}',${list.listId})">
+        privateList += /*HTML*/`<div class="divforstyle" onclick="printPrivateList('${list.listType}',${list.listId})">
     <p>
     <h2 class="listeBoks">${list.listName}</h2>
     </p>
