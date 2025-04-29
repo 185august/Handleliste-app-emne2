@@ -15,7 +15,7 @@ function groupsOverviewView() {
             `
             <div>
         <div class="listeBoks" ${group.showLists ? '' : `onclick="printGroupList(${group.groupId})"`}>
-            <h2 ${group.showLists ? `onclick="toggleGroupLists(${group.groupId})"` : ''}> ${group.name}</h2>
+            <h2 style="margin:0" ${group.showLists ? `onclick="toggleGroupLists(${group.groupId})"` : ''}> ${group.name}</h2>
             ${group.showLists ? `<div id ="namelists${id}">${groupListView() ?? ''}</div>` : ''}
         </div>
             <div>`
@@ -62,9 +62,13 @@ function groupListView() {
     groupPath.lists.forEach(element => {
 
         html += /*HTML*/`
+            <div style="display: flex; align-items: center; justify-content: center">
+            <div style="display: flex; flex-wrap: nowrap; align-items: baseline">
             <p onclick="toTheListPage('${element.listType}',${element.listId}, ${model.app.currentGroupId})">${element.listName}</p>
-            <button class="listeKnapper" onclick="removeList(${element.listId}, ${model.app.currentGroupId})">❌</button>
-        `
+            <button class="listeKnapper erase" style="font-size: 1rem" onclick="removeList(${element.listId}, ${model.app.currentGroupId})">❌</button>
+            </div>
+            </div>
+            `
     })
     html += ` ${model.input.createNewList.showInput && model.data.groups[model.app.currentGroupId] == model.app.currentGroupId ? '' : `<button onclick="toggleAddNewListInput()"> Ny liste </button>`}
     ${createNewListView()}`
