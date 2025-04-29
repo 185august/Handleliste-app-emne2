@@ -38,6 +38,9 @@ function updateView() {
             break;
         case 'createNewGroup':
             currentPageView = createNewGroupView();
+            break;
+        case 'notifications':
+            currentPageView = notificatonsView();
     }
 
     document.getElementById('app').innerHTML = `

@@ -20,7 +20,7 @@ function groupsOverviewView() {
         </div>
             <div>`
     });
-        html +=`<button class = "plus" onclick="setPage('createNewGroup')">✚</button>`
+    html += `<button class = "plus" onclick="setPage('createNewGroup')">✚</button>`
     return html
 }
 

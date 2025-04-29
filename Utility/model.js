@@ -170,7 +170,10 @@ const model = {
                                         }
                                     ],
                             }
-                        ]
+                        ],
+                    notificatons: [
+
+                    ]
                 },
                 {
                     userId: 1,
@@ -228,6 +231,7 @@ const model = {
                                 ],
                             }
                         ],
+
 
                     favoriteItemsList: {
                         listType: 'favoriteList',
@@ -287,7 +291,10 @@ const model = {
                                         }
                                     ],
                             }
-                        ]
+                        ],
+                    notificatons: [
+
+                    ]
                 },
                 {
                     userId: 550,
@@ -404,7 +411,10 @@ const model = {
                                         }
                                     ],
                             }
-                        ]
+                        ],
+                    notificatons: [
+
+                    ]
                 },
             ],
         groups:

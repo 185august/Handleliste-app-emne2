@@ -10,7 +10,6 @@ function addUserToGroup() {
         alert('Bruker allerede lagt til');
     }
     else {
-        /* const newMemberIndex = model.data.users.findIndex(user=> user.username ===model.input.createNewGroup) */
         model.input.createNewGroup.usersInGroup.push(newMember.userId);
         model.input.createNewGroup.username = '';
         updateView();
@@ -28,24 +27,21 @@ function createNewGroup() {
         alert('navn eksisterer allerede');
         return;
     }
-    if (!model.input.createNewGroup.usersInGroup.includes(model.app.currentUserId)) {
-        model.input.createNewGroup.usersInGroup.push(model.app.currentUserId);
-    }
-
     const newGroup = {
         groupId: createNewId(model.data.groups, "groupId"),
         name: model.input.createNewGroup.name,
-        usersId: [...model.input.createNewGroup.usersInGroup],
+        usersId: [model.app.currentUserId],
         adminUserId: [model.app.currentUserId],
         showLists: false,
         lists: []
-    }
-    model.data.groups.push(newGroup)
+    };
+    model.data.groups.push(newGroup);
+    model.data.users.find(obj => obj.userId == model.app.currentUserId).groupsId.push(newGroup.groupId);
 
     model.input.createNewGroup.usersInGroup.forEach(userId => {
         const user = model.data.users.find(obj => obj.userId == userId);
         if (user && !user.groupsId.includes(newGroup.groupId)) {
-            user.groupsId.push(newGroup.groupId);
+            sendNotification(newGroup.groupId, user.userId, model.data.users.find(obj => obj.userId == model.app.currentUserId).username)
         }
     });
 
@@ -58,3 +54,8 @@ function createNewGroup() {
     goToPreviousPage(-1);
 }
 
+function clearNewGroup() {
+    model.input.createNewGroup.name = '';
+    model.input.createNewGroup.username = '';
+    model.input.createNewGroup.usersInGroup = [];
+}

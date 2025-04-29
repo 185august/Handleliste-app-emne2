@@ -3,8 +3,8 @@ function createNewGroupView() {
     return newListHtml = /*HTML*/`
 
     <div class="headerbox">
-        <button class ="previousPageButton" onclick="goToPreviousPage(-1)"></button>
-        <button class ="home" onclick="goToDashboardPage()"></button>
+        <button class ="previousPageButton" onclick="goToPreviousPage(-1), clearNewGroup()"></button>
+        <button class ="home" onclick="goToDashboardPage(), clearNewGroup()"></button>
     </div>
     <div style=" position: absolute; left: 48%; bottom: 78%; transform: translateX(-50%); ">
     
