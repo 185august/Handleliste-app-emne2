@@ -13,6 +13,7 @@ body {
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 5%;
 }
 
 input {
@@ -131,21 +132,21 @@ td{
   background-color:  rgba(217, 253, 231, 0.336);
 }
 
-#divforstyle{
-  text-align: center;
+.divforstyle{
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
 }
 .listeBoks{
   background-color: rgb(255, 255, 255);
   border: 1px rgba(183, 177, 177, 0.445) solid;
   box-shadow: 0 0 10px rgba(228, 227, 227, 0.329);
-  width: flex;
-  height: flex;
-  max-height: 30%;
-  align-items: center;
+  min-width: 70%;
+  max-width: 70%;
+  min-height: 2rem;
   text-align: center;
-  justify-content: flex-start;
-  flex-direction: column;
   padding: 1rem;
   border-radius: 5px;
-  margin-top: 2px;
+  margin: 0.2rem;
 };

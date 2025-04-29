@@ -13,14 +13,14 @@ function groupsOverviewView() {
         const group = model.data.groups.find(groupElement => groupElement.groupId === id)
         html += /*HTML*/
             `
-            <div>
+            <div class="divforstyle">
         <div class="listeBoks" ${group.showLists ? '' : `onclick="printGroupList(${group.groupId})"`}>
-            <h2 style="margin:0" ${group.showLists ? `onclick="toggleGroupLists(${group.groupId})"` : ''}> ${group.name}</h2>
+            <h2 style="margin: 0 0 3% 0" ${group.showLists ? `onclick="toggleGroupLists(${group.groupId})"` : ''}> ${group.name}</h2>
             ${group.showLists ? `<div id ="namelists${id}">${groupListView() ?? ''}</div>` : ''}
         </div>
-            <div>`
+            </div>`
     });
-    html += `<button class = "plus" onclick="setPage('createNewGroup')">✚</button>`
+    html += `<div class="divforstyle"><div class="listeBoks"><button class = "plus" onclick="setPage('createNewGroup')">✚</button></div></div>`
     return html
 }
 
@@ -64,13 +64,13 @@ function groupListView() {
         html += /*HTML*/`
             <div style="display: flex; align-items: center; justify-content: center">
             <div style="display: flex; flex-wrap: nowrap; align-items: baseline">
-            <p onclick="toTheListPage('${element.listType}',${element.listId}, ${model.app.currentGroupId})">${element.listName}</p>
-            <button class="listeKnapper erase" style="font-size: 1rem" onclick="removeList(${element.listId}, ${model.app.currentGroupId})">❌</button>
+            <p style="margin: 5% 0 0 0" onclick="toTheListPage('${element.listType}',${element.listId}, ${model.app.currentGroupId})">${element.listName}</p>
+            <button class="listeKnapper erase" style="font-size: 1rem;" onclick="removeList(${element.listId}, ${model.app.currentGroupId})">❌</button>
             </div>
             </div>
             `
     })
-    html += ` ${model.input.createNewList.showInput && model.data.groups[model.app.currentGroupId] == model.app.currentGroupId ? '' : `<button onclick="toggleAddNewListInput()"> Ny liste </button>`}
+    html += ` ${model.input.createNewList.showInput && model.data.groups[model.app.currentGroupId] == model.app.currentGroupId ? '' : `<button style = "margin-top:5% "onclick="toggleAddNewListInput()"> Ny liste </button>`}
     ${createNewListView()}`
     return html
 }
