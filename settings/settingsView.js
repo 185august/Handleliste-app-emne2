@@ -86,7 +86,7 @@ function groupSettingsView() {
     groupListName += `
     <div class="divforstyle">
     <div class="listeBoks">
-    <li onclick="GroupSettingsPages('${element.name}')"><h3>${element.name}</h3></li>
+    <li onclick="GroupSettingsPages('${element.name}')"><h3 style="margin:0">${element.name}</h3></li>
                          <div id="group${element.groupId}"></div>
                          </div></div>`
   });
