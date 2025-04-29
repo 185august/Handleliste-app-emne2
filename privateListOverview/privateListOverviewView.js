@@ -4,7 +4,7 @@ function privateListOverviewView() {
     model.data.users.find(obj => obj.userId == model.app.currentUserId).lists.forEach(list => {
         privateList += /*HTML*/`<div style="text-align:center" onclick="printPrivateList('${list.listType}',${list.listId})">
     <p>
-    <h2>${list.listName}</h2>
+    <h2 class="listeBoks">${list.listName}</h2>
     </p>
     </div>
     `

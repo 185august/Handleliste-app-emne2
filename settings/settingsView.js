@@ -26,10 +26,10 @@ function settingsView(back = '') {
     <div style = "text-align: center;">
      <h2>Bruker innstillinger</h2>
      <br>
-     <p onclick="profilView()">Profil</p>
-     <p onclick="setPage('favoriteItems')">Favoritt varer</p>
-     <p onclick="groupSettingsView()">Grupper</p>
-     <p onclick="logout()">Logg ut</p>
+     <p class="listeBoks" onclick="profilView()">Profil</p>
+     <p class="listeBoks" onclick="setPage('favoriteItems')">Favoritt varer</p>
+     <p class="listeBoks" onclick="groupSettingsView()">Grupper</p>
+     <p class="listeBoks" onclick="logout()">Logg ut</p>
     </div>
     <button class ="home" onclick="goToDashboardPage()"></button>`
     return html
@@ -41,13 +41,13 @@ function profilView() {
   let html = /*HTML*/`
   <div class = "page">
   <button class ="previousPageButton" onclick="settingsView('back'); updateView()"></button>
-    <div style = "text-align: center;">
+    <div  style = "text-align: center;">
      <h3>Profil</h3>
-     <p onclick = "changeNameSector('nameDiv')">Endre navn</p>
+     <p class="listeBoks" onclick = "changeNameSector('nameDiv')">Endre navn</p>
       <div id = "nameDiv"></div>
-     <p onclick = "changePasswordSector('passwordDiv')">Endre passord</p>
+     <p class="listeBoks" onclick = "changePasswordSector('passwordDiv')">Endre passord</p>
       <div id = "passwordDiv"></div>
-     <p onclick = "setPage('logList')">Vis handle logg</p>
+     <p class="listeBoks" onclick = "setPage('logList')">Vis handle logg</p>
 
      <button class ="home" onclick="goToDashboardPage()"></button>    
   `
@@ -83,7 +83,7 @@ function groupSettingsView() {
   })
   let groupListName = `<ul style = 'list-style: none; padding: 0'>`
   currentGroups.forEach(element => {
-    groupListName += `<li onclick="GroupSettingsPages('${element.name}')"><h3>${element.name}</h3></li>
+    groupListName += `<li onclick="GroupSettingsPages('${element.name}')"><h3 class="listeBoks">${element.name}</h3></li>
                          <div id="group${element.groupId}"></div>`//해당함수랑이름전달
   });
   groupListName += `</ul>`
