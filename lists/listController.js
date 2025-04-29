@@ -53,7 +53,9 @@ function pushListToLog() {
     const user = model.data.users.find(obj => obj.userId === model.app.currentUserId);
     const listIndex = user.lists.findIndex(obj => obj.listId === model.app.currentListPath.listId);
     //Update favorite item list
-    addItemToFavoriteList();
+    if(model.app.currentPage== "shoppingList" && !model.app.previousPage.includes("groupsOverview")){
+        addItemToFavoriteList();
+    }
 
     user.log.unshift(model.app.currentListPath);
     //model.data.users[userIndex].log.unshift(model.app.currentListPath);

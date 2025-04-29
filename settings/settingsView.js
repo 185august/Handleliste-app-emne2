@@ -25,10 +25,11 @@ function settingsView(back = '') {
   <button  class ="previousPageButton" onclick="goToPreviousPage(-1)"></button>
     <div style = "text-align: center;">
      <h2>Bruker innstillinger</h2>
-     <p class="settingsMenu" onclick="profilView()">Profil</p>
-     <p class="settingsMenu" onclick="groupSettingsView()">Grupper</p>
-     <p class="settingsMenu" onclick="logout()">Logg ut</p>
-     <p class="settingsMenu" onclick="">Favoritt Item's Liste</p>
+     <br>
+     <p onclick="profilView()">Profil</p>
+     <p onclick="setPage('favoriteItems')">Favoritt varer</p>
+     <p onclick="groupSettingsView()">Grupper</p>
+     <p onclick="logout()">Logg ut</p>
     </div>
     <button class ="home" onclick="goToDashboardPage()"></button>`
     return html
@@ -46,7 +47,7 @@ function profilView() {
       <div id = "nameDiv"></div>
      <p onclick = "changePasswordSector('passwordDiv')">Endre passord</p>
       <div id = "passwordDiv"></div>
-     <p onclick = "setPage('logList')">Logg</p>
+     <p onclick = "setPage('logList')">Vis handle logg</p>
 
      <button class ="home" onclick="goToDashboardPage()"></button>    
   `
@@ -147,8 +148,11 @@ function changeGroupMembersView(groupName) {
   }
   );
   groupMembers += `</ul>
+                  
                   <button class = "plus" onclick="addGroupMemberView('${groupName}')" style ="font-size:2em">✚</button>
-                  <div id='newMembername'></div>`
+                  <div> ${addGroupMemberErrorMessage()}</div>
+                  <div id='newMembername'></div>
+                  `
 
 
   let html = /*HTML*/`
@@ -168,7 +172,8 @@ function addGroupMemberView(groupName) {
   let div = document.querySelector('#newMembername')
   div.innerHTML = `
   <input type='text' required id="newMemberUsername">
-  <button onclick="addGroupMember('${groupName}')">registere</button>
+  <button onclick="addGroupMember('${groupName}')">Inviter</button> 
+  
   `
  
 }

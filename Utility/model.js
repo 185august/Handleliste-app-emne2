@@ -50,7 +50,10 @@ const model = {
         favoriteItemsList: {
             addItem: '',
             itemRank: null,
-        }
+        },
+        settings:{
+            addNewGroupMemberErrorMessage:'',
+        },
     },
     data: {
         users:
@@ -300,7 +303,7 @@ const model = {
                     userId: 550,
                     username: 'Jens nordmann',
                     password: 'passord',
-                    groupsId: [0, 1],
+                    groupsId: [0],
                     recentList: {
                         type: '',
                         id: null
@@ -422,16 +425,17 @@ const model = {
                 {
                     groupId: 0,
                     name: 'Rubber Duck As',
-                    usersId: [0, 1],
+                    usersId: [0, 1, 550],
                     adminUserId: [0],
                     showLists: false,
+                    invitedId:[],
                     lists:
                         [
                             {
                                 listId: 0,
                                 listType: 'wishlist',
                                 listName: 'ting vi trenger på jobben',
-                                usersCanView: [0, 1],
+                                usersCanView: [0, 1, 550],
                                 usersCanEdit: [0],
                                 isCompleted: false,
                                 listItems:
@@ -451,7 +455,7 @@ const model = {
                                 listId: 1,
                                 listType: 'shoppingList',
                                 listName: 'handle til jobbfest',
-                                usersCanView: [0, 1],
+                                usersCanView: [0, 1, 550],
                                 usersCanEdit: [0],
                                 isCompleted: false,
                                 listItems: [
@@ -473,6 +477,7 @@ const model = {
                     usersId: [0, 1],
                     adminUserId: [0],
                     showLists: false,
+                    invitedId:[],
                     lists:
                         [
                             {

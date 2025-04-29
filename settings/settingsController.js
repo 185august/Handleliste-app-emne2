@@ -31,22 +31,35 @@ function removeGroupMember(groupName, username) {
 
 function addGroupMember(groupName) {
   let newUsername = document.querySelector('#newMemberUsername').value
-
   if (!newUsername) {
-    console.log('write username')
     return
   }// 값 없을 시 입력하시오 출력
 
   let newUser = model.data.users.find(user => user.username === newUsername)// 멤버로 새로 추가할 멤버 오브젝트
-  if (!newUser) { alert('User eksisterer ikke') }
+  if (!newUser) { 
+    model.input.settings.addNewGroupMemberErrorMessage = "Bruker eksisterer ikke!"
+    changeGroupMembersView(groupName)
+    resetErrorMessage(groupName);
+    return;
+   }
   const groupObject = model.data.groups.find(groupElement => groupElement.name === groupName)
 
-  if (groupObject.usersId.some(id => id === newUser.userId)) return// 이미존재하면 추가안하기
-
-  newUser.groupsId.push(groupObject.groupId)
+  if (groupObject.usersId.some(id => id === newUser.userId)) {
+    model.input.settings.addNewGroupMemberErrorMessage = "Bruker er allerede i gruppen!"
+    changeGroupMembersView(groupName);
+    resetErrorMessage(groupName); 
+    return
+  }
+    // 이미존재하면 추가안하기
+  sendNotification(groupObject.groupId, newUser.userId , model.data.users.find(obj=>obj.userId == model.app.currentUserId).username )
+ /*  newUser.groupsId.push(groupObject.groupId)
   groupObject.usersId.push(newUser.userId)
   changeGroupMembersView(groupName)
-  
+   */
+  model.input.settings.addNewGroupMemberErrorMessage = "Bruker er invitert!";
+  document.querySelector('#newMemberUsername').innerHTML="";
+  changeGroupMembersView(groupName);
+  resetErrorMessage(groupName);
 }
 
 function sendNewUserInfo(data, type, divId) {
@@ -96,4 +109,16 @@ function removeGroup(groupName) {
   model.data.groups = model.data.groups.filter(group => group !== groupObject)
 
   groupSettingsView()
+}
+
+function addGroupMemberErrorMessage() {
+  const message = model.input.settings.addNewGroupMemberErrorMessage;
+  return message;
+}
+
+function resetErrorMessage(groupName){
+  setTimeout(() => {
+    model.input.settings.addNewGroupMemberErrorMessage= "";
+    changeGroupMembersView(groupName);
+  }, 1000);
 }
