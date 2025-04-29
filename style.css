@@ -60,12 +60,29 @@ button {
   transform: translateX(-50%);
 }
 
+.bell-icon{
+  font-size: 1.7rem;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: baseline;
+  gap: 0.3rem;
+  position: absolute;
+  bottom:92%;
+  left:77%
+}
+
 .plus,
 .erase,
-.groupsettingButton {
+.groupsettingButton,
+.bell-icon, 
+.shoppinglistPlus,
+.wishlistPlus{
   padding: 0;
   width: 2rem;
   height: 2rem;
+  font-size: 1.4rem;
+  padding-block: 0;
+  padding-inline: 0;
   background-color: rgb(255, 255, 255);
 }
 
@@ -98,4 +115,17 @@ button {
   box-sizing: border-box;
   font-family: "Pretendard Variable", sans-serif;
   position: relative;
+}
+
+td{
+  text-align: center;
+}
+
+#selectedGroup{
+  text-align: center;
+  background-color:  rgba(217, 253, 231, 0.336);
+}
+
+#divforstyle{
+  text-align: center;
 }

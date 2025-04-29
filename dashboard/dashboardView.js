@@ -23,7 +23,7 @@ function dashboardHeader() {
     let html = /*HTML*/ `
     <div class = "headerbox">
     <h1>${currentUserArray.find(obj => obj.userId == model.app.currentUserId).username}</h1>
-    <button class="bell-icon" onclick="setPage('notifications')">🕭 <div class="bell-amount">${numberOfNotifications()}</div></button>
+    <button class="bell-icon" onclick="setPage('notifications')">🕭<div class="bell-amount">${numberOfNotifications()}</div></button>
     <span style="font-size:2.2rem" onclick="setPage('settings')">⚙️</span>
     </div>
     `

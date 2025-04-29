@@ -13,9 +13,9 @@ function groupsOverviewView() {
         const group = model.data.groups.find(groupElement => groupElement.groupId === id)
         html += /*HTML*/
             `
-            <div style="text-align: center" id="divforstyle">
+            <div id="divforstyle">
         <div ${group.showLists ? '' : `onclick="printGroupList(${group.groupId})"`}>
-            <h2 ${group.showLists ? `onclick="toggleGroupLists(${group.groupId})"` : ''}>${group.name}</h2>
+            <h2 ${group.showLists ? `onclick="toggleGroupLists(${group.groupId})"` : ''} class="${group.showLists? 'selectedGroup':''}">${group.name}</h2>
             ${group.showLists ? `<div id ="namelists${id}">${groupListView() ?? ''}</div>` : ''}
         </div>
             <div>`

@@ -24,7 +24,8 @@ function settingsView(back = '') {
   <div class = "page" id = "settingsApp">
   <button  class ="previousPageButton" onclick="goToPreviousPage(-1)"></button>
     <div style = "text-align: center;">
-     <h3>Bruker innstillinger</h3>
+     <h2>Bruker innstillinger</h2>
+     <br>
      <p onclick="profilView()">Profil</p>
      <p onclick="groupSettingsView()">Grupper</p>
      <p onclick="logout()">Logg ut</p>

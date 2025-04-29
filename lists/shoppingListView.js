@@ -9,7 +9,7 @@ function shoppingListView() {
     <br>
     ${renderListItems()}
     </div>
-    <div class="show-input-button"><button  onclick="toggleInput()"> ${showAddNewItemInput ? '-' : '+'} </button> ${renderAddItemsToList()}</div>
+    <div class="show-input-button"><button class="shoppinglistPlus" onclick="toggleInput()"> ${showAddNewItemInput ? '-' : '+'} </button> ${renderAddItemsToList()}</div>
     ${model.app.previousPage.includes('groupsOverview') ? '' : renderFavoriteItemsToShoppingList()}
     `
     return html;
