@@ -86,6 +86,11 @@ button {
   background-color: rgb(255, 255, 255);
 }
 
+.settingsMenu{
+  font-size: 1.15rem;
+
+}
+
 .dashboardboxes {
   border: 1px rgba(207, 205, 205, 0.445) solid;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.329);

@@ -25,11 +25,10 @@ function settingsView(back = '') {
   <button  class ="previousPageButton" onclick="goToPreviousPage(-1)"></button>
     <div style = "text-align: center;">
      <h2>Bruker innstillinger</h2>
-     <br>
-     <p onclick="profilView()">Profil</p>
-     <p onclick="groupSettingsView()">Grupper</p>
-     <p onclick="logout()">Logg ut</p>
-     <p onclick="">Favoritt Item's Liste</p>
+     <p class="settingsMenu" onclick="profilView()">Profil</p>
+     <p class="settingsMenu" onclick="groupSettingsView()">Grupper</p>
+     <p class="settingsMenu" onclick="logout()">Logg ut</p>
+     <p class="settingsMenu" onclick="">Favoritt Item's Liste</p>
     </div>
     <button class ="home" onclick="goToDashboardPage()"></button>`
     return html
@@ -83,7 +82,7 @@ function groupSettingsView() {
   })
   let groupListName = `<ul style = 'list-style: none; padding: 0'>`
   currentGroups.forEach(element => {
-    groupListName += `<li onclick="GroupSettingsPages('${element.name}')"><h4>${element.name}</h4></li>
+    groupListName += `<li onclick="GroupSettingsPages('${element.name}')"><h3>${element.name}</h3></li>
                          <div id="group${element.groupId}"></div>`//해당함수랑이름전달
   });
   groupListName += `</ul>`
@@ -91,7 +90,7 @@ function groupSettingsView() {
   <div class = "page">
   <button class ="previousPageButton" onclick="specialBackspaceButton()"></button>
     <div style = "text-align: center;">
-     <h3>Gruppe innstillinger</h3>
+     <h2>Gruppe innstillinger</h2>
      ${groupListName}
 
   <button class ="home" onclick="goToDashboardPage()"></button>
@@ -121,7 +120,7 @@ function GroupSettingsPages(groupName) {
                       <div id = "leaveGroupDiv"></div>
                      <p onclick = "changeGroupMembersView('${groupname}')">Endre</p>
                       <div id = "changeGroupMembersDiv"></div>
-                     <p onclick = "removeGroup('${groupname}')">slett</p>
+                     <p style="color: red"onclick = "removeGroup('${groupname}')">Slett</p>
                       <div id = "removeGroupDiv"></div>
                 `}
   else {
@@ -143,7 +142,7 @@ function changeGroupMembersView(groupName) {
       console.warn(`No user data for ID ${element}`);
       return;
     }
-    groupMembers +=/*HTML*/`<li><p>${userInfo.username} <button class="erase" onclick="removeGroupMember('${groupName}','${userInfo.username}')">❌</button></p></li>
+    groupMembers +=/*HTML*/`<li><p style="font-size:1.2rem">${userInfo.username} <button class="erase" onclick="removeGroupMember('${groupName}','${userInfo.username}')">❌</button></p></li>
                             `
   }
   );
@@ -156,7 +155,7 @@ function changeGroupMembersView(groupName) {
   <div class = "page">
   <button class ="previousPageButton" onclick="groupSettingsView()"></button>
     <div style = "text-align: center;">
-     <h3>${groupName}</h3>
+     <h2>${groupName}</h2>
      ${groupMembers}
      <button class ="home" onclick="goToDashboardPage()"></button>
   `
