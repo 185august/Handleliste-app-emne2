@@ -2,7 +2,7 @@ function favoriteItemsView() {
     let favoriteItemsHtml = ` 
     <button  class ="previousPageButton" onclick="goToPreviousPage(-1)"></button><button class ="home" onclick="goToDashboardPage()"></button>
     <div class="container">
-    <h4>Favoritt Varer</h4>`
+    <h3 style="margin:10px">Favoritt Varer</h3>`
     model.data.users.find(obj => obj.userId == model.app.currentUserId).favoriteItemsList.favoriteItems.forEach(item => {
         favoriteItemsHtml += `<div>${item.rank}: ${item.name}, Ganger handlet:${item.amountRecentlyBought}</div>
          <button class="erase" onclick="removeItemFromFavorites(${item.itemId})">❌</button>`
