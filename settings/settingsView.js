@@ -26,10 +26,18 @@ function settingsView(back = '') {
     <div style = "text-align: center;">
      <h2>Bruker innstillinger</h2>
      <br>
-     <p onclick="profilView()">Profil</p>
-     <p onclick="setPage('favoriteItems')">Favoritt varer</p>
-     <p onclick="groupSettingsView()">Grupper</p>
-     <p onclick="logout()">Logg ut</p>
+      <div class="divforstyle">
+        <p class="listeBoks" onclick="profilView()">Profil</p>
+      </div>
+      <div class="divforstyle">  
+        <p class="listeBoks" onclick="setPage('favoriteItems')">Favoritt varer</p>
+      </div>
+        <div class="divforstyle">
+        <p class="listeBoks" onclick="groupSettingsView()">Grupper</p>
+      </div>  
+        <div class="divforstyle">
+        <p class="listeBoks" onclick="logout()">Logg ut</p>
+      </div>
     </div>
     <button class ="home" onclick="goToDashboardPage()"></button>`
     return html
@@ -103,12 +111,12 @@ function groupSettingsView() {
   settingsViewhtml = html
   updateView()
 }
-function specialBackspaceButton(){
-  if(model.app.previousPage[model.app.previousPage.length-2]==='groupsOverview'){
-    setPage('groupsOverview') 
+function specialBackspaceButton() {
+  if (model.app.previousPage[model.app.previousPage.length - 2] === 'groupsOverview') {
+    setPage('groupsOverview')
     updateView()
     console.log(model.app.previousPage)
-    model.app.previousPage.splice(model.app.previousPage.length-3,2)
+    model.app.previousPage.splice(model.app.previousPage.length - 3, 2)
     return
   }
   settingsView('back'); updateView()
@@ -139,9 +147,9 @@ function GroupSettingsPages(groupName) {
 
 
 function changeGroupMembersView(groupName) {
- 
+
   const groupObject = model.data.groups.find(groupElement => groupElement.name === groupName)
-   if(!groupObject) return
+  if (!groupObject) return
   let groupMembers = `<ul style = 'list-style: none; padding : 0'>`
   groupObject.usersId.forEach(element => {
     let userInfo = model.data.users.find(user => user.userId === element)
@@ -171,7 +179,7 @@ function changeGroupMembersView(groupName) {
   `
   settingsViewhtml = html
   updateView()
-  
+
 }
 
 function addGroupMemberView(groupName) {
@@ -181,5 +189,5 @@ function addGroupMemberView(groupName) {
   <button onclick="addGroupMember('${groupName}')">Inviter</button> 
   
   `
- 
+
 }
