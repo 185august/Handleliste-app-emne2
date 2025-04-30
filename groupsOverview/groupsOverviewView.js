@@ -1,11 +1,11 @@
 function groupsOverviewView() {
 
     let html =/*HTML*/ `<div class="headerbox">
-      <button class ="previousPageButton" onclick="goToPreviousPage(-1)"></button>
+      <button class ="previousPageButton" onclick="goToPreviousPage(-1), resetVariable(model.app, 'currentGroupId')"></button>
       <button class = "groupsettingButton" style = "padding:0; font-size: 1.6rem; text-align: center;padding-block:0" 
-      onclick="groupSettingsView(); setPage('settings')">⚙️</button>
+      onclick="groupSettingsView(), setPage('settings'), resetVariable(model.app, 'currentGroupId')">⚙️</button>
      </div>
-    <button class ="home" onclick="goToDashboardPage()"></button>
+    <button class ="home" onclick="goToDashboardPage(), resetVariable(model.app, 'currentGroupId')"></button>
    `
 
     model.data.users.find(obj => obj.userId == model.app.currentUserId).groupsId.forEach(id => {

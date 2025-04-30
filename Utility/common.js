@@ -39,4 +39,6 @@ function isBlank(str) {
     return !str?.trim();
 }
 
-
+function resetVariable(obj, prop){
+    obj[prop]=null;
+}

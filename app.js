@@ -41,6 +41,9 @@ function updateView() {
             break;
         case 'notifications':
             currentPageView = notificatonsView();
+            break;
+        case 'groupLogList':
+            currentPageView = groupLogListView();
     }
 
     document.getElementById('app').innerHTML = `

@@ -33,7 +33,8 @@ function createNewGroup() {
         usersId: [model.app.currentUserId],
         adminUserId: [model.app.currentUserId],
         showLists: false,
-        lists: []
+        lists: [],
+        log:[],
     };
     model.data.groups.push(newGroup);
     model.data.users.find(obj => obj.userId == model.app.currentUserId).groupsId.push(newGroup.groupId);

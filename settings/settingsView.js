@@ -125,11 +125,13 @@ function GroupSettingsPages(groupName) {
                       <div id = "leaveGroupDiv"></div>
                      <p onclick = "changeGroupMembersView('${groupname}')">Endre</p>
                       <div id = "changeGroupMembersDiv"></div>
+                      <p onclick="gotoGroupLog(${groupObject.groupId})">Log</p>
                      <p style="color: red"onclick = "removeGroup('${groupname}')">Slett</p>
                       <div id = "removeGroupDiv"></div>
                 `}
   else {
     div.innerHTML = /*HTML*/`
+                      <p onclick="gotoGroupLog(${groupObject.groupId})">Vis logg</p>
                        <p onclick = "leaveGroup('${groupname}')">Forlat</p>
                         <div id = "leaveGroupDiv"></div>
                   `}

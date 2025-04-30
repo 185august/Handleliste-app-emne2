@@ -49,19 +49,29 @@ function markItemAsBought(checkbox, id) {
 function pushListToLog() {
     model.app.currentListPath.isCompleted = true;
     model.app.currentListPath.date = new Date().toLocaleDateString();
+    if(model.app.previousPage.includes("groupsOverview") && model.data.groups.find(obj=> obj.adminUserId == model.app.currentUserId)){
+        const group= model.data.groups.find(obj=>obj.groupId == model.app.currentGroupId)
+        const listIndex = group.lists.findIndex(obj=> obj.listId == model.app.currentListPath.listId);
+        group.log.unshift(model.app.currentListPath);
+        group.lists.splice(listIndex,1);
+        resetVariable(model.app, 'currentGroupId');
+        setPage('dashboard');
+        
+    }else{
+        const user = model.data.users.find(obj => obj.userId === model.app.currentUserId);
+        const listIndex = user.lists.findIndex(obj => obj.listId === model.app.currentListPath.listId);
+        //Update favorite item list
+        if(model.app.currentPage== "shoppingList" && !model.app.previousPage.includes("groupsOverview")){
+            addItemToFavoriteList();
+        }
+    
+        user.log.unshift(model.app.currentListPath);
+        //model.data.users[userIndex].log.unshift(model.app.currentListPath);
+        user.lists.splice(listIndex, 1);
+        orderFavoriteItemList();
 
-    const user = model.data.users.find(obj => obj.userId === model.app.currentUserId);
-    const listIndex = user.lists.findIndex(obj => obj.listId === model.app.currentListPath.listId);
-    //Update favorite item list
-    if(model.app.currentPage== "shoppingList" && !model.app.previousPage.includes("groupsOverview")){
-        addItemToFavoriteList();
+        setPage('dashboard');
     }
-
-    user.log.unshift(model.app.currentListPath);
-    //model.data.users[userIndex].log.unshift(model.app.currentListPath);
-    user.lists.splice(listIndex, 1)
-    orderFavoriteItemList();
-    setPage('dashboard');
 }
 
 function renderListItems() {

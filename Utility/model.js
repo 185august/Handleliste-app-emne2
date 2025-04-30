@@ -428,7 +428,6 @@ const model = {
                     usersId: [0, 1, 550],
                     adminUserId: [0],
                     showLists: false,
-                    invitedId:[],
                     lists:
                         [
                             {
@@ -470,6 +469,9 @@ const model = {
                                     }]
                             }
                         ],
+                    log:[
+
+                    ]
                 },
                 {
                     groupId: 1,
@@ -477,7 +479,6 @@ const model = {
                     usersId: [0, 1],
                     adminUserId: [0],
                     showLists: false,
-                    invitedId:[],
                     lists:
                         [
                             {
@@ -528,6 +529,9 @@ const model = {
                                 ]
                             }
                         ],
+                        log:[
+                            
+                        ]
                 }
             ],
     }
