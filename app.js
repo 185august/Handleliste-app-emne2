@@ -44,6 +44,8 @@ function updateView() {
             break;
         case 'groupLogList':
             currentPageView = groupLogListView();
+        case 'shareList':
+            currentPageView = shareListView();
     }
 
     document.getElementById('app').innerHTML = `

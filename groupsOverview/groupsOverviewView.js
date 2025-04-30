@@ -9,21 +9,21 @@ function groupsOverviewView() {
      </div>
     <button class ="home" onclick="goToDashboardPage(), resetVariable(model.app, 'currentGroupId')"></button>
    `
-
+    html+= '<div class="container-overview">'
     model.data.users.find(obj => obj.userId == model.app.currentUserId).groupsId.forEach(id => {
 
         const group = model.data.groups.find(groupElement => groupElement.groupId === id)
         html += /*HTML*/
             `
             <div class="divforstyle">
-        <div class="listeBoks" ${group.showLists ? '' : `onclick="printGroupList(${group.groupId})"`}>
-            <h2 style="margin: 0 0 3% 0" ${group.showLists ? `onclick="toggleGroupLists(${group.groupId})"` : ''}> ${group.name}</h2>
-            ${group.showLists ? `<div id ="namelists${id}">${groupListView() ?? ''}</div>` : ''}
-        </div>
+                <div class="listeBoks" ${group.showLists ? '' : `onclick="printGroupList(${group.groupId})"`}>
+                    <h2 id="toggle-new-group-list" style="margin: 0 0 3% 0" ${group.showLists ? `onclick="toggleGroupLists(${group.groupId})"` : ''}> ${group.name}</h2>
+                        ${group.showLists ? `<div id ="namelists${id}">${groupListView() ?? ''}</div>` : ''}
+                </div>
             </div>`
     });
 
-    return html
+    return html+=`</div>`
 }
 
 /* function printGroupList(groupId) {
@@ -67,7 +67,8 @@ function groupListView() {
             <div style="display: flex; align-items: center; justify-content: center">
             <div style="display: flex; flex-wrap: nowrap; align-items: baseline">
             <p style="margin: 5% 0 0 0" onclick="toTheListPage('${element.listType}',${element.listId}, ${model.app.currentGroupId})">${element.listName}</p>
-            <button class="listeKnapper erase" style="font-size: 1rem;" onclick="removeList(${element.listId}, ${model.app.currentGroupId})">❌</button>
+            ${model.data.groups.find(obj=>obj.groupId == model.app.currentGroupId).adminUserId == model.app.currentUserId ? 
+                `<button class="listeKnapper erase" style="font-size: 1rem;" onclick="removeList(${element.listId}, ${model.app.currentGroupId})">❌</button>`:''}
             </div>
             </div>
             `

@@ -13,9 +13,8 @@ function favoriteItemsView() {
 function renderFavoriteItemsToShoppingList() {
     const currentUser = model.data.users.find(obj => obj.userId == model.app.currentUserId);
     let html = `
-    <div class="container">
+    <div class="favorite-items">
     <h4 onclick="setPage('favoriteItems')">Favoritt Varer</h4>
-    <br>
     `
     let currentIndex = 0;
     currentUser.favoriteItemsList.favoriteItems.forEach(element => {
@@ -24,7 +23,7 @@ function renderFavoriteItemsToShoppingList() {
         }
         html += /*HTML*/`
         <div class="favorite-items"> 
-            <div onclick="addItemFromFavoritesToShoppingList('${element.name}')">${element.rank}. ${element.name}</div>
+            <div class="item-favorite" onclick="addItemFromFavoritesToShoppingList('${element.name}')">${element.rank}. ${element.name}</div>
         </div> 
         `
         currentIndex++

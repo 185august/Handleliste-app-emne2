@@ -1,6 +1,12 @@
 function toggleGroupLists(whatGroup) {
     model.data.groups.find(obj => obj.groupId === whatGroup).showLists = !model.data.groups.find(obj => obj.groupId === whatGroup).showLists
     updateView();
+    setTimeout(() => {
+        const inputSection = document.querySelector('#toggle-new-group-list');
+        if (inputSection) {
+          inputSection.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        }
+      }, 50);
 };
 function removeList(listId,groupId){
     const group = model.data.groups.find(obj => obj.groupId === groupId);

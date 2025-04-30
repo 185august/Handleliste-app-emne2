@@ -32,6 +32,12 @@ function addItemToList(typeOfList) {
 function toggleInput() {
     showAddNewItemInput = !showAddNewItemInput;
     updateView();
+    setTimeout(() => {
+        const inputSection = document.querySelector('.show-input-button');
+        if (inputSection) {
+          inputSection.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        }
+      }, 50);
 }
 
 function removeItemFromList(id) {
@@ -80,16 +86,15 @@ function renderListItems() {
     model.app.currentListPath.listItems.forEach(item => {
         listItemsHtml += /*HTML*/ ` 
             <div id="listItem${item.itemId}" class="${item.hasBeenBought ? 'list-bought' : 'list'}">
-                <div class="list-item">Vare: ${item.name} </div>
-                ${item.amount ? `<div class="list-amount">Antall: ${item.amount} </div>` : ''}
+                <div class="list-item"> ${item.name}, </div>
+                ${item.amount ? `<div class="list-amount"> Antall: ${item.amount} </div>` : ''}
                 ${item.price ? `<div class="list-price">Pris: ${item.price} kr</div>` : ''}
                 ${item.whoIsTheRecipient ? `<div class="list-recipient">Til: ${item.whoIsTheRecipient}</div>` : ''}
-                ${model.app.currentListPath.isCompleted ? '' : `Kjøpt <input class="list-checkbox" onchange="markItemAsBought(this, ${item.itemId})" type="checkbox" ${item.hasBeenBought ? 'checked="checked"' : ''} />`}
-                ${model.app.currentListPath.isCompleted ? '' : `Fjern <button class="list-button" onclick="removeItemFromList(${item.itemId}, ${item.listId})"> ❌</button>`}
+                ${model.app.currentListPath.isCompleted ? '' : `<input class="list-checkbox" onchange="markItemAsBought(this, ${item.itemId})" type="checkbox" ${item.hasBeenBought ? 'checked="checked"' : ''} />`}
+                ${model.app.currentListPath.isCompleted ? '' : `<button class="list-button" onclick="removeItemFromList(${item.itemId}, ${item.listId})"> ❌</button>`}
                 </div > 
                 ${model.app.previousPage.includes('groupsOverview') ? `<h4>${model.data.users.find(obj => obj.userId == item.whoAddedItemId).username ?? ''}</h4>` : ''}
                 `
     });
     return listItemsHtml;
 }
-

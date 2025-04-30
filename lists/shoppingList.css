@@ -32,21 +32,96 @@
   margin: 0px;
   padding: 0px;
 }
-.container {
-  margin-top: 50px;
+
+.container-items {
   display: flex;
-  margin: 0 auto;
+  margin: 5px auto 0;
   flex-direction: column;
   justify-items: center;
   justify-self: center;
   align-items: center;
   align-content: flex-start;
+  border: 1px rgba(207, 205, 205, 0.445) solid;
+  box-shadow: 0 0 10px rgba(155, 152, 152, 0.329);
+  background-color: rgb(230, 226, 226);
+  box-sizing: border-box;
+  padding: 3px;
+  border-radius: 10px;
+  min-height: 500px;
+  max-height: 500px; 
+  overflow-y: auto; 
+  width: 100%; 
+}
+.shopping-list-wrapper {
+  margin-top: 20px;
+  margin-bottom:10px;
+  width: 100%;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto; 
+}
+
+.list-title {
+  margin: 0px;
+  padding: 0px;
+}
+.container-items::-webkit-scrollbar,
+.container-wishlist::-webkit-scrollbar {
+  width: 8px;
+}
+
+.container-items::-webkit-scrollbar-track,
+.container-wishlist::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.container-items::-webkit-scrollbar-thumb, 
+.container-wishlist::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.container-items::-webkit-scrollbar-thumb:hover, 
+.container-wishlist::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.container-wishlist{
+  display: flex;
+  margin: 5px auto 0;
+  flex-direction: column;
+  justify-items: center;
+  justify-self: center;
+  align-items: center;
+  align-content: flex-start;
+  border: 1px rgba(207, 205, 205, 0.445) solid;
+  box-shadow: 0 0 10px rgba(155, 152, 152, 0.329);
+  background-color: rgb(230, 226, 226);
+  box-sizing: border-box;
+  padding: 3px;
+  border-radius: 10px;
+  min-height: 600px;
+  max-height: 600px; 
+  overflow-y: auto; 
+  width: 100%; 
 }
 
 .favorite-items {
   display: flex;
-  flex-wrap: wrap;
-  padding: 4px;
+  margin: 0 auto 0;
+  flex-direction: column;
+  justify-items: center;
+  justify-self: center;
+  align-items: center;
+  align-content: flex-start;
+  border: 1px rgba(207, 205, 205, 0.445) solid;
+  box-shadow: 0 0 10px rgba(155, 152, 152, 0.329);
+  background-color: rgb(230, 226, 226);
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+.item-favorite{
+  margin: 3px;
 }
 .show-input-button {
   margin-top: 20px;
@@ -59,4 +134,8 @@
 h4 {
   margin: 3px;
   padding: 0;
+}
+
+.btn-push-to-log{
+  float: right;
 }

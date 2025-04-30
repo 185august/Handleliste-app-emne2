@@ -2,17 +2,19 @@ let showAddNewItemInput = false;
 
 function shoppingListView() {
     let html =/*HTML*/ `
-    <button class ="previousPageButton"onclick="goToPreviousPage(-1)"></button><button class ="home" onclick="goToDashboardPage()"></button>
-    ${model.app.previousPage.includes("privateListOverview") || model.data.groups.find(obj=> obj.adminUserId == model.app.currentUserId) ? `<button onclick="pushListToLog()">Legg liste til i log</button>`:''}
-    <div class="container">
-    <h1>${model.app.currentListPath.listName}</h1>
-    <br>
+    <button class ="previousPageButton"onclick="goToPreviousPage(-1)"></button>
+    ${model.app.previousPage.includes("privateListOverview")? `<button onclick="setPage('shareList')">Del listen</button>`: ''}
+    ${model.app.previousPage.includes("privateListOverview") || model.data.groups.find(obj=> obj.adminUserId == model.app.currentUserId) ? `<button class="btn-push-to-log" onclick="pushListToLog()">Legg liste til i log</button>`:''}
+    <div class="shopping-list-wrapper">
+    <div class="container-items">
+    <h3 class="list-title">${model.app.currentListPath.listName}</h3>
     ${renderListItems()}
-    </div>
     <div class="show-input-button"><button class="shoppinglistPlus" onclick="toggleInput()"> ${showAddNewItemInput ? '-' : '+'} </button> ${renderAddItemsToList()}</div>
+    </div>
+    </div>
     ${model.app.previousPage.includes('groupsOverview') ? '' : renderFavoriteItemsToShoppingList()}
     `
-    return html;
+    return html+= '<button class ="home" onclick="goToDashboardPage()"></button>';
 };
 
 

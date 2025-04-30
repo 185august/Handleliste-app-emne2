@@ -4,12 +4,14 @@ function wishlistView() {
     console.log()
     let html =/*HTML*/ `
     <button  class ="previousPageButton" onclick="goToPreviousPage(-1)"></button><button class ="home" onclick="goToDashboardPage()"></button>
-    ${model.app.previousPage.includes("privateListOverview") || model.data.groups.find(obj=> obj.adminUserId == model.app.currentUserId) ? `<button onclick="pushListToLog()">Legg liste til i log</button>` : ''}
-    <div class="container">
+    ${model.app.previousPage.includes("privateListOverview")? `<button onclick="setPage('shareList')">Del listen</button>`: ''}
+    ${model.app.previousPage.includes("privateListOverview") || model.data.groups.find(obj=> obj.adminUserId == model.app.currentUserId) ? `<button class="btn-push-to-log" onclick="pushListToLog()">Legg liste til i log</button>` : ''}
+    <div class="shopping-list-wrapper">
+    <div class="container-wishlist">
     <h1>${model.app.currentListPath.listName}</h1>
     ${renderListItems()}
-    </div>
     <div class="show-input-button"><button class="wishlistPlus" onclick="toggleInput()"> ${showAddNewItemInput ? '-' : '+'} </button> ${renderAddItemsToWishlist()}</div>
+    </div>
 `
     return html;
 };
