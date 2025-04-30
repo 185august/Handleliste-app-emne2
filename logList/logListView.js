@@ -14,17 +14,19 @@ function logListView() {
 function renderLogs() {
     let html = '';
     model.data.users.find(obj => obj.userId == model.app.currentUserId).log.forEach(currentLog => {
-        html += `<div onclick = "showLogItems(${currentLog.listId})" > ${currentLog.date}</div >
-            <div> ${currentLog.listName}</div>
-                    ${currentLog.showLog ? renderLogItems(currentLog.listId) : ''}
-                    <button onclick="activateList(${currentLog.listId})">aktiver</button>
-                    <button class="erase" onclick="deleteListFromLog(${currentLog.listId})">❌</button>
+        html += `<div class="listeBoks">
+        <div onclick = "showLogItems(${currentLog.listId})" > ${currentLog.date}</div >
+        <div> ${currentLog.listName}</div>
+        ${currentLog.showLog ? renderLogItems(currentLog.listId) : ''}
+        <button onclick="activateList(${currentLog.listId})">Reaktiver</button>
+        <button class="erase" onclick="deleteListFromLog(${currentLog.listId})">❌</button>
+        </div>
         `
     });
     return html;
 }
 function gotoGroupLog(groupId) {
-    model.app.currentGroupId= groupId;
+    model.app.currentGroupId = groupId;
     setPage("groupLogList")
 }
 function groupLogListView() {
@@ -40,13 +42,13 @@ function groupLogListView() {
 }
 
 function renderLogsGroups() {
-    let html="";
-    model.data.groups.find(obj=> obj.groupId == model.app.currentGroupId).log.forEach(currentLog =>{
+    let html = "";
+    model.data.groups.find(obj => obj.groupId == model.app.currentGroupId).log.forEach(currentLog => {
         html += `<div onclick = "showLogItems(${currentLog.listId})" > ${currentLog.date}</div>
             <div> ${currentLog.listName}</div>
                     ${currentLog.showLog ? renderLogItems(currentLog.listId) : ''}
-                    ${model.data.groups.find(obj=>obj.groupId == model.app.currentGroupId).adminUserId==model.app.currentUserId ? `<button onclick="activateList(${currentLog.listId})">aktiver</button>
-                    <button class="erase" onclick="deleteListFromLog(${currentLog.listId})">❌</button>`:''}
+                    ${model.data.groups.find(obj => obj.groupId == model.app.currentGroupId).adminUserId == model.app.currentUserId ? `<button onclick="activateList(${currentLog.listId})">aktiver</button>
+                    <button class="erase" onclick="deleteListFromLog(${currentLog.listId})">❌</button>` : ''}
         `
     });
     return html

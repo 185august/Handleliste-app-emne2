@@ -74,7 +74,7 @@ const model = {
                                 listId: 0,
                                 listType: 'shoppingList',
                                 isPrivate: true,
-                                listName: 'handle til bursdag',
+                                listName: 'Handle til bursdag',
                                 isCompleted: false,
                                 listItems: [
                                     {

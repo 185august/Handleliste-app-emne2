@@ -148,4 +148,6 @@ td{
   padding: 1rem;
   border-radius: 5px;
   margin: 0.2rem;
+  align-items: center;
+  align-content: center;
 };

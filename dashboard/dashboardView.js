@@ -38,7 +38,7 @@ function dashboardRecentList() {
     let html;
     if (recentListObject == undefined) return html = /*HTML*/ `
     <div id = "recentList" class="dashboardboxes">
-    <h3>Siste Endret Lister</h3>
+    <h3>Siste Endret Liste</h3>
     <p>Ingen siste endret liste</p>
     </div>`
 
@@ -46,8 +46,8 @@ function dashboardRecentList() {
 
     html = /*HTML*/ `
     <div id = "recentList" class="dashboardboxes" onclick="printPrivateList('${currentUserArray.find(obj => obj.userId == model.app.currentUserId).recentList.type}',${recentListId})">
-    <h3>Siste Endret Lister</h3>
-    <p style="font-size:1.1rem">${currentUserArray.find(obj => obj.userId == model.app.currentUserId).lists.find(obj => obj.listId === recentListId).listName}</p>
+    <h3>Sist Endret Liste</h3>
+    <h3 style="font-size:1.1rem">${currentUserArray.find(obj => obj.userId == model.app.currentUserId).lists.find(obj => obj.listId === recentListId).listName}</h3>
     <div class = "lists">
     ${recentList}
     </div>
@@ -83,7 +83,7 @@ function dashboardGroupList() {
 
     let groupListName = /*HTML*/ `
     <div class = "dashboardboxes" onclick="setPage('groupsOverview')">
-    <h3>Group Lister</h3>
+    <h3> Grupper</h3>
     <ol style = 'text-align: center; padding: 0 0 0 1.2em'id = grouplists>`
 
     currentGroups.forEach(element => {

@@ -29,9 +29,6 @@ function settingsView(back = '') {
       <div class="divforstyle">
         <p class="listeBoks" onclick="profilView()">Profil</p>
       </div>
-      <div class="divforstyle">  
-        <p class="listeBoks" onclick="setPage('favoriteItems')">Favoritt varer</p>
-      </div>
         <div class="divforstyle">
         <p class="listeBoks" onclick="groupSettingsView()">Grupper</p>
       </div>  
@@ -51,12 +48,28 @@ function profilView() {
   <button class ="previousPageButton" onclick="settingsView('back'); updateView()"></button>
     <div  style = "text-align: center;">
      <h3>Profil</h3>
-     <p onclick = "changeNameSector('nameDiv')">Endre navn</p>
+     <div class="divforstyle">
+     <div class="listeBoks">
+    <p onclick = "changeNameSector('nameDiv')">Endre navn</p>
       <div id = "nameDiv"></div>
-     <p  onclick = "changePasswordSector('passwordDiv')">Endre passord</p>
+    </div>
+    </div>
+    <div class="divforstyle">
+    <div class="listeBoks">
+    <p onclick = "changePasswordSector('passwordDiv')">Endre passord</p>
       <div id = "passwordDiv"></div>
-     <p onclick = "setPage('logList')">Vis handle logg</p>
-
+      </div>
+      </div>
+      <div class="divforstyle">
+      <div class="listeBoks">
+    <p onclick="setPage('favoriteItems')">Favoritt varer</p>
+    </div>
+    </div>
+    <div class="divforstyle">
+    <div class="listeBoks">
+    <p onclick = "setPage('logList')">Vis handle logg</p>
+    </div>
+    </div>
      <button class ="home" onclick="goToDashboardPage()"></button>    
   `
   html += ` </div>`

@@ -1,8 +1,10 @@
 function groupsOverviewView() {
 
-    let html =/*HTML*/ `<div class="headerbox">
-      <button class ="previousPageButton" onclick="goToPreviousPage(-1), resetVariable(model.app, 'currentGroupId')"></button>
-      <button class = "groupsettingButton" style = "padding:0; font-size: 1.6rem; text-align: center;padding-block:0" 
+    let html =/*HTML*/ `
+    <div class="headerbox">
+    <button style="justify-content: start;"  class ="previousPageButton" onclick="goToPreviousPage(-1), resetVariable(model.app, 'currentGroupId')"></button>
+    <button class = "plus" onclick="setPage('createNewGroup')">✚</button>
+      <button class = "groupsettingButton" style = "padding:0; font-size: 1.6rem; text-align: center;padding-block:0;" 
       onclick="groupSettingsView(), setPage('settings'), resetVariable(model.app, 'currentGroupId')">⚙️</button>
      </div>
     <button class ="home" onclick="goToDashboardPage(), resetVariable(model.app, 'currentGroupId')"></button>
@@ -20,7 +22,7 @@ function groupsOverviewView() {
         </div>
             </div>`
     });
-    html += `<div class="divforstyle"><div class="listeBoks"><button class = "plus" onclick="setPage('createNewGroup')">✚</button></div></div>`
+
     return html
 }
 
