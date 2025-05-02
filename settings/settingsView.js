@@ -116,7 +116,7 @@ function groupSettingsView() {
   <div class = "page">
   <button class ="previousPageButton" onclick="specialBackspaceButton()"></button>
     <div style = "text-align: center;">
-     <h2>Gruppe innstillinger</h2>
+     <h2>Gruppeinnstillinger</h2>
      ${groupListName}
 
   <button class ="home" onclick="goToDashboardPage()"></button>
