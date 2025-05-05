@@ -44,7 +44,3 @@ function activateList(listId) {
     updateView();
 }
 
-function gotoGroupLog(groupId) {
-    model.app.currentGroupId = groupId;
-    setPage("groupLogList")
-}
