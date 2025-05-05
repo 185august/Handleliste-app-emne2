@@ -103,7 +103,7 @@ const model = {
                                 listId: 1,
                                 listType: 'wishlist',
                                 isPrivate: false,
-                                listName: 'Ønske liste',
+                                listName: 'Ønskeliste',
                                 usersCanView: [0, 1],
                                 isCompleted: false,
                                 listItems: [
@@ -203,7 +203,7 @@ const model = {
                                 listItems: [
                                     {
                                         itemId: 0,
-                                        name: 'katte melk',
+                                        name: 'kattemelk',
                                         amount: 1,
                                         price: null,
                                         hasBeenBought: false,
@@ -223,7 +223,7 @@ const model = {
                                 listId: 1,
                                 listType: 'wishlist',
                                 isPrivate: false,
-                                listName: 'Ønske liste',
+                                listName: 'Ønskeliste',
                                 usersCanView: [0, 1],
                                 isCompleted: false,
                                 listItems: [
@@ -344,7 +344,7 @@ const model = {
                                 listId: 1,
                                 listType: 'wishlist',
                                 isPrivate: false,
-                                listName: 'Ønske liste',
+                                listName: 'Ønskeliste',
                                 usersCanView: [0, 1],
                                 isCompleted: false,
                                 listItems: [
