@@ -305,9 +305,9 @@ const model = {
                 },
                 {
                     userId: 550,
-                    username: 'Jens nordmann',
-                    password: 'passord',
-                    groupsId: [0],
+                    username: 'Rebecka',
+                    password: 'getit',
+                    groupsId: [],
                     recentList: {
                         type: '',
                         id: null
@@ -315,109 +315,18 @@ const model = {
                     rememberMe: false,
                     lists:
                         [
-                            {
-                                listId: 0,
-                                listType: 'shoppingList',
-                                isPrivate: true,
-                                listName: 'handle til bursdag',
-                                isCompleted: false,
-                                listItems: [
-                                    {
-                                        itemId: 0,
-                                        name: 'Melk',
-                                        amount: 1,
-                                        price: null,
-                                        hasBeenBought: false,
-                                        whoIsTheRecipient: '',
-                                    },
-                                    {
-                                        itemId: 1,
-                                        name: 'Smør',
-                                        amount: 1,
-                                        price: null,
-                                        hasBeenBought: false,
-                                        whoIsTheRecipient: '',
-                                    }
-                                ],
-                            },
-                            {
-                                listId: 1,
-                                listType: 'wishlist',
-                                isPrivate: false,
-                                listName: 'Ønskeliste',
-                                usersCanView: [0, 1],
-                                isCompleted: false,
-                                listItems: [
-                                    {
-                                        itemId: 0,
-                                        name: 'Sykkel',
-                                        amount: 1,
-                                        price: 10000,
-                                        hasBeenBought: false,
-                                        whoIsTheRecipient: 'Anders'
-                                    }
-                                ],
-                            }
+                         
                         ],
 
                     favoriteItemsList: {
                         listType: 'favoriteList',
                         favoriteItems: [
-                            {
-                                itemId: 0,
-                                name: 'Melk',
-                                price: null,
-                                whoIsTheRecipient: null,
-                                amountRecentlyBought: 8,
-                                rank: 1
-                            },
-                            {
-                                itemId: 1,
-                                name: 'Agurk',
-                                price: null,
-                                whoIsTheRecipient: null,
-                                amountRecentlyBought: 6,
-                                rank: 2
-                            },
-                            {
-                                itemId: 2,
-                                name: 'Smør',
-                                price: null,
-                                whoIsTheRecipient: null,
-                                amountRecentlyBought: 4,
-                                rank: 3
-                            }],
+                            ],
 
                     },
                     log:
                         [
-                            {
-                                listId: 0,
-                                listType: 'shoppingList',
-                                listName: 'handle til bursdag',
-                                isCompleted: true,
-                                showLog: false,
-                                date: '26/3/2025',
-                                listItems:
-                                    [
-                                        {
-                                            itemId: 0,
-                                            name: 'Kake',
-                                            amount: 1,
-                                            price: null,
-                                            hasBeenBought: false,
-                                            whoIsTheRecipient: '',
-                                        },
-                                        {
-                                            itemId: 1,
-                                            name: 'Coca cola',
-                                            amount: 4,
-                                            price: null,
-                                            hasBeenBought: false,
-                                            whoIsTheRecipient: '',
-                                        }
-                                    ],
-                            }
+                            
                         ],
                     notificatons: [
 

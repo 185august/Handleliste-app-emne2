@@ -50,7 +50,7 @@ function errorMessage(path) {
     return message;
   }
 
-  function resetErrorMessage(obj, prop){
+function resetErrorMessage(obj, prop){
     setTimeout(() => {
       obj[prop] = "";
       updateView();

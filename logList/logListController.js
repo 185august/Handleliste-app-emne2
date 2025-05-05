@@ -43,3 +43,8 @@ function activateList(listId) {
     object.log.splice(object.log.findIndex(obj => obj.listId == listId), 1)
     updateView();
 }
+
+function gotoGroupLog(groupId) {
+    model.app.currentGroupId = groupId;
+    setPage("groupLogList")
+}

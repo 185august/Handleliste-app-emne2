@@ -28,34 +28,10 @@ function groupsOverviewView() {
     return html+=`</div>`
 }
 
-/* function printGroupList(groupId) {
-    let html = ''
-    model.data.groups.forEach(element => {
-        document.querySelector(`#namelists${element.groupId}`).innerHTML = '';
-    });
-    model.app.currentGroupId = parseInt(groupId)
-    const object = model.data.groups.find(groupElement => groupElement.groupId == groupId)
-    object.lists.forEach(element => {
-
-        html += `
-            <p onclick="toTheListPage('${element.listType}',${element.listId}, ${groupId})">${element.listName}</p>
-            `
-    })
-    html += `${model.input.createNewList.showInput && model.data.groups[model.app.currentGroupId] == model.app.currentGroupId ? '' : `<button onclick="toggleAddNewListInput()"> Ny liste </button>`}
-    ${createNewListView()}`
-    document.querySelector(`#namelists${groupId}`).innerHTML = html
-}; */
-
-function printGroupList(groupId) {
-    model.app.currentGroupId = groupId
-    groupListView(groupId);
-    updateView();
-};
 
 function groupListView(groupId) {
-    //if (model.app.currentGroupId === null || model.app.currentGroupId <= -1) return '';
     let html = '';
-
+    
     model.data.groups.forEach(element => {
         element.showLists = false;
     });
@@ -80,14 +56,4 @@ function groupListView(groupId) {
     return html
 }
 
-function toTheListPage(listType, listId, groupId) {
-    const path = model.data.groups.find(obj => obj.groupId == groupId).lists.find(obj => obj.listId === listId)
-    if (listType == 'shoppingList') {
-        model.app.currentListPath = path;
-        //model.data.users.find(obj => obj.userId === model.app.currentUserId);
-        setPage('shoppingList');
-    } else {
-        model.app.currentListPath = path;
-        setPage('wishlist');
-    }
-}
+

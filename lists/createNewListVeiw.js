@@ -23,9 +23,3 @@ function createNewListView() {
 };
 
 
-function createNewListButton() {
-    return /*HTML*/`
-    <button class = "plus"onclick="setPage('createNewList')" style ="font-size:2em">✚</button>
-    `;
-}
-

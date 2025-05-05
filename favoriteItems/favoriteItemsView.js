@@ -1,11 +1,16 @@
 function favoriteItemsView() {
     let favoriteItemsHtml = ` 
     <button  class ="previousPageButton" onclick="goToPreviousPage(-1)"></button><button class ="home" onclick="goToDashboardPage()"></button>
-    <div class="container">
-    <h3 style="margin:10px">Favoritt Varer</h3>`
+    <div class="container-overview">
+    <h3 class="divforstyle">Favoritt Varer</h3>`
     model.data.users.find(obj => obj.userId == model.app.currentUserId).favoriteItemsList.favoriteItems.forEach(item => {
-        favoriteItemsHtml += `<div>${item.rank}: ${item.name}, Ganger handlet:${item.amountRecentlyBought}</div>
-         <button class="erase" onclick="removeItemFromFavorites(${item.itemId})">❌</button>`
+        favoriteItemsHtml += `
+        <div class="divforstyle">
+            <div class="listeBoks">${item.rank}: ${item.name}, Ganger handlet:${item.amountRecentlyBought}
+            <button class="listeKnapper erase" onclick="removeItemFromFavorites(${item.itemId})">❌</button>
+            </div>
+        </div>
+        `
     });
     return favoriteItemsHtml += `</div>`;
 }
