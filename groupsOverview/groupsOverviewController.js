@@ -9,10 +9,18 @@ function toggleGroupLists(whatGroup) {
       }, 50);
 };
 function removeList(listId,groupId){
-    const group = model.data.groups.find(obj => obj.groupId === groupId);
-    const listIndex = group.lists.findIndex(obj => obj.listId === listId);
+  let object = '';
+  let listIndex = '';
+  if (model.app.currentPage == 'privateListOverview'){
+    object = model.data.users.find(obj => obj.userId === model.app.currentUserId);
+    listIndex = object.lists.findIndex(obj => obj.listId === listId);
+  }
+  else {object = model.data.groups.find(obj => obj.groupId === groupId);
+    listIndex = object.lists.findIndex(obj => obj.listId === listId);
+  }
     if (listIndex !== -1) {
-        group.lists.splice(listIndex, 1);
+        object.lists.splice(listIndex, 1);
         updateView();
     }
+
 };

@@ -1,16 +1,16 @@
 function privateListOverviewView() {
 
-    let privateList = '<div class="headerbox"><button  class ="previousPageButton" onclick="goToPreviousPage(-1)"></button> <button class ="home" onclick="goToDashboardPage()"></button></div>';
-    privateList+= '<div class="container-overview">'
+    let privateList = '<div class="headerbox"><button  class ="previousPageButton" onclick="goToPreviousPage(-1)"></button> <button class ="home" onclick="goToDashboardPage()"></button> <button onclick="toggleAddNewListInput()" class="plus">✚</button></div>';
+    privateList+= '<div class="container-overview"><h1 class="divforstyle">Private Lister</h1>'
     model.data.users.find(obj => obj.userId == model.app.currentUserId).lists.forEach(list => {
         privateList += /*HTML*/`<div class="divforstyle" onclick="printPrivateList('${list.listType}',${list.listId})">
     <p>
-    <h2 class="listeBoks">${list.listName}</h2>
+    <h3 class="listeBoks">${list.listName}<button class="listeKnapper erase" style="font-size: 1rem;" onclick="removeList(${list.listId},'')">❌</button></h3>
     </p>
     </div>
     `
     });
-    privateList += `${model.input.createNewList.showInput ? '' : `<div class="divforstyle"><div class="listeBoks"><button onclick="toggleAddNewListInput()" class="plus">✚</button></div></div>`}
+    privateList += `${model.input.createNewList.showInput ? '' : `<div class="divforstyle"></div>`}
     ${createNewListView()}`
     return privateList+='</div>';
 }

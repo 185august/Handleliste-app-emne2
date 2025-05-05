@@ -2,6 +2,7 @@ function createNewListView() {
     let newListHtml;
     if (model.input.createNewList.showInput) {
         return newListHtml = /*HTML*/`
+        <div class="divforstyle">
             <input 
             type="text"
             placeholder="Ny liste"
@@ -12,7 +13,8 @@ function createNewListView() {
             <option value="shoppingList">Handleliste</option>
             <option value="wishlist">Ønskeliste</option> 
             </select>
-            <button onclick="createList()">Opprett ny liste</button>
+            </div>
+            <button style="width: 200px; margin: 0 auto; "  onclick="createList()">Opprett ny liste</button>
             <div class="divforstyle"> ${errorMessage(model.input.createNewList.errorMessage)?? ''}</div>
             
         `
