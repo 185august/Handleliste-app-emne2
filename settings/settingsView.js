@@ -79,7 +79,6 @@ function profilView() {
 
 function changePasswordSector() {
   let passwordDiv = document.querySelector('#passwordDiv')
-  console.log(passwordDiv)
   passwordDiv.innerHTML = /*HTML*/`
  <input type="text" required id="newPasswordValue">
  <button onclick = "sendNewUserInfo(document.querySelector('#newPasswordValue').value, 'password','#passwordDiv')">send</button>
@@ -128,7 +127,6 @@ function specialBackspaceButton() {
   if (model.app.previousPage[model.app.previousPage.length - 2] === 'groupsOverview') {
     setPage('groupsOverview')
     updateView()
-    console.log(model.app.previousPage)
     model.app.previousPage.splice(model.app.previousPage.length - 3, 2)
     return
   }
@@ -177,7 +175,7 @@ function changeGroupMembersView(groupName) {
   groupMembers += `</ul>
                   
                   <button class = "plus" onclick="addGroupMemberView('${groupName}')" style ="font-size:2em">✚</button>
-                  <div> ${addGroupMemberErrorMessage()}</div>
+                  <div> ${errorMessage(model.input.settings.addNewGroupMemberErrorMessage)}</div>
                   <div id='newMembername'></div>
                   `
 

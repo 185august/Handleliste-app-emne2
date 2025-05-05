@@ -1,14 +1,21 @@
 function addItemToList(typeOfList) {
     //const currentUser = model.data.users[model.app.currentUserId]
+    const currentPage = model.app.currentPage
     if (isBlank(typeOfList.name)) {
-        alert("Varen må ha et navn");
+        
+       model.input[currentPage].errorMessage= "Varen må ha et navn";
+       updateView();
+       resetErrorMessage(model.input[currentPage], "errorMessage");
         return;
     }
     if (isBlank(typeOfList.amount)) {
         typeOfList.amount = 1;
     }
     if (!parseInt(typeOfList.amount)) {
-        alert("Skriv inn et tall");
+        
+       model.input[currentPage].errorMessage= "Skriv inn et tall";
+       updateView();
+       resetErrorMessage(model.input[currentPage], "errorMessage");
         return;
     }
 

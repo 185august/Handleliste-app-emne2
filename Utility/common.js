@@ -35,10 +35,24 @@ function createNewId(currentPath, idName) {
     }
 }
 
+//funksjon som returner true om stringen er blank
 function isBlank(str) {
     return !str?.trim();
 }
 
+
 function resetVariable(obj, prop){
     obj[prop]=null;
 }
+
+function errorMessage(path) {
+    const message = path;
+    return message;
+  }
+
+  function resetErrorMessage(obj, prop){
+    setTimeout(() => {
+      obj[prop] = "";
+      updateView();
+    }, 2000);
+  }

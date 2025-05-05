@@ -21,7 +21,6 @@ function loginhandler() {
       model.data.users[i].username != model.input.loginPage.username &&
       model.data.users[i].password == model.input.loginPage.password
     ) {
-      console.log(model.data.users[i].username, model.input.loginPage.username)
       errormessage = "feil brukernavn";
       loginsucess = false;
     } else if (

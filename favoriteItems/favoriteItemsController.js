@@ -27,10 +27,7 @@ function addItemToFavoriteList() {
         let foundAnItem = 0;
         for (let j = 0; j < favoriteList.length; j++) {
             if (currentList[i].name.toLowerCase().includes(favoriteList[j].name.toLowerCase())) {
-                console.log(currentList[i].name + "   " + favoriteList[j].name)
-                console.log(currentList[i].name + "went from " + favoriteList[j].amountRecentlyBought)
                 favoriteList[j].amountRecentlyBought++;
-                console.log("to " + favoriteList[j].amountRecentlyBought)
                 foundAnItem++;
             }
         }

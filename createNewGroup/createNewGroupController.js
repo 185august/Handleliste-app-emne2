@@ -1,18 +1,25 @@
 function addUserToGroup() {
     const newMember = model.data.users.find(user => user.username === model.input.createNewGroup.username)
     if (newMember == undefined || newMember == null) {
-        alert('bruker eksisterer ikke');
+        model.input.createNewGroup.errorMessage="bruker eksisterer ikke";
+        updateView();
+        resetErrorMessage(model.input.createNewGroup, "errorMessage");
     }
     else if (newMember.username == model.data.users.find(obj => obj.userId === model.app.currentUserId).username) {
-        alert('Du er allerede lagt til i gruppen');
+        model.input.createNewGroup.errorMessage="Du er allerede lagt til i gruppen";
+        updateView();
+        resetErrorMessage(model.input.createNewGroup, "errorMessage");
     }
     else if (model.input.createNewGroup.usersInGroup.includes(newMember.userId)) {
-        alert('Bruker allerede lagt til');
+       model.input.createNewGroup.errorMessage= "Bruker allerede lagt til";
+       updateView();
+       resetErrorMessage(model.input.createNewGroup, "errorMessage");
     }
     else {
         model.input.createNewGroup.usersInGroup.push(newMember.userId);
         model.input.createNewGroup.username = '';
         updateView();
+        resetErrorMessage(model.input.createNewGroup, "errorMessage");
     }
 }
 
@@ -20,11 +27,15 @@ function addUserToGroup() {
 
 function createNewGroup() {
     if (isBlank(model.input.createNewGroup.name)) {
-        alert("Gruppen trenger et navn");
+        model.input.createNewGroup.errorMessage= "Gruppen trenger et navn";
+        updateView();
+        resetErrorMessage(model.input.createNewGroup, "errorMessage");
         return;
     }
     if (model.data.groups.find(group => group.name.toLowerCase() === model.input.createNewGroup.name.toLowerCase())) {
-        alert('navn eksisterer allerede');
+        model.input.createNewGroup.errorMessage="navn eksisterer allerede";
+        updateView();
+        resetErrorMessage(model.input.createNewGroup, "errorMessage");
         return;
     }
     const newGroup = {

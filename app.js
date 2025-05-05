@@ -21,9 +21,6 @@ function updateView() {
         case 'wishlist':
             currentPageView = wishlistView();
             break;
-        case 'groupsOverview':
-            currentPageView = groupsOverviewView();
-            break;
         case 'login':
             currentPageView = loginView();
             break;
@@ -44,8 +41,10 @@ function updateView() {
             break;
         case 'groupLogList':
             currentPageView = groupLogListView();
+            break;
         case 'shareList':
             currentPageView = shareListView();
+            break;
     }
 
     document.getElementById('app').innerHTML = `

@@ -29,10 +29,11 @@ select {
   background-color: rgba(207, 205, 205, 0.445);
   padding: 0.5em;
 }
-
+select,
 button {
   border: 0;
   padding: 0.5em;
+  border-radius: 1em;
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
   box-shadow: none;
@@ -109,9 +110,7 @@ button {
   border-radius: 10px;
 }
 
-.lists {
-  overflow-y: auto;
-}
+
 #app {
   background-color: rgb(255, 255, 255);
   width: 100%;
@@ -132,6 +131,7 @@ td{
   text-align: center;
   background-color:  rgba(217, 253, 231, 0.336);
 }
+.container-share-list,
 .container-overview{
  margin: auto 0;
  display: flex;
@@ -175,9 +175,11 @@ td{
   max-width: 70%;
   min-height: 2rem;
   text-align: center;
+  flex-wrap: wrap;
   align-items: center;
   align-content: center;
   padding: 1rem;
   border-radius: 5px;
   margin: 0.2rem;
 };
+

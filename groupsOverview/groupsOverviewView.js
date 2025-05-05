@@ -20,7 +20,7 @@ function groupsOverviewView() {
             <div class="divforstyle">
                 <div class="listeBoks" ${group.showLists ? '' : `onclick="printGroupList(${group.groupId})"`}>
                     <h2 id="toggle-new-group-list" style="margin: 0 0 3% 0" ${group.showLists ? `onclick="toggleGroupLists(${group.groupId})"` : ''}> ${group.name}</h2>
-                        ${group.showLists ? `<div id ="namelists${id}">${groupListView() ?? ''}</div>` : ''}
+                        ${group.showLists ? `<div id ="namelists${id}">${groupListView(group.groupId) ?? ''}</div>` : ''}
                 </div>
             </div>`
     });
@@ -48,19 +48,19 @@ function groupsOverviewView() {
 
 function printGroupList(groupId) {
     model.app.currentGroupId = groupId
-    groupListView();
+    groupListView(groupId);
     updateView();
 };
 
-function groupListView() {
-    if (model.app.currentGroupId === null || model.app.currentGroupId <= -1) return '';
+function groupListView(groupId) {
+    //if (model.app.currentGroupId === null || model.app.currentGroupId <= -1) return '';
     let html = '';
 
     model.data.groups.forEach(element => {
         element.showLists = false;
     });
 
-    const groupPath = model.data.groups.find(obj => obj.groupId === model.app.currentGroupId)
+    const groupPath = model.data.groups.find(obj => obj.groupId === groupId)
 
     groupPath.showLists = true;
     groupPath.lists.forEach(element => {
@@ -68,14 +68,14 @@ function groupListView() {
         html += /*HTML*/`
             <div style="display: flex; align-items: center; justify-content: center">
             <div style="display: flex; flex-wrap: nowrap; align-items: baseline">
-            <p style="margin: 5% 0 0 0" onclick="toTheListPage('${element.listType}',${element.listId}, ${model.app.currentGroupId})">${element.listName}</p>
-            ${model.data.groups.find(obj=>obj.groupId == model.app.currentGroupId).adminUserId == model.app.currentUserId ? 
-                `<button class="listeKnapper erase" style="font-size: 1rem;" onclick="removeList(${element.listId}, ${model.app.currentGroupId})">❌</button>`:''}
+            <p style="margin: 5% 0 0 0" onclick="toTheListPage('${element.listType}',${element.listId}, ${groupId})">${element.listName}</p>
+            ${model.data.groups.find(obj=>obj.groupId == groupId).adminUserId == model.app.currentUserId ? 
+                `<button class="listeKnapper erase" style="font-size: 1rem;" onclick="removeList(${element.listId}, ${groupId})">❌</button>`:''}
             </div>
             </div>
             `
     })
-    html += ` ${model.input.createNewList.showInput && model.data.groups[model.app.currentGroupId] == model.app.currentGroupId ? '' : `<button style = "margin-top:5% "onclick="toggleAddNewListInput()"> Ny liste </button>`}
+    html += ` ${model.input.createNewList.showInput && model.data.groups[groupId] == groupId ? '' : `<button style = "margin-top:5% "onclick="toggleAddNewListInput()"> Ny liste </button>`}
     ${createNewListView()}`
     return html
 }

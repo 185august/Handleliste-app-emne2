@@ -4,7 +4,7 @@ function wishlistView() {
     console.log()
     let html =/*HTML*/ `
     <button  class ="previousPageButton" onclick="goToPreviousPage(-1)"></button><button class ="home" onclick="goToDashboardPage()"></button>
-    ${model.app.previousPage.includes("privateListOverview")? `<button onclick="setPage('shareList')">Del listen</button>`: ''}
+    ${!model.app.previousPage.includes("groupsOverview")? `<button onclick="setPage('shareList')">Del listen</button>`: ''}
     ${model.app.previousPage.includes("privateListOverview") || model.data.groups.find(obj=> obj.adminUserId == model.app.currentUserId) ? `<button class="btn-push-to-log" onclick="pushListToLog()">Legg liste til i log</button>` : ''}
     <div class="shopping-list-wrapper">
     <div class="container-wishlist">
@@ -39,7 +39,8 @@ function renderAddItemsToWishlist() {
     type='text'
     value="${model.input.wishlist.whoIsTheRecipient ?? ''}"
     oninput="model.input.wishlist.whoIsTheRecipient = this.value">
-    <button onclick="addItemToList(model.input.wishlist)">Legg til vare</button>`
+    <button onclick="addItemToList(model.input.wishlist)">Legg til vare</button>
+    <div style="divforstyle"> ${errorMessage(model.input.wishlist.errorMessage)?? ''}</div>`
     else return ``
 }
 

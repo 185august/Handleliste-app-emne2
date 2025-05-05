@@ -16,11 +16,13 @@ const model = {
             name: '',
             typeOfList: '',
             showInput: false,
+            errorMessage: null
         },
         shoppingList: {
             name: '',
             amount: null,
-            hasBeenBought: false
+            hasBeenBought: false,
+            errorMessage:null
         },
         groupShoppingList: {
             name: '',
@@ -34,6 +36,7 @@ const model = {
             price: null,
             whoIsTheRecipient: '',
             hasBeenBought: false,
+            errorMessage:null,
         },
         groupWishList: {
             name: '',
@@ -46,6 +49,7 @@ const model = {
             name: '',
             username: '',
             usersInGroup: [],
+            errorMessage: null
         },
         favoriteItemsList: {
             addItem: '',

@@ -19,7 +19,6 @@ function removeGroupMember(groupName, username) {
   const userToRemove = model.data.users.find(user => user.username === username) // 그룹에서 삭제할 유저 오브젝트
 
   if(groupObject.adminUserId.includes(userToRemove.userId)){
-    console.log('admin')
     if(groupObject.usersId.length>=2)
     groupObject.adminUserId[0] = groupObject.usersId.filter(id => id !== userToRemove.userId)[0]
     else{removeGroup(groupName)}
@@ -39,7 +38,7 @@ function addGroupMember(groupName) {
   if (!newUser) { 
     model.input.settings.addNewGroupMemberErrorMessage = "Bruker eksisterer ikke!"
     changeGroupMembersView(groupName)
-    resetErrorMessage(groupName);
+    resetErrorMessageSettings(groupName);
     return;
    }
   const groupObject = model.data.groups.find(groupElement => groupElement.name === groupName)
@@ -47,7 +46,7 @@ function addGroupMember(groupName) {
   if (groupObject.usersId.some(id => id === newUser.userId)) {
     model.input.settings.addNewGroupMemberErrorMessage = "Bruker er allerede i gruppen!"
     changeGroupMembersView(groupName);
-    resetErrorMessage(groupName); 
+    resetErrorMessageSettings(groupName); 
     return
   }
     // 이미존재하면 추가안하기
@@ -59,14 +58,12 @@ function addGroupMember(groupName) {
   model.input.settings.addNewGroupMemberErrorMessage = "Bruker er invitert!";
   document.querySelector('#newMemberUsername').innerHTML="";
   changeGroupMembersView(groupName);
-  resetErrorMessage(groupName);
+  resetErrorMessageSettings(groupName);
 }
 
 function sendNewUserInfo(data, type, divId) {
-  console.log(data, type, divId)
 
   if (!data) {
-    console.log('no input data')
     return
   }
 
@@ -88,14 +85,13 @@ function leaveGroup(groupName) {
   let currentUser = currentUserArray.find(Element => Element.userId == model.app.currentUserId)
   const groupObject = model.data.groups.find(groupElement => groupElement.name === groupName)
   if(groupObject.adminUserId.includes(currentUser.userId)){
-    console.log('admin')
     if(groupObject.usersId.length>=2)
     groupObject.adminUserId[0] = groupObject.usersId.filter(id => id !== currentUser.userId)[0]
     else{removeGroup(groupName)}
   }
   currentUser.groupsId = currentUser.groupsId.filter(groupsId => groupsId !== groupObject.groupId)
   groupObject.usersId = groupObject.usersId.filter(usersId => usersId !== currentUser.userId)
-  groupSettingsView()
+  groupSettingsView();
 
 }
 
@@ -111,12 +107,12 @@ function removeGroup(groupName) {
   groupSettingsView()
 }
 
-function addGroupMemberErrorMessage() {
+/* function errorMessage() {
   const message = model.input.settings.addNewGroupMemberErrorMessage;
   return message;
-}
+} */
 
-function resetErrorMessage(groupName){
+function resetErrorMessageSettings(groupName){
   setTimeout(() => {
     model.input.settings.addNewGroupMemberErrorMessage= "";
     changeGroupMembersView(groupName);

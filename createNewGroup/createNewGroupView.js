@@ -20,14 +20,14 @@ function createNewGroupView() {
     type="text"
     placeholder="Brukernavn"
     value="${model.input.createNewGroup.username ?? ''}"
-    oninput="model.input.createNewGroup.username = this.value"> <button onclick="addUserToGroup()">Legg til bruker</button>
+    oninput="model.input.createNewGroup.username = this.value"> <button onclick="addUserToGroup()">Inviter</button>
     <br>
     <br>
 </div>
-
-     <div style="text-align: center">
-    <button onclick="createNewGroup()">Opprett gruppe</button>
-    </div>
+<div style="text-align: center">
+<button style="margin-top:20px" onclick="createNewGroup()">Opprett gruppe</button>
+</div>
+<div style="divforstyle"> ${errorMessage(model.input.createNewGroup.errorMessage) ?? ''}</div>
 
     </div>
 `

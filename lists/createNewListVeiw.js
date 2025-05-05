@@ -13,6 +13,7 @@ function createNewListView() {
             <option value="wishlist">Ønskeliste</option> 
             </select>
             <button onclick="createList()">Opprett ny liste</button>
+            <div class="divforstyle"> ${errorMessage(model.input.createNewList.errorMessage)?? ''}</div>
             
         `
 

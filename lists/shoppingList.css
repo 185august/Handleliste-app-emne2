@@ -5,6 +5,7 @@
   align-items: center;
   align-content: center;
   text-decoration: none;
+  overflow-y: auto;
 }
 .list-bought {
   display: flex;
@@ -130,6 +131,11 @@
   align-items: center;
   justify-content: center;
   justify-items: center;
+  background-color: transparent;
+}
+.shoppinglistPlus{
+  background-color: transparent;
+  margin: 0px;
 }
 h4 {
   margin: 3px;

@@ -1,11 +1,16 @@
 
 function createList() {
     if (isBlank(model.input.createNewList.name)) {
-        alert("listen må ha et navn");
+        
+        model.input.createNewList.errorMessage= "Listen må ha et navn";
+       updateView();
+       resetErrorMessage(model.input.createNewList, "errorMessage")
         return;
     }
     if (isBlank(model.input.createNewList.typeOfList)) {
-        alert("Du må velge hvilken type listen skal være")
+        model.input.createNewList.errorMessage= "Du må velge hvilken type listen skal være";
+       updateView();
+       resetErrorMessage(model.input.createNewList, "errorMessage")
         return;
     }
     if (model.app.currentPage === 'privateListOverview') {
