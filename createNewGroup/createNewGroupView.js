@@ -25,9 +25,9 @@ function createNewGroupView() {
     <br>
 </div>
 <div style="text-align: center">
-<button style="margin-top:20px" onclick="createNewGroup()">Opprett gruppe</button>
-</div>
+<button onclick="createNewGroup()">Opprett gruppe</button>
 <div style="divforstyle"> ${errorMessage(model.input.createNewGroup.errorMessage) ?? ''}</div>
+</div>
 
     </div>
 `

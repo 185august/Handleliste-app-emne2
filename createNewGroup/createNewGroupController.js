@@ -18,12 +18,11 @@ function addUserToGroup() {
     else {
         model.input.createNewGroup.usersInGroup.push(newMember.userId);
         model.input.createNewGroup.username = '';
+        model.input.createNewGroup.errorMessage= "Bruker er invitert!";
         updateView();
         resetErrorMessage(model.input.createNewGroup, "errorMessage");
     }
 }
-
-
 
 function createNewGroup() {
     if (isBlank(model.input.createNewGroup.name)) {
