@@ -19,7 +19,6 @@ function goToDashboardPage() {
     if (model.app.currentPage !== 'dashboard') {
         // Fjern eventuelle ekstra sider fra historikken
         model.app.previousPage = [];
-
         // Sett dashboard som den nåværende siden
         setPage('dashboard');
     }
@@ -41,18 +40,23 @@ function isBlank(str) {
 }
 
 
-function resetVariable(obj, prop){
-    obj[prop]=null;
+
+function updateVariable(prop, value) {
+    model.input.assigmentpage[prop] = value;
+}
+
+function resetVariable(obj, prop) {
+    obj[prop] = null;
 }
 
 function errorMessage(path) {
     const message = path;
     return message;
-  }
+}
 
-function resetErrorMessage(obj, prop){
+function resetErrorMessage(obj, prop) {
     setTimeout(() => {
-      obj[prop] = "";
-      updateView();
+        obj[prop] = "";
+        updateView();
     }, 2000);
-  }
+}

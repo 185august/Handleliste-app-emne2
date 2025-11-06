@@ -22,7 +22,7 @@ const model = {
             name: '',
             amount: null,
             hasBeenBought: false,
-            errorMessage:null
+            errorMessage: null
         },
         groupShoppingList: {
             name: '',
@@ -36,7 +36,7 @@ const model = {
             price: null,
             whoIsTheRecipient: '',
             hasBeenBought: false,
-            errorMessage:null,
+            errorMessage: null,
         },
         groupWishList: {
             name: '',
@@ -55,8 +55,8 @@ const model = {
             addItem: '',
             itemRank: null,
         },
-        settings:{
-            addNewGroupMemberErrorMessage:'',
+        settings: {
+            addNewGroupMemberErrorMessage: '',
         },
     },
     data: {
@@ -203,7 +203,7 @@ const model = {
                                 listItems: [
                                     {
                                         itemId: 0,
-                                        name: 'kattemelk',
+                                        name: 'melk',
                                         amount: 1,
                                         price: null,
                                         hasBeenBought: false,
@@ -229,9 +229,9 @@ const model = {
                                 listItems: [
                                     {
                                         itemId: 0,
-                                        name: 'cat wheel',
+                                        name: 'kattehjul',
                                         amount: 1,
-                                        price: 10000,
+                                        price: 1000,
                                         hasBeenBought: false,
                                         whoIsTheRecipient: 'Anders'
                                     }
@@ -253,7 +253,7 @@ const model = {
                             },
                             {
                                 itemId: 1,
-                                name: 'fiskestang',
+                                name: 'coca cola',
                                 price: null,
                                 whoIsTheRecipient: null,
                                 amountRecentlyBought: 6,
@@ -261,7 +261,7 @@ const model = {
                             },
                             {
                                 itemId: 2,
-                                name: 'mus',
+                                name: 'potetgull',
                                 price: null,
                                 whoIsTheRecipient: null,
                                 amountRecentlyBought: 4,
@@ -315,18 +315,18 @@ const model = {
                     rememberMe: false,
                     lists:
                         [
-                         
+
                         ],
 
                     favoriteItemsList: {
                         listType: 'favoriteList',
                         favoriteItems: [
-                            ],
+                        ],
 
                     },
                     log:
                         [
-                            
+
                         ],
                     notificatons: [
 
@@ -382,15 +382,41 @@ const model = {
                                     }]
                             }
                         ],
-                    log:[
-
+                    log: [
+                        {
+                            listId: 0,
+                            listType: 'shoppingList',
+                            listName: 'handletur',
+                            isCompleted: true,
+                            showLog: false,
+                            date: '30/3/2025',
+                            listItems:
+                                [
+                                    {
+                                        itemId: 0,
+                                        name: 'Pringels',
+                                        amount: 1,
+                                        price: null,
+                                        hasBeenBought: false,
+                                        whoIsTheRecipient: '',
+                                    },
+                                    {
+                                        itemId: 1,
+                                        name: 'Pepsi max',
+                                        amount: 4,
+                                        price: null,
+                                        hasBeenBought: false,
+                                        whoIsTheRecipient: '',
+                                    }
+                                ]
+                        }
                     ]
                 },
                 {
                     groupId: 1,
                     name: 'Family group',
                     usersId: [0, 1],
-                    adminUserId: [0],
+                    adminUserId: [1],
                     showLists: false,
                     lists:
                         [
@@ -442,9 +468,35 @@ const model = {
                                 ]
                             }
                         ],
-                        log:[
-                            
-                        ]
+                    log: [
+                        {
+                            listId: 0,
+                            listType: 'shoppingList',
+                            listName: 'handle til biltur',
+                            isCompleted: true,
+                            showLog: false,
+                            date: '26/3/2025',
+                            listItems:
+                                [
+                                    {
+                                        itemId: 0,
+                                        name: 'potetgull',
+                                        amount: 1,
+                                        price: null,
+                                        hasBeenBought: false,
+                                        whoIsTheRecipient: '',
+                                    },
+                                    {
+                                        itemId: 1,
+                                        name: 'Coca cola',
+                                        amount: 4,
+                                        price: null,
+                                        hasBeenBought: false,
+                                        whoIsTheRecipient: '',
+                                    }
+                                ]
+                        }
+                    ]
                 }
             ],
     }

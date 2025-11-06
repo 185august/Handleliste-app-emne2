@@ -29,6 +29,7 @@ function gotoGroupLog(groupId) {
     model.app.currentGroupId = groupId;
     setPage("groupLogList")
 }
+
 function groupLogListView() {
     let html =/*HTML*/ ` 
     <button  class ="previousPageButton" onclick="goToPreviousPage(-1), resetVariable(model.app, 'currentGroupId')"></button><button class ="home" onclick="goToDashboardPage(), resetVariable(model.app, 'currentGroupId')"></button> 

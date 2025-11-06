@@ -43,4 +43,3 @@ function activateList(listId) {
     object.log.splice(object.log.findIndex(obj => obj.listId == listId), 1)
     updateView();
 }
-
